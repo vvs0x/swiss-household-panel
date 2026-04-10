@@ -252,6 +252,12 @@ p_long_clean <- p_long |>
     pc19   = to_num(pc19),
     pc19a  = to_num(pc19a)
   ) |>
+  mutate(
+    across(
+      c(sex, ownkid, educat, nat_1_, nat_2_, nat_3_, pp04, pp10, pc19, pc19a),
+      ~ if_else(. < 0, NA_real_, .)
+    )
+  ) |>
   filter(year %in% years_use)
 
 h_long_clean <- h_long |>
@@ -262,6 +268,9 @@ h_long_clean <- h_long |>
     ihtyn  = to_num(ihtyn),
     nbpers = to_num(nbpers)
   ) |>
+  mutate(
+    across(c(canton, ihtyn, nbpers), ~ if_else(. < 0, NA_real_, .))
+  ) |>
   filter(year %in% years_use)
 
 mp_clean <- mp |>
@@ -269,12 +278,18 @@ mp_clean <- mp |>
     IDPERS = to_num(IDPERS),
     BIRTHY = to_num(BIRTHY),
     SEX    = to_num(SEX)
+  ) |>
+  mutate(
+    across(c(BIRTHY, SEX), ~ if_else(. < 0, NA_real_, .))
   )
 
 so_clean <- so |>
   mutate(
     IDPERS = to_num(IDPERS),
     PO58   = to_num(PO58)
+  ) |>
+  mutate(
+    PO58 = if_else(PO58 < 0, NA_real_, PO58)
   )
 ```
 
@@ -450,7 +465,7 @@ panel_adults |>
 
 ## `NAT`
 
-`NAT` wird aus `nat_1_`, `nat_2_`, `nat_3_` in die drei Kategorien `CH`, `CH+Andere`, `Andere` verdichtet. In den SHP-Daten ist `8100` der Code für die Schweiz. fileciteturn18file0L8-L9
+`NAT` wird aus `nat_1_`, `nat_2_`, `nat_3_` in die drei Kategorien `CH`, `CH+Andere`, `Andere` verdichtet. In den SHP-Daten ist `8100` der Code für die Schweiz. Wichtig ist, dass `nat_2_` und `nat_3_` vor der Konstruktion bereits von negativen Missing-Codes bereinigt wurden; sonst würden inapplicable-Codes fälschlich als zweite bzw. dritte Nationalität gezählt. fileciteturn18file0L8-L9
 
 ```{r nat}
 is_swiss <- function(x) {
@@ -599,7 +614,14 @@ glimpse(panel_final)
 dim(panel_final)
 n_distinct(panel_final$IDPERS)
 summary(panel_final$YEAR)
+summary(panel_final$BIRTHY)
 colSums(is.na(panel_final))
+```
+
+```{r checks-numeric-ranges}
+sort(unique(panel_final$PP04))
+sort(unique(panel_final$PP10))
+summary(panel_final$NETHHINCPP)
 ```
 
 ```{r checks-categories}
