@@ -160,7 +160,7 @@ Für die Aufgabe werden aus dem Personen-Longfile die Variablen für ID, Jahr, H
 p_long <- p_long_raw |>
   select(
     idpers, year, idhous,
-    sex, ownkid, educat,
+    sex, civsta, ownkid, educat,
     nat_1_, nat_2_, nat_3_,
     pp04, pp10, pc19, pc19a
   )
@@ -242,6 +242,7 @@ p_long_clean <- p_long |>
     year   = to_num(year),
     idhous = to_num(idhous),
     sex    = to_num(sex),
+    civsta = to_num(civsta),
     ownkid = to_num(ownkid),
     educat = to_num(educat),
     nat_1_ = to_num(nat_1_),
@@ -254,7 +255,7 @@ p_long_clean <- p_long |>
   ) |>
   mutate(
     across(
-      c(sex, ownkid, educat, nat_1_, nat_2_, nat_3_, pp04, pp10, pc19, pc19a),
+      c(sex, civsta, ownkid, educat, nat_1_, nat_2_, nat_3_, pp04, pp10, pc19, pc19a),
       ~ if_else(. < 0, NA_real_, .)
     )
   ) |>
@@ -369,6 +370,52 @@ panel_adults <- panel_adults |>
 
 panel_adults |>
   count(SEX, sort = TRUE)
+```
+
+## `Zivilstand`
+
+```{r civsta-check}
+tmp_num <- foreign::read.spss(
+  file = p_long_path,
+  to.data.frame = TRUE,
+  use.value.labels = FALSE,
+  use.missings = FALSE
+)
+
+tmp_lab <- foreign::read.spss(
+  file = p_long_path,
+  to.data.frame = TRUE,
+  use.value.labels = TRUE,
+  use.missings = FALSE
+)
+
+unique(data.frame(
+  code = tmp_num$civsta,
+  label = as.character(tmp_lab$civsta)
+))
+
+table(tmp_num$civsta, useNA = "ifany")
+table(tmp_lab$civsta, useNA = "ifany")
+
+```
+
+```{r civsta}
+panel_adults <- panel_adults |>
+  mutate(
+    CIVSTA = case_when(
+      civsta == 1 ~ "ledig",
+      civsta == 2 ~ "verheiratet",
+      civsta == 3 ~ "getrennt",
+      civsta == 4 ~ "geschieden",
+      civsta == 5 ~ "verwitwet",
+      civsta == 6 ~ "eingetragene Partnerschaft",
+      civsta == 7 ~ "aufgelöste Partnerschaft",
+      TRUE ~ NA_character_
+    )
+  )
+
+panel_adults |>
+  count(CIVSTA, sort = TRUE)
 ```
 
 ## `CANTON`
@@ -582,7 +629,7 @@ panel_adults <- panel_adults |>
   mutate(
     COMPLETE = !if_any(
       c(PP04, BIRTHY, BIRTHYGEN, SEX, CANTON, EDUCAT,
-        HASKID, NAT, PC19, PP10, NETHHINCPP, PO58),
+        HASKID, NAT, PC19, PP10, NETHHINCPP, PO58, CIVSTA),
       is.na
     )
   )
@@ -602,7 +649,8 @@ panel_final <- panel_adults |>
     BIRTHY, BIRTHYGEN, SEX,
     CANTON, EDUCAT, HASKID, NAT,
     PC19, PP10, NETHHINCPP, PO58,
-    COMPLETE
+    COMPLETE,
+    CIVSTA
   )
 
 glimpse(panel_final)
@@ -639,6 +687,9 @@ panel_final |>
 
 panel_final |>
   count(PO58, sort = TRUE)
+
+panel_final |>
+  count(CIVSTA, sort = TRUE)
 ```
 
 # Daten speichern
