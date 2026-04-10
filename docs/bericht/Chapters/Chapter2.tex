@@ -1,57 +1,36 @@
-% Indicate the main file. Must go at the beginning of the file.
 % !TEX root = ../main.tex
 
-%----------------------------------------------------------------------------------------
-% CHAPTER 2
-%----------------------------------------------------------------------------------------
+% Chapter 2 — Methodik
 
-\chapter{Code Listings}
+\chapter{Methodik}
+\label{ch:methodik}
 
-\label{Chapter2} % For referencing the chapter elsewhere, use \ref{Chapter2} 
+\section{Projektmanagement und Projektplan}
+\label{sec:pm}
 
-%----------------------------------------------------------------------------------------
+% Rollen, Verantwortlichkeiten, Arbeitspakete, Zeitplan (ca. 1 Seite).
 
-The package \href{https://www.overleaf.com/learn/latex/Code\_listing}{\code{listings}} permits to easily include existing code. Simply use the command \verb|\lstinputlisting[language=name]{path/to/file}|. See \href{https://www.overleaf.com/learn/latex/Code\_listing#Supported\_languages}{here} for a list of supported programming languages.
+\section{Datengrundlage und Beschaffung}
+\label{sec:datengrundlage}
 
+% Kurzbeschreibung des SHP, Datenzugang via FORS, verwendete Files
+% (SHPLONG_P_USER, SHPLONG_H_USER, SHP_MP, SHP_SO), Storage und Ordnerstruktur.
 
-\lstinputlisting[language=Python,caption=External file: code/example.py]{Code/example.py}
+\section{Datenkatalog}
+\label{sec:datenkatalog}
 
-It is also possible to enter code directly into \LaTeX:
+% Tabellarische Übersicht der Zielvariablen: Name, Kurzbeschreibung,
+% Quelldatei, Wertebereich. Vollständige Version im Anhang.
 
-\begin{lstlisting}[language=C++]
-#include <stdio>
-void hello_world(void){
-   std::cout << "Hello World!" << std::endl;
-}    
-\end{lstlisting}
+\section{Datenaufbereitung}
+\label{sec:aufbereitung}
 
-Alternatively, one can use the syntax highlighting toolbox \href{https://pygments.org/}{\code{Pygments}} in combination with the \LaTeX-package \href{www.overleaf.com/learn/latex/Code\_Highlighting\_with\_minted}{\code{minted}}. It provides slightly better results, as the code will actually be parsed.
+% Pipeline: Einlesen der SPSS-Dateien, Merging (Person/Haushalt/Master),
+% Filtering (Erwachsene, Jahre mit PP04), Variablenkonstruktion
+% (BIRTHYGEN, HASKID, ...). Übersicht der R-Skripte.
 
-To install Pygments, use the following command. For \code{minted} to work properly, run the pdflatex tool with the flag \code{--shell-escape}. If you are using a TEX editor, you can modify the typesetting   command somewhere in the settings.
+\section{Datenqualität und Plausibilität}
+\label{sec:qualitaet}
 
-\begin{lstlisting}[language=bash]
-# Make sure that Pygments is installed.
-python -m pip install pygments
-
-# Then add the --shell-escape flag to the command 
-# that is used to compile your LaTeX code.
-pdflatex --output-dir="$BUILD_DIR" \
-         --file-line-error \
-         --shell-escape \
-         --synctex=1 "$1"
-\end{lstlisting}
-
-
-
-% Set the following line to \iftrue if minted is available on your system.
-% See the above instructions to see how.
-
-\iffalse
-See below how the result looks like if minted is available on your system.
-
-\begin{listing}[!ht]
-\inputminted[linenos, bgcolor=codebackground, style=friendly]{python}{Code/example.py}
-\caption{Example from external file, parsed using \code{Pygments}}
-\end{listing}
-
-\fi
+% Recodierung der SHP-Missing-Codes zu NA, Fehlendanteile,
+% Plausibilitätsprüfungen (Wertebereiche, Verteilung über Wellen).

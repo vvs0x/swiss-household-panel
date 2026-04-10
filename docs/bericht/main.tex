@@ -23,7 +23,7 @@
 \documentclass[
     11pt,                      % Default font size
     %oneside,                  % One-side binding. Default: Two-side binding / alternating margins
-    english,                   % Language. Use ngerman for German (Neue Rechtschreibung)
+    ngerman,                   % Language. Use ngerman for German (Neue Rechtschreibung)
     singlespacing,             % Spacing option: singlespacing, onehalfspacing or doublespacing
     %nolistspacing,            % Set spacing in lists to single
     %draft,                    % Enable draft mode: no pictures, no links, overfull hboxes indicated
@@ -165,8 +165,8 @@
 %----------------------------------------------------------------------------------------
 % Comment out if any of the following is not needed:
 \tableofcontents  % Add main table of contents
-%\listoffigures    % Add list of figures
-%\listoftables     % Add list of tables
+\listoffigures    % Add list of figures
+\listoftables     % Add list of tables
 
 
 %----------------------------------------------------------------------------------------
@@ -191,10 +191,9 @@
 % Uncomment the lines as you write the chapters
 
 \include{Chapters/Chapter1}
-\include{Chapters/Chapter2} 
-%\include{Chapters/Chapter3}
-%\include{Chapters/Chapter4} 
-%\include{Chapters/Chapter5} 
+\include{Chapters/Chapter2}
+\include{Chapters/Chapter3}
+\include{Chapters/Chapter4}
 
 
 %----------------------------------------------------------------------------------------
@@ -205,10 +204,9 @@
 % Include the appendices of the thesis as separate files from the Appendices folder
 % Uncomment the lines as you write the Appendices
 \include{Appendices/AppendixA}
-% from https://www.zhaw.ch/en/lsfm/study/studiweb/master-ls/masters-thesis/
-%\include{Appendices/AppendixB}
-%\include{Appendices/AppendixC}
-%\include{Appendices/DeclarationOfOriginalityZHAW} 
+\include{Appendices/AppendixB}
+\include{Appendices/AppendixC}
+%\include{Appendices/DeclarationOfOriginalityZHAW}
 
 
 %----------------------------------------------------------------------------------------

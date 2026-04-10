@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.3.27)  27 MAR 2026 09:36
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.3.27)  10 APR 2026 11:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -61,31 +61,14 @@ LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) o
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count287
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel/locale/en/babel-english.tex) (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel/locale/de/babel-german.tex)
-Package babel Info: Importing font and identification data for english
-(babel)             from babel-en.ini. Reported on input line 4298.
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel/errbabel.def)
-
-! Package babel Error: Unknown option 'english'.
-(babel)                Suggested actions:
-(babel)                * Make sure you haven’t misspelled it
-(babel)                * Check in the babel manual that it's supported
-(babel)                * If supported and it's a language, you may
-(babel)                  need in some distributions a separate
-(babel)                  installation
-(babel)                * If installed, check there isn’t an old
-(babel)                  version of the required files in your system.
-
-See the babel package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.4298 \bbl@tempb
-                 
-Valid options are, among others: shorthands=, KeepShorthandsActive,
-activeacute, activegrave, noconfigs, safe=, main=, math=
-headfoot=, strings=, config=, hyphenmap=, or a language name.
-
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel/locale/invalid/babel-ngerman.tex) (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel/locale/de/babel-german.tex)
+Package babel Info: Importing font and identification data for ngerman
+(babel)             from babel-de.ini. Reported on input line 4298.
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel-german/ngerman.ldf
+Language: ngerman 
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel-german/babel-german.def
+Package babel Info: Making " an active character on input line 470.
+))
 
 Package babel Warning: The name 'german' with the 'ldf' mechanism is
 (babel)                currently assigned to the old 1901 variant of German.
@@ -96,9 +79,7 @@ Package babel Info: Importing font and identification data for german
 (babel)             from babel-de-1901.ini. Reported on input line 4298.
 (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel-german/german.ldf
 Language: german 
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel-german/babel-german.def
-Package babel Info: Making " an active character on input line 470.
-))) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/koma-script/scrbase.sty
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel-german/babel-german.def))) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/koma-script/scrbase.sty
 Package: scrbase 2025/12/01 v3.49 KOMA-Script package (KOMA-Script-independent basics and keyval usage)
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/koma-script/scrlfile.sty
 Package: scrlfile 2025/12/01 v3.49 KOMA-Script package (file load hooks)
@@ -947,7 +928,7 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 ) (./main.aux (./Front/titlepage.aux)
 Package babel Info: 'german' activates 'german' shorthands.
 (babel)             Reported on input line 10.
- (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Appendices/AppendixA.aux))
+ (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Appendices/AppendixA.aux) (./Appendices/AppendixB.aux) (./Appendices/AppendixC.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
@@ -1043,6 +1024,20 @@ Package biblatex Info: ... file 'german.lbx' found.
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/german.lbx
 File: german.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 )
+Package biblatex Info: Trying to load language 'ngerman'...
+Package biblatex Info: ... file 'ngerman.lbx' found.
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/ngerman.lbx
+File: ngerman.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+Package biblatex Info: Trying to load language 'german'...
+Package biblatex Info: ... file 'german.lbx' found.
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/german.lbx
+File: german.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load language 'german'...
+Package biblatex Info: ... file 'german.lbx' found.
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/german.lbx
+File: german.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+))
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Automatic encoding selection.
 (biblatex)             Assuming data encoding 'utf8'.
@@ -1094,12 +1089,12 @@ Package hyperref Info: Link coloring ON on input line 129.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<Figures/zhaw_rgb.png, id=123, 1362.08875pt x 1424.32124pt>
+<Figures/zhaw_rgb.png, id=91, 1362.08875pt x 1424.32124pt>
 File: Figures/zhaw_rgb.png Graphic file (type png)
 <use Figures/zhaw_rgb.png>
 Package pdftex.def Info: Figures/zhaw_rgb.png  used on input line 14.
 (pdftex.def)             Requested size: 67.94241pt x 71.04636pt.
-<Figures/zhaw_font_deu_font.pdf, id=125, 537.99995pt x 20.99844pt>
+<Figures/zhaw_font_deu_font.pdf, id=93, 537.99995pt x 20.99844pt>
 File: Figures/zhaw_font_deu_font.pdf Graphic file (type pdf)
 <use Figures/zhaw_font_deu_font.pdf>
 Package pdftex.def Info: Figures/zhaw_font_deu_font.pdf  used on input line 22.
@@ -1144,11 +1139,7 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 
 
 
-] (./main.toc
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 16.
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/bera/t1fvm.fd
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-))
+] (./main.toc)
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1156,10 +1147,22 @@ File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 
 
 
+] (./main.lof)
+\tf@lof=\write7
+\openout7 = `main.lof'.
+
+ [4
+
+] (./main.lot)
+\tf@lot=\write8
+\openout8 = `main.lot'.
+
+ [5
+
 ]
 \openout2 = `Front/symbols.aux'.
 
- (./Front/symbols.tex) [4
+ (./Front/symbols.tex) [6
 
 
 ]
@@ -1167,85 +1170,77 @@ File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 
  (./Chapters/Chapter1.tex
 Kapitel 1.
-[1
+) [1
 
 
 
 
 
 ]
-Package babel Info: 'german' activates 'german' shorthands.
-(babel)             Reported on input line 77.
- [2]
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 103.
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ppl.fd
-File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-) [3] [4] [5]
-LaTeX Font Info:    Font shape `T1/fvm/m/it' in size <10.95> not available
-(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 179.
- [6]
-
-LaTeX Warning: Citation 'Reference1' on page 7 undefined on input line 205.
-
-
-LaTeX Warning: Citation 'Reference2' on page 7 undefined on input line 208.
-
-
-LaTeX Warning: Citation 'Reference1' on page 7 undefined on input line 208.
-
-
-LaTeX Warning: Citation 'Reference3' on page 7 undefined on input line 208.
-
-[7]
-Overfull \hbox (23.39014pt too wide) in paragraph at lines 231--231
-[]    \T1/fvm/m/n/10 \tabhead{Groups} & \tabhead{Treatment X} & \tabhead{Treatment Y} \\[] 
- []
-
-[8]
-<Figures/Electron.pdf, id=249, 398.3386pt x 284.52756pt>
-File: Figures/Electron.pdf Graphic file (type pdf)
-<use Figures/Electron.pdf>
-Package pdftex.def Info: Figures/Electron.pdf  used on input line 277.
-(pdftex.def)             Requested size: 398.33762pt x 284.52686pt.
- [9 <./Figures/Electron.pdf>] [10]) [11]
 \openout2 = `Chapters/Chapter2.aux'.
 
  (./Chapters/Chapter2.tex
 Kapitel 2.
-(/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 17.
- (./Code/example.py) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-) [12
+) [2
 
 
 
 
-] (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)) [13]
+]
+\openout2 = `Chapters/Chapter3.aux'.
+
+ (./Chapters/Chapter3.tex
+Kapitel 3.
+) [3
+
+
+
+
+]
+\openout2 = `Chapters/Chapter4.aux'.
+
+ (./Chapters/Chapter4.tex
+Kapitel 4.
+) [4
+
+
+
+
+]
 \openout2 = `Appendices/AppendixA.aux'.
 
  (./Appendices/AppendixA.tex
 Anhang A.
-) [14
+) [5
+
+
+
+
+]
+\openout2 = `Appendices/AppendixB.aux'.
+
+ (./Appendices/AppendixB.tex
+Anhang B.
+) [6
+
+
+
+
+]
+\openout2 = `Appendices/AppendixC.aux'.
+
+ (./Appendices/AppendixC.tex
+Anhang C.
+) [7
 
 
 
 
 ]
 
-LaTeX Warning: Empty bibliography on input line 217.
+LaTeX Warning: Empty bibliography on input line 215.
 
-(./main.aux (./Front/titlepage.aux) (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Appendices/AppendixA.aux))
+(./main.aux (./Front/titlepage.aux) (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Appendices/AppendixA.aux) (./Appendices/AppendixB.aux) (./Appendices/AppendixC.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -1255,7 +1250,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7CCA419937413349368F6254418E9067;4764.
+(rerunfilecheck)             Checksum: 8F5B9E43BFD576AA1CE0D665DA784C4B;3280.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1266,18 +1261,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 44445 strings out of 469425
- 957181 string characters out of 5465778
- 1942562 words of memory out of 5000000
- 72351 multiletter control sequences out of 15000+600000
- 696956 words of font info for 167 fonts, out of 8000000 for 9000
- 38 hyphenation exceptions out of 8191
- 105i,23n,111p,1122b,1870s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmbo8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmro8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (18 pages, 228617 bytes).
+ 43454 strings out of 469425
+ 945713 string characters out of 5465778
+ 1773709 words of memory out of 5000000
+ 71433 multiletter control sequences out of 15000+600000
+ 655658 words of font info for 82 fonts, out of 8000000 for 9000
+ 40 hyphenation exceptions out of 8191
+ 105i,21n,111p,693b,2464s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (13 pages, 115419 bytes).
 PDF statistics:
- 462 PDF objects out of 1000 (max. 8388607)
- 403 compressed objects within 5 object streams
- 100 named destinations out of 1000 (max. 500000)
- 260 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 212 PDF objects out of 1000 (max. 8388607)
+ 184 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 191 words of extra memory for PDF output out of 10000 (max. 10000000)
 

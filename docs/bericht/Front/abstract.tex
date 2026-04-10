@@ -15,5 +15,32 @@
 \begin{extraAbstract}
 \addchaptertocentry{\extraabstractname} % Add the abstract to the table of contents
 
-Die Zusammenfassung entspricht einer Miniaturversion des gesamten Dokuments. Gliedere sie ähnlich: Beginne mit dem Kontext und der  Motivation für das Projekt, einer kurzen Beschreibung der Methode und der verfügbaren Daten, Ihren Ergebnissen und den Schlussfolgerungen. Beschränke dich auf eine Seite!    
+\textbf{Background}. The Swiss Household Panel (SHP) is a nationally representative longitudinal
+survey conducted by FORS since 1999, tracking the living conditions of Swiss households. Any
+robust analysis of SHP data first requires the construction of a clean, person-year panel
+dataset from the confidential SPSS raw files — a non-trivial preparation step that is
+implemented reproducibly in this project as part of Practicum 2 of the Data Processing module
+at ZHAW.
+
+\textbf{Methods}. Using R (foreign, tidyverse), a person-year panel dataset is built from the SHP
+longfiles (SHPLONG\_P\_USER, SHPLONG\_H\_USER) together with the master files SHP\_MP and SHP\_SO.
+The full pipeline — extracting the ZIP archive, reading the SPSS files, constructing
+variables, merging, filtering (adults only, years in which PP04 was collected), and recoding
+SHP missing codes to NA — is documented in a single R Markdown script. The resulting dataset
+contains the target variables IDPERS, IDHOUS, YEAR, PP04, BIRTHY, BIRTHYGEN, SEX, CANTON,
+EDUCAT, HASKID, NAT, PC19, PP10, NETHHINCPP, PO58, and COMPLETE. On this dataset, we evaluate
+descriptive associations between the target variable and the prescribed covariates and test
+a self-formulated hypothesis regarding [insert hypothesis].
+
+\textbf{Results}. The processed dataset comprises N = […] person-years across […] waves. The
+descriptive analysis shows [insert key findings, e.g. direction and strength of the
+association between the target variable and education/income/age]. Plausibility checks
+(missing rates, value ranges, distribution across waves) confirm the integrity of the
+dataset.
+
+\textbf{Discussion}. The results [support / contradict] the stated hypothesis and are consistent with
+[brief contextualisation]. Main limitations concern [e.g. panel attrition, self-reported
+measures, non-random missingness]. A natural next step is a model-based analysis (e.g.
+fixed-effects regression) on the dataset provided here.
+
 \end{extraAbstract}
