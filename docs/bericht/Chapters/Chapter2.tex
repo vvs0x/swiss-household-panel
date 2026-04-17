@@ -10,27 +10,16 @@
 
 % Rollen, Verantwortlichkeiten, Arbeitspakete, Zeitplan (ca. 1 Seite).
 
-\section{Datengrundlage und Beschaffung}
-\label{sec:datengrundlage}
+\section{Beschreibung der Daten, Beschaffung und Storage}
+\label{sec:daten}
 
 % Kurzbeschreibung des SHP, Datenzugang via FORS, verwendete Files
 % (SHPLONG_P_USER, SHPLONG_H_USER, SHP_MP, SHP_SO), Storage und Ordnerstruktur.
+% Files, die verwendet wurde
+% Datenkatalog (Variablen die verwendet wurden, Beschreibung in Stichworten, Quelldatei...)
+% Übersicht der erstellten R-Skripte
+% Datenaufbereitung: Merging und Filtering, Variablenkonstruktion
+% Datenqualität (Missings, ...)
+% Plausibilität
 
-\section{Datenkatalog}
-\label{sec:datenkatalog}
-
-% Tabellarische Übersicht der Zielvariablen: Name, Kurzbeschreibung,
-% Quelldatei, Wertebereich. Vollständige Version im Anhang.
-
-\section{Datenaufbereitung}
-\label{sec:aufbereitung}
-
-% Pipeline: Einlesen der SPSS-Dateien, Merging (Person/Haushalt/Master),
-% Filtering (Erwachsene, Jahre mit PP04), Variablenkonstruktion
-% (BIRTHYGEN, HASKID, ...). Übersicht der R-Skripte.
-
-\section{Datenqualität und Plausibilität}
-\label{sec:qualitaet}
-
-% Recodierung der SHP-Missing-Codes zu NA, Fehlendanteile,
-% Plausibilitätsprüfungen (Wertebereiche, Verteilung über Wellen).
+\lstinputlisting[language=Python,caption=External file: code/example.py]{Code/example.py}

@@ -1,22 +1,15 @@
 \babel@toc {german}{}\relax 
 \contentsline {chapter}{Abstract}{ii}{chapter*.1}%
-\contentsline {chapter}{Abbildungsverzeichnis}{iv}{chapter*.3}%
-\contentsline {chapter}{Tabellenverzeichnis}{v}{chapter*.4}%
-\contentsline {chapter}{Abk\"urzungsverzeichnis}{vi}{chapter*.5}%
-\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.6}%
-\contentsline {section}{\numberline {1.1}Ausgangslage und Zielsetzung}{1}{section.7}%
-\contentsline {section}{\numberline {1.2}Hypothese}{1}{section.8}%
-\contentsline {chapter}{\numberline {2}Methodik}{2}{chapter.9}%
-\contentsline {section}{\numberline {2.1}Projektmanagement und Projektplan}{2}{section.10}%
-\contentsline {section}{\numberline {2.2}Datengrundlage und Beschaffung}{2}{section.11}%
-\contentsline {section}{\numberline {2.3}Datenkatalog}{2}{section.12}%
-\contentsline {section}{\numberline {2.4}Datenaufbereitung}{2}{section.13}%
-\contentsline {section}{\numberline {2.5}Datenqualität und Plausibilität}{2}{section.14}%
-\contentsline {chapter}{\numberline {3}Ergebnisse}{3}{chapter.15}%
-\contentsline {section}{\numberline {3.1}Beschreibung des finalen Paneldatensatzes}{3}{section.16}%
-\contentsline {section}{\numberline {3.2}Deskriptive Assoziationen mit den Zielvariablen}{3}{section.17}%
-\contentsline {section}{\numberline {3.3}Auswertung der Hypothese}{3}{section.18}%
-\contentsline {chapter}{\numberline {4}Diskussion}{4}{chapter.19}%
-\contentsline {chapter}{\numberline {A}Datenkatalog}{5}{appendix.20}%
-\contentsline {chapter}{\numberline {B}R-Skripte}{6}{appendix.21}%
-\contentsline {chapter}{\numberline {C}Zusätzliche Tabellen und Abbildungen}{7}{appendix.22}%
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.3}%
+\contentsline {section}{\numberline {1.1}Ausgangslage und Zielsetzung}{1}{section.4}%
+\contentsline {section}{\numberline {1.2}Hypothese}{1}{section.5}%
+\contentsline {chapter}{\numberline {2}Methodik}{2}{chapter.6}%
+\contentsline {section}{\numberline {2.1}Projektmanagement und Projektplan}{2}{section.7}%
+\contentsline {section}{\numberline {2.2}Beschreibung der Daten, Beschaffung und Storage}{2}{section.8}%
+\contentsline {chapter}{\numberline {3}Ergebnisse}{3}{chapter.40}%
+\contentsline {section}{\numberline {3.1}Deskriptive Auswertung}{3}{section.41}%
+\contentsline {section}{\numberline {3.2}Auswertung der Hypothese}{3}{section.42}%
+\contentsline {chapter}{\numberline {4}Diskussion}{4}{chapter.43}%
+\contentsline {chapter}{\numberline {A}Datenkatalog}{5}{appendix.44}%
+\contentsline {chapter}{\numberline {B}R-Skripte}{6}{appendix.45}%
+\contentsline {chapter}{\numberline {C}Zusätzliche Tabellen und Abbildungen}{7}{appendix.57}%

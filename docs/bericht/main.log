@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  17 APR 2026 09:16
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  17 APR 2026 10:33
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/mg/Documents/swiss-household-panel/docs/bericht/main
@@ -979,7 +979,7 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 ) (./main.aux (./Front/titlepage.aux)
 Package babel Info: 'german' activates 'german' shorthands.
 (babel)             Reported on input line 10.
- (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Appendices/AppendixA.aux) (./Appendices/AppendixB.aux) (./Appendices/AppendixC.aux))
+ (./Front/abstract.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Appendices/AppendixA.aux) (./Appendices/AppendixB.aux) (./Appendices/AppendixC.aux))
 \openout1 = main.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
@@ -1143,12 +1143,12 @@ Package hyperref Info: Link coloring ON on input line 129.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<Figures/zhaw_rgb.png, id=91, 1362.08875pt x 1424.32124pt>
+<Figures/zhaw_rgb.png, id=63, 1362.08875pt x 1424.32124pt>
 File: Figures/zhaw_rgb.png Graphic file (type png)
 <use Figures/zhaw_rgb.png>
 Package luatex.def Info: Figures/zhaw_rgb.png  used on input line 14.
 (luatex.def)             Requested size: 67.94241pt x 71.04636pt.
-<Figures/zhaw_font_deu_font.pdf, id=92, 537.99997pt x 20.99844pt>
+<Figures/zhaw_font_deu_font.pdf, id=64, 537.99997pt x 20.99844pt>
 File: Figures/zhaw_font_deu_font.pdf Graphic file (type pdf)
 <use Figures/zhaw_font_deu_font.pdf>
 Package luatex.def Info: Figures/zhaw_font_deu_font.pdf  used on input line 22.
@@ -1226,23 +1226,6 @@ Missing character: There is no … (U+2026) in font pplr8t!
 
 
 
-] (./main.lof)
-\tf@lof=\write7
-
-\openout7 = main.lof
- [4
-
-] (./main.lot)
-\tf@lot=\write8
-
-\openout8 = main.lot
- [5
-
-]
-\openout2 = Front/symbols.aux
- (./Front/symbols.tex) [6
-
-
 ]
 \openout2 = Chapters/Chapter1.aux
  (./Chapters/Chapter1.tex
@@ -1251,13 +1234,18 @@ Kapitel 1.
 
 
 
-
-
 ]
 \openout2 = Chapters/Chapter2.aux
  (./Chapters/Chapter2.tex
 Kapitel 2.
-) [2
+(/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 25.
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 25.
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/bera/t1fvm.fd
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+) (./Code/example.py)) [2
 
 
 
@@ -1293,11 +1281,151 @@ Anhang A.
 \openout2 = Appendices/AppendixB.aux
  (./Appendices/AppendixB.tex
 Anhang B.
-) [6
+(/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang2.sty
+File: lstlang2.sty 2025/11/14 1.11b listings language file
+) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang3.sty
+File: lstlang3.sty 2025/11/14 1.11b listings language file
+) (/Users/mg/Documents/swiss-household-panel/src/Datenaufbereitung.Rmd
+Missing character: There is no – (U+2013) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no ├ (U+251C) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no │ (U+2502) in font fvmr8t!
+Missing character: There is no └ (U+2514) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ├ (U+251C) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ├ (U+251C) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no └ (U+2514) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no └ (U+2514) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no – (U+2013) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no ├ (U+251C) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no │ (U+2502) in font fvmr8t!
+Missing character: There is no └ (U+2514) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ├ (U+251C) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ├ (U+251C) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no └ (U+2514) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no └ (U+2514) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+)) [6
 
 
 
 
+
+Missing character: There is no – (U+2013) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no ├ (U+251C) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no │ (U+2502) in font fvmr8t!
+Missing character: There is no └ (U+2514) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ├ (U+251C) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ├ (U+251C) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no └ (U+2514) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no └ (U+2514) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no ─ (U+2500) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
+Missing character: There is no  (U+E200) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E202) in font fvmr8t!
+Missing character: There is no  (U+E201) in font fvmr8t!
 ]
 \openout2 = Appendices/AppendixC.aux
  (./Appendices/AppendixC.tex
@@ -1311,7 +1439,7 @@ Anhang C.
 
 LaTeX Warning: Empty bibliography on input line 215.
 
-(./main.aux (./Front/titlepage.aux) (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Appendices/AppendixA.aux) (./Appendices/AppendixB.aux) (./Appendices/AppendixC.aux))
+(./main.aux (./Front/titlepage.aux) (./Front/abstract.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Appendices/AppendixA.aux) (./Appendices/AppendixB.aux) (./Appendices/AppendixC.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -1321,7 +1449,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8F5B9E43BFD576AA1CE0D665DA784C4B;3280.
+(rerunfilecheck)             Checksum: D20E5237E7CAE4C99A81B2C370345456;2052.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1333,19 +1461,19 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 44343 strings out of 476081
- 125056,1977958 words of node,token memory allocated
- 797 words of node memory still in use:
-   4 hlist, 1 vlist, 1 rule, 5 glue, 29 kern, 1 glyph, 45 attribute, 68 glue_spec, 24 attribute_list, 4 write nodes
-   avail lists: 1:5,2:1139,3:305,4:160,5:186,6:117,7:4902,8:1,9:575,10:13,11:518
- 65480 multiletter control sequences out of 65536+600000
- 93 fonts using 6079247 bytes
- 105i,21n,107p,743b,2462s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/Users/mg/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (13 pages, 113126 bytes).
+ 45215 strings out of 476081
+ 305362,1977958 words of node,token memory allocated
+ 811 words of node memory still in use:
+   4 hlist, 1 vlist, 1 rule, 5 glue, 33 kern, 1 glyph, 43 attribute, 68 glue_spec, 23 attribute_list, 4 write nodes
+   avail lists: 1:9,2:6070,3:363,4:5216,5:4549,6:124,7:8013,8:3,9:14160,10:35,11:742
+ 66306 multiletter control sequences out of 65536+600000
+ 103 fonts using 6891055 bytes
+ 105i,21n,107p,845b,2462s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/Users/mg/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (10 pages, 121251 bytes).
 
-PDF statistics: 200 PDF objects out of 1000 (max. 8388607)
- 175 compressed objects within 2 object streams
- 37 named destinations out of 1000 (max. 131072)
- 184 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 197 PDF objects out of 1000 (max. 8388607)
+ 174 compressed objects within 2 object streams
+ 68 named destinations out of 1000 (max. 131072)
+ 128 words of extra memory for PDF output out of 10000 (max. 100000000)
 
