@@ -1,21 +1,86 @@
 % !TEX root = ../main.tex
 
-% Chapter 1 — Einleitung
-
 \chapter{Einleitung}
 \label{ch:einleitung}
-Dieses Projekt soll Schweizerische Haushaltsdaten Analysieren und dini muetter fickeeee.
 
 \section{Ausgangslage und Zielsetzung}
 \label{sec:ausgangslage}
 
-% Kontext: Swiss Household Panel, FORS, Relevanz.
-% Problem: Rohdaten (SPSS) müssen für Analysen aufbereitet werden.
-% Ziel dieses Berichts: reproduzierbare Aufbereitung eines Person-Jahr-Paneldatensatzes
-% und erste deskriptive Auswertung.
+Das Vertrauen der Bev\"olkerung in politische Institutionen ist ein zentraler Indikator
+f\"ur die Stabilit\"at und Legitimation demokratischer Systeme. In der Schweiz, deren
+politisches System stark auf direkte Demokratie und Konsensbildung ausgerichtet ist,
+nimmt der Bundesrat als Exekutivorgan eine besondere Rolle ein. Wie sich das Vertrauen
+in diese Institution \"uber die Zeit ver\"andert und welche soziodemografischen Merkmale
+damit assoziiert sind, ist sowohl f\"ur die politische Soziologie als auch f\"ur die
+angewandte Politikberatung von Interesse.
+
+Eine besonders wertvolle Datengrundlage f\"ur solche Fragestellungen bietet das Schweizer
+Haushalt-Panel (SHP, \emph{Swiss Household Panel}). Das SHP ist eine national
+repr\"asentative L\"angsschnittbefragung, die seit 1999 j\"ahrlich von FORS -- dem
+Schweizer Kompetenzzentrum Sozialwissenschaften -- durchgef\"uhrt wird. Die Studie
+erhebt umfassende Informationen zu Lebensbedingungen, Einstellungen, Gesundheit und
+dem Wohlbefinden von Personen und Haushalten in der Schweiz. Im Jahr~2024 umfasste die
+Befragung rund 6\,347~Haushalte und 9\,830~Personen~\cite{shp2024}. Das SHP stellt damit
+einen der reichhaltigsten Paneldatens\"atze im europ\"aischen Raum dar und erm\"oglicht es,
+individuelle Ver\"anderungen \"uber einen Zeitraum von mehr als zwei Jahrzehnten
+nachzuzeichnen.
+
+Die Rohdaten des SHP werden als SPSS-Dateien \"uber die Plattform SWISSUbase
+bereitgestellt und sind in zahlreiche Einzeldateien aufgeteilt -- darunter
+wellenspezifische Personen- und Haushaltsdateien, Longfiles sowie Masterdateien mit
+zeitinvarianten Informationen. F\"ur wissenschaftliche Analysen ist daher eine
+umfangreiche Aufbereitung erforderlich: Die Daten verschiedener Quellen m\"ussen
+zusammengef\"uhrt, fehlende Werte behandelt und Variablen konstruiert werden. Der
+vorliegende Bericht dokumentiert diese Aufbereitung in reproduzierbarer Form und
+f\"uhrt auf dieser Grundlage eine erste deskriptive Auswertung durch.
+
+Im Einzelnen verfolgt das Projekt die folgenden Ziele:
+
+\begin{enumerate}
+    \item Erstellung eines bereinigten Person-Jahr-Paneldatensatzes aus den
+          SHP-Longfiles und Masterdateien, der alle relevanten Variablen in einer
+          einheitlichen Struktur vereint.
+    \item Systematische Pr\"ufung der Datenqualit\"at, insbesondere hinsichtlich
+          fehlender Werte, sowie Durchf\"uhrung einer gezielten Imputation f\"ur die
+          Variable mit dem h\"ochsten Missing-Anteil.
+    \item Plausibilit\"atspr\"ufung der resultierenden Stichprobenverteilungen durch
+          Vergleich mit Referenzdaten des Bundesamts f\"ur Statistik (BFS, STATPOP~2023).
+    \item Deskriptive Auswertung der zeitlichen Entwicklung des Vertrauens in den
+          Bundesrat (Variable PP04) sowie der Assoziationen mit verschiedenen
+          soziodemografischen Merkmalen.
+    \item \"Uberpr\"ufung einer eigenen Hypothese zum Einfluss des Zivilstands auf das
+          Vertrauen in den Bundesrat.
+\end{enumerate}
+
+Die Zielgr\"osse des Berichts ist die Variable \textbf{PP04}, welche das Vertrauen in
+den Bundesrat auf einer Skala von 0~(kein Vertrauen) bis 10~(volles Vertrauen) misst.
+Diese Variable wurde in 16 der insgesamt 26~Erhebungswellen des SHP erhoben, n\"amlich
+in den Jahren 1999 bis 2009 sowie 2011, 2014, 2017, 2020 und~2023. Die unregelm\"assige
+Erhebung ab 2010 ist darauf zur\"uckzuf\"uhren, dass bestimmte Fragebogenmodule im SHP
+nur noch in mehrj\"ahrigen Abst\"anden eingesetzt werden.
 
 \section{Hypothese}
 \label{sec:hypothese}
 
-Das Vertrauen in den Bundesrat unterscheidet sich nach Zivilstand. Wir erwarten, dass verheiratete Personen im Durchschnitt ein höheres Vertrauen in den Bundesrat aufweisen als ledige, getrennte oder geschiedene Personen.
-% Eine selbst formulierte Hypothese (Pflicht laut Aufgabenstellung).
+Als zus\"atzliche Einflussvariable wird der \textbf{Zivilstand} (CIVSTA) untersucht.
+Diese Variable umfasst sieben Auspr\"agungen: ledig, verheiratet, getrennt, geschieden,
+verwitwet, eingetragene Partnerschaft und aufgel\"oste Partnerschaft. Die Wahl des
+Zivilstands als Einflussvariable ist inhaltlich motiviert: Der Zivilstand steht in engem
+Zusammenhang mit der sozialen Einbindung einer Person, dem Haushaltseinkommen und der
+allgemeinen Lebenszufriedenheit -- Faktoren, die wiederum das institutionelle Vertrauen
+beeinflussen k\"onnen.
+
+Die Hypothese lautet:
+
+\begin{quote}
+\emph{Das Vertrauen in den Bundesrat unterscheidet sich nach Zivilstand. Es wird
+erwartet, dass verheiratete Personen im Durchschnitt ein h\"oheres Vertrauen in den
+Bundesrat aufweisen als ledige, getrennte oder geschiedene Personen.}
+\end{quote}
+
+Die Begr\"undung st\"utzt sich auf die Beobachtung, dass verheiratete Personen tendenziell
+st\"arker in gesellschaftliche Strukturen eingebunden sind und h\"aufiger eine stabilere
+\"okonomische Situation aufweisen, was mit einem h\"oheren institutionellen Vertrauen
+einhergehen kann~\cite{voorpostel2018}. Umgekehrt k\"onnte eine Trennung oder Scheidung
+mit negativen Erfahrungen im Umgang mit staatlichen Institutionen (z.\,B.\ Gerichten)
+assoziiert sein, was das Vertrauen potentiell mindert.

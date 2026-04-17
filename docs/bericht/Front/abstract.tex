@@ -1,46 +1,47 @@
 % !TEX root = ../main.tex
 
 %----------------------------------------------------------------------------------------
-% ABSTRACT PAGE
-%----------------------------------------------------------------------------------------
-%\begin{abstract}
-%\addchaptertocentry{Abstract} % Add the abstract to the table of contents
-%The abstract is like a miniature version of the entire manuscript. Structure it similarly: Begin with the context and motivation for %the project, a brief description of the method and available data, your findings, and conclusions. Limit yourself to one page!
-%\end{abstract}
-
-
-%----------------------------------------------------------------------------------------
 % German ABSTRACT PAGE
 %----------------------------------------------------------------------------------------
 \begin{extraAbstract}
-\addchaptertocentry{\extraabstractname} % Add the abstract to the table of contents
+\addchaptertocentry{\extraabstractname}
 
-\textbf{Background}. The Swiss Household Panel (SHP) is a nationally representative longitudinal
-survey conducted by FORS since 1999, tracking the living conditions of Swiss households. Any
-robust analysis of SHP data first requires the construction of a clean, person-year panel
-dataset from the confidential SPSS raw files — a non-trivial preparation step that is
-implemented reproducibly in this project as part of Practicum 2 of the Data Processing module
-at ZHAW.
+\textbf{Hintergrund.}
+Das Schweizer Haushalt-Panel (SHP) ist eine national repräsentative Längsschnittstudie,
+die seit 1999 von FORS durchgeführt wird und die Lebensbedingungen Schweizer Haushalte
+erfasst. Für belastbare Analysen ist zunächst die Konstruktion eines bereinigten
+Person-Jahr-Paneldatensatzes aus den vertraulichen SPSS-Rohdaten erforderlich -- ein
+nicht-trivialer Aufbereitungsschritt, der im Rahmen von Praktikum~2 des Moduls
+\emph{Data Processing with R} an der ZHAW reproduzierbar umgesetzt wird.
 
-\textbf{Methods}. Using R (foreign, tidyverse), a person-year panel dataset is built from the SHP
-longfiles (SHPLONG\_P\_USER, SHPLONG\_H\_USER) together with the master files SHP\_MP and SHP\_SO.
-The full pipeline — extracting the ZIP archive, reading the SPSS files, constructing
-variables, merging, filtering (adults only, years in which PP04 was collected), and recoding
-SHP missing codes to NA — is documented in a single R Markdown script. The resulting dataset
-contains the target variables IDPERS, IDHOUS, YEAR, PP04, BIRTHY, BIRTHYGEN, SEX, CANTON,
-EDUCAT, HASKID, NAT, PC19, PP10, NETHHINCPP, PO58, and COMPLETE. On this dataset, we evaluate
-descriptive associations between the target variable and the prescribed covariates and test
-a self-formulated hypothesis regarding [insert hypothesis].
+\textbf{Methodik.}
+Mittels R (\texttt{foreign}, \texttt{tidyverse}) wird aus den SHP-Longfiles
+(\texttt{SHPLONG\_P\_USER}, \texttt{SHPLONG\_H\_USER}) sowie den Masterdateien
+\texttt{SHP\_MP} und \texttt{SHP\_SO} ein Person-Jahr-Paneldatensatz erstellt.
+Die gesamte Pipeline -- Entpacken des ZIP-Archivs, Einlesen der SPSS-Dateien,
+Variablenkonstruktion, Merging, Filterung (nur Erwachsene, nur Jahre mit PP04-Erhebung)
+und Rekodierung der SHP-Missing-Codes zu \texttt{NA} -- ist in zwei R-Markdown-Skripten
+dokumentiert. Der resultierende Datensatz enthält 17~Variablen, darunter die Zielvariable
+PP04 (Vertrauen in den Bundesrat). Die Datenqualität wird anhand fehlender Werte geprüft,
+eine Imputation mit dem letzten verfügbaren Personenwert durchgeführt und die
+Plausibilität durch Vergleich mit BFS-Referenzdaten (STATPOP~2023) validiert.
+Als eigene Hypothese wird der Zusammenhang zwischen Zivilstand (CIVSTA) und dem
+Vertrauen in den Bundesrat untersucht.
 
-\textbf{Results}. The processed dataset comprises N = […] person-years across […] waves. The
-descriptive analysis shows [insert key findings, e.g. direction and strength of the
-association between the target variable and education/income/age]. Plausibility checks
-(missing rates, value ranges, distribution across waves) confirm the integrity of the
-dataset.
+\textbf{Ergebnisse.}
+Der aufbereitete Datensatz umfasst $N = 162\,593$ Personen-Jahre über 16~Wellen
+(1999--2023). Das mittlere Vertrauen in den Bundesrat steigt von 5.74 (1999) auf
+6.76 (2020) und fällt leicht auf 6.36 (2023). Die Geschlechts-, Alters- und
+Kantonsverteilungen im SHP stimmen weitgehend mit den BFS-Referenzdaten überein,
+wobei jüngere Altersgruppen leicht untervertreten und die Altersgruppe 45--59
+leicht übervertreten ist. Verheiratete Personen weisen im Durchschnitt ein höheres
+Vertrauen auf ($\bar{x} = 5.96$) als ledige ($\bar{x} = 5.86$), geschiedene
+($\bar{x} = 5.49$) und getrennte Personen ($\bar{x} = 5.61$).
 
-\textbf{Discussion}. The results [support / contradict] the stated hypothesis and are consistent with
-[brief contextualisation]. Main limitations concern [e.g. panel attrition, self-reported
-measures, non-random missingness]. A natural next step is a model-based analysis (e.g.
-fixed-effects regression) on the dataset provided here.
+\textbf{Diskussion.}
+Die Ergebnisse stützen die formulierte Hypothese teilweise. Hauptlimitationen betreffen
+die Panelattrition, den hohen Anteil fehlender Werte in bestimmten Variablen und Jahren
+sowie den Charakter der Selbstberichterstattung. Ein nächster Schritt wäre eine
+modellbasierte Analyse (z.\,B.\ Fixed-Effects-Regression).
 
 \end{extraAbstract}
