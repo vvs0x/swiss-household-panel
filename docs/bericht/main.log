@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  17 APR 2026 10:33
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  17 APR 2026 09:15
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/mg/Documents/swiss-household-panel/docs/bericht/main
@@ -104,14 +104,18 @@ LaTeX Encoding Info:    Ignoring declaration for text command \SS (encoding ?) o
 \l@unhyphenated=\language11
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel/luababel.def
 \bbl@attr@locale=\attribute4
-) (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel/locale/invalid/babel-ngerman.tex) (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel/locale/de/babel-german.tex)
-Package babel Info: Importing font and identification data for ngerman
-(babel)             from babel-de.ini. Reported on input line 4298.
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel-german/ngerman.ldf
-Language: ngerman 
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel-german/babel-german.def
-Package babel Info: Making " an active character on input line 470.
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-de-1996.tex UTF-8 German hyphenation patterns (reformed orthography) (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-de-1996.tex German Hyphenation Patterns (Reformed Orthography, 2006) `dehyphn-x' 2024-02-28 (WL)))))
+) (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel/locale/en/babel-english.tex) (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel/locale/de/babel-german.tex)
+Package babel Info: Importing font and identification data for english
+(babel)             from babel-en.ini. Reported on input line 4298.
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: Hyphen rules for 'canadian' set to \l@english
+(babel)             (\language0). Reported on input line 102.
+Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
+(babel)             (\language6). Reported on input line 105.
+Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
+(babel)             (\language6). Reported on input line 108.
+)
 
 Package babel Warning: The name 'german' with the 'ldf' mechanism is
 (babel)                currently assigned to the old 1901 variant of German.
@@ -122,7 +126,9 @@ Package babel Info: Importing font and identification data for german
 (babel)             from babel-de-1901.ini. Reported on input line 4298.
 (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel-german/german.ldf
 Language: german 
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel-german/babel-german.def (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-de-1901.tex UTF-8 German hyphenation patterns (traditional orthography) (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-de-1901.tex German Hyphenation Patterns (Traditional Orthography) `dehypht-x' 2024-02-28 (WL)))))) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/koma-script/scrbase.sty
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/babel-german/babel-german.def
+Package babel Info: Making " an active character on input line 470.
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/hyph-utf8/loadhyph/loadhyph-de-1901.tex UTF-8 German hyphenation patterns (traditional orthography) (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/hyph-utf8/patterns/tex/hyph-de-1901.tex German Hyphenation Patterns (Traditional Orthography) `dehypht-x' 2024-02-28 (WL)))))) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/koma-script/scrbase.sty
 Package: scrbase 2025/12/01 v3.49 KOMA-Script package (KOMA-Script-independent basics and keyval usage)
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/koma-script/scrlfile.sty
 Package: scrlfile 2025/12/01 v3.49 KOMA-Script package (file load hooks)
@@ -979,7 +985,7 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 ) (./main.aux (./Front/titlepage.aux)
 Package babel Info: 'german' activates 'german' shorthands.
 (babel)             Reported on input line 10.
- (./Front/abstract.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Appendices/AppendixA.aux) (./Appendices/AppendixB.aux) (./Appendices/AppendixC.aux))
+ (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Appendices/AppendixA.aux))
 \openout1 = main.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
@@ -1077,20 +1083,11 @@ Package biblatex Info: ... file 'german.lbx' found.
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/german.lbx
 File: german.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 )
-Package biblatex Info: Trying to load language 'ngerman'...
-Package biblatex Info: ... file 'ngerman.lbx' found.
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/ngerman.lbx
-File: ngerman.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
-Package biblatex Info: Trying to load language 'german'...
-Package biblatex Info: ... file 'german.lbx' found.
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/german.lbx
-File: german.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
 )
-Package biblatex Info: Trying to load language 'german'...
-Package biblatex Info: ... file 'german.lbx' found.
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/biblatex/lbx/german.lbx
-File: german.lbx 2025/07/10 v3.21 biblatex localization (PK/MW)
-))
 Package biblatex Info: LuaTeX detected.
 (biblatex)             Assuming input encoding 'utf8'.
 Package biblatex Info: Automatic encoding selection.
@@ -1143,12 +1140,12 @@ Package hyperref Info: Link coloring ON on input line 129.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<Figures/zhaw_rgb.png, id=63, 1362.08875pt x 1424.32124pt>
+<Figures/zhaw_rgb.png, id=123, 1362.08875pt x 1424.32124pt>
 File: Figures/zhaw_rgb.png Graphic file (type png)
 <use Figures/zhaw_rgb.png>
 Package luatex.def Info: Figures/zhaw_rgb.png  used on input line 14.
 (luatex.def)             Requested size: 67.94241pt x 71.04636pt.
-<Figures/zhaw_font_deu_font.pdf, id=64, 537.99997pt x 20.99844pt>
+<Figures/zhaw_font_deu_font.pdf, id=124, 537.99997pt x 20.99844pt>
 File: Figures/zhaw_font_deu_font.pdf Graphic file (type pdf)
 <use Figures/zhaw_font_deu_font.pdf>
 Package luatex.def Info: Figures/zhaw_font_deu_font.pdf  used on input line 22.
@@ -1166,27 +1163,7 @@ Overfull \hbox (5.6477pt too wide) in paragraph at lines 22--22
 
 {/Users/mg/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}<./Figures/zhaw_rgb.png><./Figures/zhaw_font_deu_font.pdf>])
 \openout2 = Front/abstract.aux
- (./Front/abstract.tex
-Missing character: There is no — (U+2014) in font pplr8t!
-Missing character: There is no — (U+2014) in font pplr8t!
-Missing character: There is no — (U+2014) in font pplr8t!
-Missing character: There is no — (U+2014) in font pplr8t!
-Missing character: There is no — (U+2014) in font pplr8t!
-Missing character: There is no — (U+2014) in font pplr8t!
-Missing character: There is no — (U+2014) in font pplr8t!
-Missing character: There is no — (U+2014) in font pplr8t!
-Missing character: There is no … (U+2026) in font pplr8t!
-Missing character: There is no … (U+2026) in font pplr8t!
-Missing character: There is no … (U+2026) in font pplr8t!
-Missing character: There is no … (U+2026) in font pplr8t!
-Missing character: There is no … (U+2026) in font pplr8t!
-Missing character: There is no … (U+2026) in font pplr8t!
-
-Overfull \hbox (4.48074pt too wide) in paragraph at lines 35--40
-\T1/ppl/m/n/10.95 so-cia-ti-on bet-ween the tar-get va-ria-ble and edu-ca-ti-on/in-co-me/age]. Plau-si-bi-li-ty checks
- []
-
-)
+ (./Front/abstract.tex)
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 154.
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
@@ -1212,13 +1189,11 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 
 
 
-
-Missing character: There is no — (U+2014) in font pplr8t!
-Missing character: There is no — (U+2014) in font pplr8t!
-Missing character: There is no — (U+2014) in font pplr8t!
-Missing character: There is no … (U+2026) in font pplr8t!
-Missing character: There is no … (U+2026) in font pplr8t!
-] (./main.toc)
+] (./main.toc
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 16.
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/bera/t1fvm.fd
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+))
 \tf@toc=\write6
 
 \openout6 = main.toc
@@ -1227,219 +1202,91 @@ Missing character: There is no … (U+2026) in font pplr8t!
 
 
 ]
+\openout2 = Front/symbols.aux
+ (./Front/symbols.tex) [4
+
+
+]
 \openout2 = Chapters/Chapter1.aux
  (./Chapters/Chapter1.tex
 Kapitel 1.
-) [1
+[1
+
+
 
 
 
 ]
+Package babel Info: 'german' activates 'german' shorthands.
+(babel)             Reported on input line 77.
+ [2]
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 103.
+ (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+) [3] [4] [5]
+LaTeX Font Info:    Font shape `T1/fvm/m/it' in size <10.95> not available
+(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 179.
+ [6]
+
+LaTeX Warning: Citation 'Reference1' on page 7 undefined on input line 205.
+
+
+LaTeX Warning: Citation 'Reference2' on page 7 undefined on input line 208.
+
+
+LaTeX Warning: Citation 'Reference1' on page 7 undefined on input line 208.
+
+
+LaTeX Warning: Citation 'Reference3' on page 7 undefined on input line 208.
+
+[7]
+Overfull \hbox (23.39014pt too wide) in paragraph at lines 231--231
+[]    \T1/fvm/m/n/10 \tabhead{Groups} & \tabhead{Treatment X} & \tabhead{Treatment Y} \\[] 
+ []
+
+[8]
+<Figures/Electron.pdf, id=253, 398.3386pt x 284.52756pt>
+File: Figures/Electron.pdf Graphic file (type pdf)
+<use Figures/Electron.pdf>
+Package luatex.def Info: Figures/Electron.pdf  used on input line 277.
+(luatex.def)             Requested size: 398.33762pt x 284.52686pt.
+ [9<./Figures/Electron.pdf>] [10]) [11]
 \openout2 = Chapters/Chapter2.aux
  (./Chapters/Chapter2.tex
 Kapitel 2.
 (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 25.
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 25.
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/bera/t1fvm.fd
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-) (./Code/example.py)) [2
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 17.
+ (./Code/example.py) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
+) [12
 
 
 
 
-]
-\openout2 = Chapters/Chapter3.aux
- (./Chapters/Chapter3.tex
-Kapitel 3.
-) [3
-
-
-
-
-]
-\openout2 = Chapters/Chapter4.aux
- (./Chapters/Chapter4.tex
-Kapitel 4.
-) [4
-
-
-
-
-]
+] (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)) [13]
 \openout2 = Appendices/AppendixA.aux
  (./Appendices/AppendixA.tex
 Anhang A.
-) [5
-
-
-
-
-]
-\openout2 = Appendices/AppendixB.aux
- (./Appendices/AppendixB.tex
-Anhang B.
-(/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2025/11/14 1.11b listings language file
-) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2025/11/14 1.11b listings language file
-) (/Users/mg/Documents/swiss-household-panel/src/Datenaufbereitung.Rmd
-Missing character: There is no – (U+2013) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no ├ (U+251C) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no │ (U+2502) in font fvmr8t!
-Missing character: There is no └ (U+2514) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ├ (U+251C) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ├ (U+251C) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no └ (U+2514) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no └ (U+2514) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no – (U+2013) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no ├ (U+251C) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no │ (U+2502) in font fvmr8t!
-Missing character: There is no └ (U+2514) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ├ (U+251C) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ├ (U+251C) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no └ (U+2514) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no └ (U+2514) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-)) [6
-
-
-
-
-
-Missing character: There is no – (U+2013) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no ├ (U+251C) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no │ (U+2502) in font fvmr8t!
-Missing character: There is no └ (U+2514) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ├ (U+251C) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ├ (U+251C) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no └ (U+2514) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no └ (U+2514) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no ─ (U+2500) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-Missing character: There is no  (U+E200) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E202) in font fvmr8t!
-Missing character: There is no  (U+E201) in font fvmr8t!
-]
-\openout2 = Appendices/AppendixC.aux
- (./Appendices/AppendixC.tex
-Anhang C.
-) [7
+) [14
 
 
 
 
 ]
 
-LaTeX Warning: Empty bibliography on input line 215.
+LaTeX Warning: Empty bibliography on input line 217.
 
-(./main.aux (./Front/titlepage.aux) (./Front/abstract.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Appendices/AppendixA.aux) (./Appendices/AppendixB.aux) (./Appendices/AppendixC.aux))
+(./main.aux (./Front/titlepage.aux) (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Appendices/AppendixA.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -1449,7 +1296,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: D20E5237E7CAE4C99A81B2C370345456;2052.
+(rerunfilecheck)             Checksum: 7CCA419937413349368F6254418E9067;4764.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1461,19 +1308,19 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 45215 strings out of 476081
- 305362,1977958 words of node,token memory allocated
- 811 words of node memory still in use:
-   4 hlist, 1 vlist, 1 rule, 5 glue, 33 kern, 1 glyph, 43 attribute, 68 glue_spec, 23 attribute_list, 4 write nodes
-   avail lists: 1:9,2:6070,3:363,4:5216,5:4549,6:124,7:8013,8:3,9:14160,10:35,11:742
- 66306 multiletter control sequences out of 65536+600000
- 103 fonts using 6891055 bytes
- 105i,21n,107p,845b,2462s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/Users/mg/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (10 pages, 121251 bytes).
+ 45200 strings out of 476081
+ 305364,1977958 words of node,token memory allocated
+ 1727 words of node memory still in use:
+   4 hlist, 1 vlist, 1 rule, 6 glue, 119 kern, 1 glyph, 189 attribute, 69 glue_spec, 96 attribute_list, 4 write, 6 pdf_action nodes
+   avail lists: 1:9,2:6719,3:450,4:5770,5:5060,6:139,7:9546,8:67,9:15647,10:35,11:858
+ 66138 multiletter control sequences out of 65536+600000
+ 247 fonts using 16042631 bytes
+ 105i,23n,113p,1173b,1849s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/Users/mg/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmbo8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmro8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (18 pages, 209538 bytes).
 
-PDF statistics: 197 PDF objects out of 1000 (max. 8388607)
- 174 compressed objects within 2 object streams
- 68 named destinations out of 1000 (max. 131072)
- 128 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 440 PDF objects out of 1000 (max. 8388607)
+ 393 compressed objects within 4 object streams
+ 100 named destinations out of 1000 (max. 131072)
+ 248 words of extra memory for PDF output out of 10000 (max. 100000000)
 

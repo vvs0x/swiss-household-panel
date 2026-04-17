@@ -160,7 +160,7 @@ Für die Aufgabe werden aus dem Personen-Longfile die Variablen für ID, Jahr, H
 p_long <- p_long_raw |>
   select(
     idpers, year, idhous,
-    sex, ownkid, educat,
+    sex, civsta, ownkid, educat,
     nat_1_, nat_2_, nat_3_,
     pp04, pp10, pc19, pc19a
   )
@@ -242,6 +242,7 @@ p_long_clean <- p_long |>
     year   = to_num(year),
     idhous = to_num(idhous),
     sex    = to_num(sex),
+    civsta = to_num(civsta),
     ownkid = to_num(ownkid),
     educat = to_num(educat),
     nat_1_ = to_num(nat_1_),
@@ -251,6 +252,12 @@ p_long_clean <- p_long |>
     pp10   = to_num(pp10),
     pc19   = to_num(pc19),
     pc19a  = to_num(pc19a)
+  ) |>
+  mutate(
+    across(
+      c(sex, civsta, ownkid, educat, nat_1_, nat_2_, nat_3_, pp04, pp10, pc19, pc19a),
+      ~ if_else(. < 0, NA_real_, .)
+    )
   ) |>
   filter(year %in% years_use)
 
@@ -262,6 +269,9 @@ h_long_clean <- h_long |>
     ihtyn  = to_num(ihtyn),
     nbpers = to_num(nbpers)
   ) |>
+  mutate(
+    across(c(canton, ihtyn, nbpers), ~ if_else(. < 0, NA_real_, .))
+  ) |>
   filter(year %in% years_use)
 
 mp_clean <- mp |>
@@ -269,12 +279,18 @@ mp_clean <- mp |>
     IDPERS = to_num(IDPERS),
     BIRTHY = to_num(BIRTHY),
     SEX    = to_num(SEX)
+  ) |>
+  mutate(
+    across(c(BIRTHY, SEX), ~ if_else(. < 0, NA_real_, .))
   )
 
 so_clean <- so |>
   mutate(
     IDPERS = to_num(IDPERS),
     PO58   = to_num(PO58)
+  ) |>
+  mutate(
+    PO58 = if_else(PO58 < 0, NA_real_, PO58)
   )
 ```
 
@@ -354,6 +370,52 @@ panel_adults <- panel_adults |>
 
 panel_adults |>
   count(SEX, sort = TRUE)
+```
+
+## `Zivilstand`
+
+```{r civsta-check}
+tmp_num <- foreign::read.spss(
+  file = p_long_path,
+  to.data.frame = TRUE,
+  use.value.labels = FALSE,
+  use.missings = FALSE
+)
+
+tmp_lab <- foreign::read.spss(
+  file = p_long_path,
+  to.data.frame = TRUE,
+  use.value.labels = TRUE,
+  use.missings = FALSE
+)
+
+unique(data.frame(
+  code = tmp_num$civsta,
+  label = as.character(tmp_lab$civsta)
+))
+
+table(tmp_num$civsta, useNA = "ifany")
+table(tmp_lab$civsta, useNA = "ifany")
+
+```
+
+```{r civsta}
+panel_adults <- panel_adults |>
+  mutate(
+    CIVSTA = case_when(
+      civsta == 1 ~ "ledig",
+      civsta == 2 ~ "verheiratet",
+      civsta == 3 ~ "getrennt",
+      civsta == 4 ~ "geschieden",
+      civsta == 5 ~ "verwitwet",
+      civsta == 6 ~ "eingetragene Partnerschaft",
+      civsta == 7 ~ "aufgelöste Partnerschaft",
+      TRUE ~ NA_character_
+    )
+  )
+
+panel_adults |>
+  count(CIVSTA, sort = TRUE)
 ```
 
 ## `CANTON`
@@ -450,7 +512,7 @@ panel_adults |>
 
 ## `NAT`
 
-`NAT` wird aus `nat_1_`, `nat_2_`, `nat_3_` in die drei Kategorien `CH`, `CH+Andere`, `Andere` verdichtet. In den SHP-Daten ist `8100` der Code für die Schweiz. fileciteturn18file0L8-L9
+`NAT` wird aus `nat_1_`, `nat_2_`, `nat_3_` in die drei Kategorien `CH`, `CH+Andere`, `Andere` verdichtet. In den SHP-Daten ist `8100` der Code für die Schweiz. Wichtig ist, dass `nat_2_` und `nat_3_` vor der Konstruktion bereits von negativen Missing-Codes bereinigt wurden; sonst würden inapplicable-Codes fälschlich als zweite bzw. dritte Nationalität gezählt. fileciteturn18file0L8-L9
 
 ```{r nat}
 is_swiss <- function(x) {
@@ -567,7 +629,7 @@ panel_adults <- panel_adults |>
   mutate(
     COMPLETE = !if_any(
       c(PP04, BIRTHY, BIRTHYGEN, SEX, CANTON, EDUCAT,
-        HASKID, NAT, PC19, PP10, NETHHINCPP, PO58),
+        HASKID, NAT, PC19, PP10, NETHHINCPP, PO58, CIVSTA),
       is.na
     )
   )
@@ -587,7 +649,8 @@ panel_final <- panel_adults |>
     BIRTHY, BIRTHYGEN, SEX,
     CANTON, EDUCAT, HASKID, NAT,
     PC19, PP10, NETHHINCPP, PO58,
-    COMPLETE
+    COMPLETE,
+    CIVSTA
   )
 
 glimpse(panel_final)
@@ -599,7 +662,14 @@ glimpse(panel_final)
 dim(panel_final)
 n_distinct(panel_final$IDPERS)
 summary(panel_final$YEAR)
+summary(panel_final$BIRTHY)
 colSums(is.na(panel_final))
+```
+
+```{r checks-numeric-ranges}
+sort(unique(panel_final$PP04))
+sort(unique(panel_final$PP10))
+summary(panel_final$NETHHINCPP)
 ```
 
 ```{r checks-categories}
@@ -617,6 +687,9 @@ panel_final |>
 
 panel_final |>
   count(PO58, sort = TRUE)
+
+panel_final |>
+  count(CIVSTA, sort = TRUE)
 ```
 
 # Daten speichern
