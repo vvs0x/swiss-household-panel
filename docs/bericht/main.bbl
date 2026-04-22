@@ -1,0 +1,151 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{shp2024}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=baf89a00dba2baaba73e52db55e3c15c}{%
+           family={{FORS -- Swiss Centre of Expertise in the Social Sciences}},
+           familyi={F\bibinitperiod}}}%
+      }
+      \strng{namehash}{baf89a00dba2baaba73e52db55e3c15c}
+      \strng{fullhash}{baf89a00dba2baaba73e52db55e3c15c}
+      \strng{fullhashraw}{baf89a00dba2baaba73e52db55e3c15c}
+      \strng{bibnamehash}{baf89a00dba2baaba73e52db55e3c15c}
+      \strng{authorbibnamehash}{baf89a00dba2baaba73e52db55e3c15c}
+      \strng{authornamehash}{baf89a00dba2baaba73e52db55e3c15c}
+      \strng{authorfullhash}{baf89a00dba2baaba73e52db55e3c15c}
+      \strng{authorfullhashraw}{baf89a00dba2baaba73e52db55e3c15c}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{SWISSUbase}
+      \field{note}{Version 14.5, Referenznummer 6097}
+      \field{title}{Swiss Household Panel -- Living in Switzerland}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://swissubase.ch
+      \endverb
+      \verb{url}
+      \verb https://swissubase.ch
+      \endverb
+    \endentry
+    \entry{voorpostel2018}{book}{}{}
+      \name{author}{9}{}{%
+        {{hash=79e41ca7d5a2e26c0426cc2dd0be1134}{%
+           family={Voorpostel},
+           familyi={V\bibinitperiod},
+           given={Marieke},
+           giveni={M\bibinitperiod}}}%
+        {{hash=bf6217254a1dcc9d739e82e4ec3f8cf1}{%
+           family={Tillmann},
+           familyi={T\bibinitperiod},
+           given={Robin},
+           giveni={R\bibinitperiod}}}%
+        {{hash=b25f4431635b7b5ec923847b1add91c0}{%
+           family={Lebert},
+           familyi={L\bibinitperiod},
+           given={Florence},
+           giveni={F\bibinitperiod}}}%
+        {{hash=6d69ccca2220146265019d12fe500876}{%
+           family={Kuhn},
+           familyi={K\bibinitperiod},
+           given={Ursina},
+           giveni={U\bibinitperiod}}}%
+        {{hash=7fde92e2d538ed0c20da6f38d48e1e09}{%
+           family={Lipps},
+           familyi={L\bibinitperiod},
+           given={Oliver},
+           giveni={O\bibinitperiod}}}%
+        {{hash=4dd710d5e4cf8f0fa4a96e459dc5e54b}{%
+           family={Ryser},
+           familyi={R\bibinitperiod},
+           given={Valérie-Anne},
+           giveni={V\bibinithyphendelim A\bibinitperiod}}}%
+        {{hash=44b94f84df03ee6c507e54e71f2872d5}{%
+           family={Schmid},
+           familyi={S\bibinitperiod},
+           given={Flurina},
+           giveni={F\bibinitperiod}}}%
+        {{hash=302b24be5da659ef0765a0107298a72b}{%
+           family={Antal},
+           familyi={A\bibinitperiod},
+           given={Erika},
+           giveni={E\bibinitperiod}}}%
+        {{hash=aec844f1d54d15bf8056c127d1e106ce}{%
+           family={Wernli},
+           familyi={W\bibinitperiod},
+           given={Boris},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Lausanne}%
+      }
+      \list{publisher}{1}{%
+        {FORS}%
+      }
+      \strng{namehash}{1a1f305507b49fe09be8e903171ad042}
+      \strng{fullhash}{077ea6e84297eafb3c907b8b8ecc3b50}
+      \strng{fullhashraw}{077ea6e84297eafb3c907b8b8ecc3b50}
+      \strng{bibnamehash}{1a1f305507b49fe09be8e903171ad042}
+      \strng{authorbibnamehash}{1a1f305507b49fe09be8e903171ad042}
+      \strng{authornamehash}{1a1f305507b49fe09be8e903171ad042}
+      \strng{authorfullhash}{077ea6e84297eafb3c907b8b8ecc3b50}
+      \strng{authorfullhashraw}{077ea6e84297eafb3c907b8b8ecc3b50}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Swiss Household Panel User Guide (1999--2018), Wave 20}
+      \field{year}{2018}
+    \endentry
+    \entry{bfs2023}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=ae9a14b60ea04f6d76f239d5511ba463}{%
+           family={{Bundesamt für Statistik}},
+           familyi={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{ae9a14b60ea04f6d76f239d5511ba463}
+      \strng{fullhash}{ae9a14b60ea04f6d76f239d5511ba463}
+      \strng{fullhashraw}{ae9a14b60ea04f6d76f239d5511ba463}
+      \strng{bibnamehash}{ae9a14b60ea04f6d76f239d5511ba463}
+      \strng{authorbibnamehash}{ae9a14b60ea04f6d76f239d5511ba463}
+      \strng{authornamehash}{ae9a14b60ea04f6d76f239d5511ba463}
+      \strng{authorfullhash}{ae9a14b60ea04f6d76f239d5511ba463}
+      \strng{authorfullhashraw}{ae9a14b60ea04f6d76f239d5511ba463}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{STAT-TAB, STATPOP}
+      \field{title}{Ständige und nichtständige Wohnbevölkerung nach Kanton, Geschlecht, Zivilstand und Alter}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://www.bfs.admin.ch/asset/de/px-x-0102010000_102
+      \endverb
+      \verb{url}
+      \verb https://www.bfs.admin.ch/asset/de/px-x-0102010000_102
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

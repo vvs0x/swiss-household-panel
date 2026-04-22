@@ -1,29 +1,38 @@
 % !TEX root = ../main.tex
 
-%----------------------------------------------------------------------------------------
-% APPENDIX A
-%----------------------------------------------------------------------------------------
+% Appendix A -- Datenkatalog (vollst\"andig)
 
-\chapter{Frequently Asked Questions} % Main appendix title
+\chapter{Datenkatalog}
+\label{app:datenkatalog}
 
-\label{AppendixA} % For referencing this appendix elsewhere, use \ref{AppendixA}
-
-\section{How do I change the colors of links?}
-
-The color of links can be changed to your liking using:
-
-{\small\verb!\hypersetup{urlcolor=red}!}, or
-
-{\small\verb!\hypersetup{citecolor=green}!}, or
-
-{\small\verb!\hypersetup{allcolor=blue}!}.
-
-\noindent If you want to completely hide the links, you can use:
-
-{\small\verb!\hypersetup{allcolors=.}!}, or even better: 
-
-{\small\verb!\hypersetup{hidelinks}!}.
-
-\noindent If you want to have obvious links in the PDF but not the printed text, use:
-
-{\small\verb!\hypersetup{colorlinks=false}!}.
+\begin{small}
+\begin{longtable}{@{}l l l p{3cm}@{}}
+\caption{Vollst\"andiger Datenkatalog} \label{tab:datenkatalog-full} \\
+\hline
+\textbf{Variable} & \textbf{Wertebereich} & \textbf{Quelle} & \textbf{Rekodierung} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Variable} & \textbf{Wertebereich} & \textbf{Quelle} & \textbf{Rekodierung} \\
+\hline
+\endhead
+IDPERS     & $> 0$           & SHPLONG\_P & unver\"andert \\
+IDHOUS     & $> 0$           & SHPLONG\_P & unver\"andert \\
+YEAR       & 1999--2023      & SHPLONG\_P & 16 Wellen mit PP04 \\
+PP04       & 0--10           & SHPLONG\_P & neg.\ Codes $\to$ NA \\
+BIRTHY     & 1904--2005      & SHP\_MP    & neg.\ Codes $\to$ NA \\
+BIRTHYGEN  & 7 Kohorten      & Konstruiert & Intervalle \\
+SEX        & m/w/a           & SHP\_MP    & 1$\to$m, 2$\to$w, 3$\to$a \\
+CANTON     & 26 K\"urzel     & SHPLONG\_H & Code $\to$ K\"urzel \\
+EDUCAT     & 11 Stufen       & SHPLONG\_P & Code 0--10 $\to$ Text \\
+HASKID     & ja/nein         & SHPLONG\_P & ownkid$\geq$1$\to$ja \\
+NAT        & CH/CH+A/Andere  & SHPLONG\_P & Aus 3 Nat.-Codes \\
+PC19       & ja/nein         & SHPLONG\_P & 1$\to$ja, 2$\to$nein \\
+PP10       & 0--10           & SHPLONG\_P & neg.\ Codes $\to$ NA \\
+NETHHINCPP & $> 0$ (CHF)     & SHPLONG\_H & ihtyn/nbpers \\
+PO58       & ja/nein         & SHP\_SO    & 1$\to$ja, 2$\to$nein \\
+COMPLETE   & TRUE/FALSE      & Konstruiert & kein Missing \\
+CIVSTA     & 7 Auspr.        & SHPLONG\_P & 1--7 $\to$ Klartext \\
+\hline
+\end{longtable}
+\end{small}

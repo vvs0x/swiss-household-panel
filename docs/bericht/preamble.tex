@@ -34,6 +34,7 @@
 \usepackage{caption}           % Customized caption
 \usepackage{subcaption}        % Subfigure captions
 \usepackage{makecell}          % Per-cell formatting in tables (\makecell)
+\usepackage{longtable}         % Tables spanning multiple pages
 \usepackage{pdfpages}          % Required to include PDF files/graphics (\includepdf)
 
 \usepackage{todonotes}         % Introduces the command \todo
@@ -136,5 +137,19 @@
 }
 \setlength{\parskip}{1em}
 \usepackage{enumitem}          % Layout control for list environments (e.g, itemize)
+
+% --- Kapitel/Sections: kein Seitenumbruch, keine "Kapitel X"-Zeile ---
+\usepackage{titlesec}
+\titleclass{\chapter}{straight}
+\titleformat{\chapter}[hang]{\LARGE\bfseries}{}{0pt}{}
+\titlespacing*{\chapter}{0pt}{12pt}{6pt}
+% Header: nur Kapiteltitel ohne "Kapitel X."
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\titleformat{\section}{\Large\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{1em}{}
+\titlespacing*{\subsubsection}{0pt}{8pt}{4pt}
 %\setlist{noitemsep}           % Suppress extra spaces between items
 %\setlist{nosep}               % Suppress spaces before/after list environments

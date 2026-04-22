@@ -1,19 +1,47 @@
 % !TEX root = ../main.tex
 
 %----------------------------------------------------------------------------------------
-% ABSTRACT PAGE
-%----------------------------------------------------------------------------------------
-%\begin{abstract}
-%\addchaptertocentry{Abstract} % Add the abstract to the table of contents
-%The abstract is like a miniature version of the entire manuscript. Structure it similarly: Begin with the context and motivation for %the project, a brief description of the method and available data, your findings, and conclusions. Limit yourself to one page!
-%\end{abstract}
-
-
-%----------------------------------------------------------------------------------------
 % German ABSTRACT PAGE
 %----------------------------------------------------------------------------------------
 \begin{extraAbstract}
-\addchaptertocentry{\extraabstractname} % Add the abstract to the table of contents
+\addchaptertocentry{\extraabstractname}
 
-Die Zusammenfassung entspricht einer Miniaturversion des gesamten Dokuments. Gliedere sie ähnlich: Beginne mit dem Kontext und der  Motivation für das Projekt, einer kurzen Beschreibung der Methode und der verfügbaren Daten, Ihren Ergebnissen und den Schlussfolgerungen. Beschränke dich auf eine Seite!    
+\textbf{Hintergrund.}
+Das Schweizer Haushalt-Panel (SHP) ist eine national repräsentative Längsschnittstudie,
+die seit 1999 von FORS durchgeführt wird und die Lebensbedingungen Schweizer Haushalte
+erfasst. Für belastbare Analysen ist zunächst die Konstruktion eines bereinigten
+Person-Jahr-Paneldatensatzes aus den vertraulichen SPSS-Rohdaten erforderlich -- ein
+nicht-trivialer Aufbereitungsschritt, der im Rahmen von Praktikum~2 des Moduls
+\emph{Data Processing with R} an der ZHAW reproduzierbar umgesetzt wird.
+
+\textbf{Methodik.}
+Mittels R (\texttt{foreign}, \texttt{tidyverse}) wird aus den SHP-Longfiles
+(\texttt{SHPLONG\_P\_USER}, \texttt{SHPLONG\_H\_USER}) sowie den Masterdateien
+\texttt{SHP\_MP} und \texttt{SHP\_SO} ein Person-Jahr-Paneldatensatz erstellt.
+Die gesamte Pipeline -- Entpacken des ZIP-Archivs, Einlesen der SPSS-Dateien,
+Variablenkonstruktion, Merging, Filterung (nur Erwachsene, nur Jahre mit PP04-Erhebung)
+und Rekodierung der SHP-Missing-Codes zu \texttt{NA} -- ist in zwei R-Markdown-Skripten
+dokumentiert. Der resultierende Datensatz enthält 17~Variablen, darunter die Zielvariable
+PP04 (Vertrauen in den Bundesrat). Die Datenqualität wird anhand fehlender Werte geprüft,
+eine Imputation mit dem letzten verfügbaren Personenwert durchgeführt und die
+Plausibilität durch Vergleich mit BFS-Referenzdaten (STATPOP~2023) validiert.
+Als eigene Hypothese wird der Zusammenhang zwischen Zivilstand (CIVSTA) und dem
+Vertrauen in den Bundesrat untersucht.
+
+\textbf{Ergebnisse.}
+Der aufbereitete Datensatz umfasst $N = 162\,593$ Personen-Jahre über 16~Wellen
+(1999--2023). Das mittlere Vertrauen in den Bundesrat steigt von 5.74 (1999) auf
+6.76 (2020) und fällt leicht auf 6.36 (2023). Die Geschlechts-, Alters- und
+Kantonsverteilungen im SHP stimmen weitgehend mit den BFS-Referenzdaten überein,
+wobei jüngere Altersgruppen leicht untervertreten und die Altersgruppe 45--59
+leicht übervertreten ist. Verheiratete Personen weisen im Durchschnitt ein höheres
+Vertrauen auf ($\bar{x} = 5.96$) als ledige ($\bar{x} = 5.86$), geschiedene
+($\bar{x} = 5.49$) und getrennte Personen ($\bar{x} = 5.61$).
+
+\textbf{Diskussion.}
+Die Ergebnisse stützen die formulierte Hypothese teilweise. Hauptlimitationen betreffen
+die Panelattrition, den hohen Anteil fehlender Werte in bestimmten Variablen und Jahren
+sowie den Charakter der Selbstberichterstattung. Ein nächster Schritt wäre eine
+modellbasierte Analyse (z.\,B.\ Fixed-Effects-Regression).
+
 \end{extraAbstract}

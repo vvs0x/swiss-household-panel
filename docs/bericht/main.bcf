@@ -2376,10 +2376,9 @@
     <bcf:datasource type="file" datatype="bibtex" glob="false">example.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1" intorder="1">Reference1</bcf:citekey>
-    <bcf:citekey order="2" intorder="1">Reference2</bcf:citekey>
-    <bcf:citekey order="2" intorder="2">Reference1</bcf:citekey>
-    <bcf:citekey order="3" intorder="1">Reference3</bcf:citekey>
+    <bcf:citekey order="1" intorder="1">shp2024</bcf:citekey>
+    <bcf:citekey order="2" intorder="1">voorpostel2018</bcf:citekey>
+    <bcf:citekey order="3" intorder="1">bfs2023</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

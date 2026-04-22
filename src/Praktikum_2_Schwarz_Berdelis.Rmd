@@ -9,4 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+library(foreign)
+master <- read.spss("../data/raw/Data_SPSS/SHP-Data-WA-SPSS/SHP_MP.sav")
+head(master)
 ```
