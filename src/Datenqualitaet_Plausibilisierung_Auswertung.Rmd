@@ -1,15 +1,15 @@
 ---
-title: 'Praktikum 2 – Woche 3: Datenqualität, Plausibilisierung und Auswertung'
-author: "Name / Gruppe"
+title: "Praktikum 2 - Woche 3: Datenqualität, Plausibilisierung und Auswertung"
+author: "Phineas Berdelis / Valentin Schwarz"
 date: "`r Sys.Date()`"
 output:
-  pdf_document:
-    toc: true
-    toc_depth: '3'
   html_document:
     toc: true
     toc_depth: 3
     number_sections: true
+  pdf_document:
+    toc: true
+    toc_depth: 3
 ---
 
 ```{r setup, include=FALSE}
@@ -20,37 +20,36 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Ziel von Woche 3
+# Überblick
 
-In Woche 3 werden drei Dinge bearbeitet:
+In Woche 3 werden drei Aufgaben bearbeitet:
 
-1. **Datenqualität bezüglich fehlender Werte**
-2. **Plausibilität der Daten**
-3. **Auswertung**
+1. Analyse fehlender Werte
+2. Plausibilisierung des Datensatzes
+3. Auswertung des Vertrauens in den Bundesrat
 
-Gemäss Aufgabenstellung werden dabei:
-- pro Jahr die Datensätze mit mindestens einem fehlenden Wert bestimmt,
-- pro Jahr und Variable die Missing Values gezählt,
-- eine Variable mit sehr hohem Missing-Anteil identifiziert,
-- die Missing Values dieser Variable in einem Jahr mit dem neuesten verfügbaren früheren Personenwert ersetzt,
-- die Verteilungen von Geschlecht, Altersgruppen und Kanton mit BFS-Daten verglichen,
-- die zeitliche Entwicklung von `PP04` dargestellt,
-- mindestens fünf zusätzliche Grafiken nach Untergruppen erstellt,
-- und die zusätzliche Einflussvariable `CIVSTA` ausgewertet.
+Als zusätzliche Einflussvariable wird `CIVSTA` verwendet.
 
-# Zusätzliche Einflussvariable und Hypothese
-
-Als zusätzliche Einflussvariable wird **`CIVSTA` (Zivilstand)** verwendet.
-
-**Hypothese:** Das Vertrauen in den Bundesrat unterscheidet sich nach Zivilstand. Es wird erwartet, dass verheiratete Personen im Durchschnitt ein höheres Vertrauen in den Bundesrat aufweisen als ledige, getrennte oder geschiedene Personen.
+**Hypothese:** Verheiratete Personen weisen im Mittel ein höheres Vertrauen in den Bundesrat auf als ledige, getrennte oder geschiedene Personen.
 
 # Pakete
 
 ```{r packages}
 library(tidyverse)
-library(zoo)
 library(pxR)
 library(knitr)
+
+select <- dplyr::select
+filter <- dplyr::filter
+mutate <- dplyr::mutate
+arrange <- dplyr::arrange
+rename <- dplyr::rename
+count <- dplyr::count
+group_by <- dplyr::group_by
+summarise <- dplyr::summarise
+summarize <- dplyr::summarize
+left_join <- dplyr::left_join
+pivot_longer <- tidyr::pivot_longer
 ```
 
 # Daten laden
@@ -62,13 +61,11 @@ if (!file.exists(data_path_csv)) {
   stop("CSV-Datei nicht gefunden: ", data_path_csv)
 }
 
-panel_final <- readr::read_csv(data_path_csv)
+panel_final <- readr::read_csv(data_path_csv, show_col_types = FALSE)
 
 glimpse(panel_final)
 dim(panel_final)
 ```
-
-## Eingangskontrolle
 
 ```{r initial-checks}
 required_vars <- c(
@@ -81,35 +78,32 @@ required_vars <- c(
 setdiff(required_vars, names(panel_final))
 ```
 
-# Hilfsvariablen für Woche 3
+# Hilfsvariablen
 
-```{r create-agegroup}
-panel_final <- panel_final %>%
-  dplyr::mutate(
+```{r helper-vars}
+panel_final <- panel_final |>
+  mutate(
     AGE = YEAR - BIRTHY,
-    AGEGROUP_CURRENT = dplyr::case_when(
+    AGEGROUP_CURRENT = case_when(
       AGE >= 18 & AGE < 30 ~ "18-29",
       AGE >= 30 & AGE < 45 ~ "30-44",
       AGE >= 45 & AGE < 60 ~ "45-59",
       AGE >= 60 & AGE < 75 ~ "60-74",
-      AGE >= 75            ~ "75+",
+      AGE >= 75 ~ "75+",
       TRUE ~ NA_character_
     )
   )
-
-panel_final %>%
-  dplyr::count(AGEGROUP_CURRENT, sort = TRUE)
 ```
 
-# 1. Datenqualität bezüglich fehlender Werte
+# 1. Datenqualität
 
-## 1.1 Anzahl Datensätze mit mindestens einem Missing pro Jahr
+## Unvollständige Datensätze pro Jahr
 
 ```{r missing-rows-by-year}
-missing_rows_by_year <- panel_final %>%
-  dplyr::group_by(YEAR) %>%
-  dplyr::summarise(
-    n_total = dplyr::n(),
+missing_rows_by_year <- panel_final |>
+  group_by(YEAR) |>
+  summarise(
+    n_total = n(),
     n_incomplete = sum(!COMPLETE, na.rm = TRUE),
     share_incomplete = n_incomplete / n_total,
     .groups = "drop"
@@ -119,18 +113,18 @@ missing_rows_by_year
 ```
 
 ```{r plot-missing-rows-by-year}
-missing_rows_by_year %>%
-  ggplot2::ggplot(ggplot2::aes(x = YEAR, y = share_incomplete)) +
-  ggplot2::geom_col() +
-  ggplot2::scale_y_continuous(labels = scales::percent_format()) +
-  ggplot2::labs(
+missing_rows_by_year |>
+  ggplot(aes(x = YEAR, y = share_incomplete)) +
+  geom_col(fill = "#4C78A8") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
     title = "Anteil unvollständiger Datensätze pro Jahr",
     x = "Jahr",
-    y = "Anteil mit mindestens einem Missing"
+    y = "Anteil"
   )
 ```
 
-## 1.2 Missing Values pro Jahr und Variable
+## Missing Values pro Jahr und Variable
 
 ```{r missing-by-variable-year}
 analysis_vars <- c(
@@ -139,71 +133,64 @@ analysis_vars <- c(
   "CIVSTA"
 )
 
-missing_by_var_year <- panel_final %>%
-  dplyr::mutate(
-    dplyr::across(dplyr::all_of(analysis_vars), as.character)
-  ) %>%
-  tidyr::pivot_longer(
-    cols = dplyr::all_of(analysis_vars),
+missing_by_var_year <- panel_final |>
+  mutate(across(all_of(analysis_vars), as.character)) |>
+  pivot_longer(
+    cols = all_of(analysis_vars),
     names_to = "variable",
     values_to = "value"
-  ) %>%
-  dplyr::group_by(YEAR, variable) %>%
-  dplyr::summarise(
-    n_total = dplyr::n(),
+  ) |>
+  group_by(YEAR, variable) |>
+  summarise(
+    n_total = n(),
     n_missing = sum(is.na(value)),
     share_missing = n_missing / n_total,
     .groups = "drop"
-  ) %>%
-  dplyr::arrange(dplyr::desc(share_missing), YEAR, variable)
+  ) |>
+  arrange(desc(share_missing), YEAR, variable)
 
 missing_by_var_year
 ```
 
 ```{r missing-over-90}
-missing_over_90 <- missing_by_var_year %>%
-  dplyr::filter(share_missing > 0.9) %>%
-  dplyr::arrange(dplyr::desc(share_missing), YEAR, variable)
+missing_over_90 <- missing_by_var_year |>
+  filter(share_missing > 0.9) |>
+  arrange(desc(share_missing), YEAR, variable)
 
 missing_over_90
 ```
 
-## 1.3 Zielvariable und Zieljahr bestimmen
+## Zielvariable für die Imputation
 
 ```{r identify-target}
 if (nrow(missing_over_90) > 0) {
-  target_info <- missing_over_90 %>%
-    dplyr::slice(1) %>%
-    dplyr::mutate(selection_rule = ">90% Missing")
+  target_info <- missing_over_90 |>
+    slice(1) |>
+    mutate(selection_rule = "> 90% Missing")
 } else {
-  target_info <- missing_by_var_year %>%
-    dplyr::slice(1) %>%
-    dplyr::mutate(selection_rule = "höchster Missing-Anteil, aber nicht >90%")
+  target_info <- missing_by_var_year |>
+    slice(1) |>
+    mutate(selection_rule = "höchster Missing-Anteil")
 }
 
 target_info
 ```
 
-## 1.4 Imputation mit dem neuesten verfügbaren früheren Personenwert
+## Imputation mit dem letzten früheren Personenwert
 
 ```{r imputation-function}
 fill_from_past <- function(data, varname, target_year) {
-  varname <- as.character(varname)
-  target_year <- as.integer(target_year)
-
   data <- data[order(data$IDPERS, data$YEAR), ]
-
   split_data <- split(data, data$IDPERS)
 
   split_data <- lapply(split_data, function(df_person) {
-    x <- df_person[[varname]]
-
+    values <- df_person[[varname]]
     last_seen <- NA
-    filled <- x
+    filled <- values
 
-    for (i in seq_along(x)) {
-      if (!is.na(x[i])) {
-        last_seen <- x[i]
+    for (i in seq_along(values)) {
+      if (!is.na(values[i])) {
+        last_seen <- values[i]
       } else if (df_person$YEAR[i] == target_year && !is.na(last_seen)) {
         filled[i] <- last_seen
       }
@@ -213,24 +200,24 @@ fill_from_past <- function(data, varname, target_year) {
     df_person
   })
 
-  dplyr::bind_rows(split_data) %>%
-    dplyr::arrange(IDPERS, YEAR)
+  bind_rows(split_data) |>
+    arrange(IDPERS, YEAR)
 }
 ```
 
 ```{r apply-imputation}
 panel_imputed <- panel_final
 
-target_var  <- as.character(target_info$variable[[1]])
+target_var <- as.character(target_info$variable[[1]])
 target_year <- as.integer(target_info$YEAR[[1]])
+
+panel_imputed <- fill_from_past(panel_imputed, target_var, target_year)
 
 target_var
 target_year
-
-panel_imputed <- fill_from_past(panel_imputed, target_var, target_year)
 ```
 
-## 1.5 `COMPLETE` nach der Imputation neu berechnen
+## Vollständigkeit nach der Imputation
 
 ```{r recompute-complete}
 complete_vars <- c(
@@ -238,145 +225,111 @@ complete_vars <- c(
   "HASKID", "NAT", "PC19", "PP10", "NETHHINCPP", "PO58", "CIVSTA"
 )
 
-panel_imputed <- panel_imputed %>%
-  dplyr::mutate(
-    COMPLETE = !dplyr::if_any(
-      dplyr::all_of(complete_vars),
-      is.na
-    )
-  )
+panel_imputed$COMPLETE <- rowSums(is.na(panel_imputed[complete_vars])) == 0
 
-panel_imputed %>%
-  dplyr::count(COMPLETE)
+panel_imputed |>
+  count(COMPLETE)
 ```
 
-## 1.6 Missing-Struktur nach der Imputation kontrollieren
-
 ```{r missing-after-imputation}
-missing_by_var_year_after <- panel_imputed %>%
-  dplyr::mutate(
-    dplyr::across(dplyr::all_of(analysis_vars), as.character)
-  ) %>%
-  tidyr::pivot_longer(
-    cols = dplyr::all_of(analysis_vars),
+missing_by_var_year_after <- panel_imputed |>
+  mutate(across(all_of(analysis_vars), as.character)) |>
+  pivot_longer(
+    cols = all_of(analysis_vars),
     names_to = "variable",
     values_to = "value"
-  ) %>%
-  dplyr::group_by(YEAR, variable) %>%
-  dplyr::summarise(
-    n_total = dplyr::n(),
+  ) |>
+  group_by(YEAR, variable) |>
+  summarise(
+    n_total = n(),
     n_missing = sum(is.na(value)),
     share_missing = n_missing / n_total,
     .groups = "drop"
-  ) %>%
-  dplyr::arrange(dplyr::desc(share_missing), YEAR, variable)
+  ) |>
+  arrange(desc(share_missing), YEAR, variable)
 
 missing_by_var_year_after
 ```
 
 ```{r compare-before-after}
-comparison_missing <- missing_by_var_year %>%
+comparison_missing <- missing_by_var_year |>
   dplyr::rename(
     n_missing_before = n_missing,
     share_missing_before = share_missing
-  ) %>%
-  dplyr::select(YEAR, variable, n_missing_before, share_missing_before) %>%
-  dplyr::left_join(
-    missing_by_var_year_after %>%
+  ) |>
+  select(YEAR, variable, n_missing_before, share_missing_before) |>
+  left_join(
+    missing_by_var_year_after |>
       dplyr::rename(
         n_missing_after = n_missing,
         share_missing_after = share_missing
-      ) %>%
-      dplyr::select(YEAR, variable, n_missing_after, share_missing_after),
+      ) |>
+      select(YEAR, variable, n_missing_after, share_missing_after),
     by = c("YEAR", "variable")
   )
 
-comparison_missing %>%
-  dplyr::filter(variable == target_var, YEAR == target_year)
+comparison_missing |>
+  filter(variable == target_var, YEAR == target_year)
 ```
 
-# 2. Plausibilität der Daten
+# 2. Plausibilisierung
 
-```{r define-plausibility-data}
+```{r plausibility-data}
 panel_all <- panel_imputed
-
-panel_complete <- panel_imputed %>%
-  dplyr::filter(COMPLETE)
+panel_complete <- panel_imputed |>
+  filter(COMPLETE)
 ```
 
-## 2.1 Verteilungen innerhalb des SHP: vor und nach Entfernen unvollständiger Fälle
-
-### Geschlecht
+## Verteilungen im SHP vor und nach Filterung vollständiger Fälle
 
 ```{r sex-distributions}
-sex_all <- panel_all %>%
-  dplyr::filter(SEX %in% c("männlich", "weiblich")) %>%
-  dplyr::count(SEX) %>%
-  dplyr::mutate(
-    dataset = "Alle Fälle",
-    share = n / sum(n)
-  )
+sex_all <- panel_all |>
+  filter(SEX %in% c("männlich", "weiblich")) |>
+  count(SEX) |>
+  mutate(dataset = "Alle Fälle", share = n / sum(n))
 
-sex_complete <- panel_complete %>%
-  dplyr::filter(SEX %in% c("männlich", "weiblich")) %>%
-  dplyr::count(SEX) %>%
-  dplyr::mutate(
-    dataset = "Nur vollständige Fälle",
-    share = n / sum(n)
-  )
+sex_complete <- panel_complete |>
+  filter(SEX %in% c("männlich", "weiblich")) |>
+  count(SEX) |>
+  mutate(dataset = "Nur vollständige Fälle", share = n / sum(n))
 
-sex_compare <- dplyr::bind_rows(sex_all, sex_complete)
-
+sex_compare <- bind_rows(sex_all, sex_complete)
 sex_compare
 ```
 
-### Altersgruppen
-
 ```{r age-distributions}
-age_all <- panel_all %>%
-  dplyr::count(AGEGROUP_CURRENT) %>%
-  dplyr::mutate(
-    dataset = "Alle Fälle",
-    share = n / sum(n)
-  )
+age_all <- panel_all |>
+  filter(!is.na(AGEGROUP_CURRENT)) |>
+  count(AGEGROUP_CURRENT) |>
+  mutate(dataset = "Alle Fälle", share = n / sum(n))
 
-age_complete <- panel_complete %>%
-  dplyr::count(AGEGROUP_CURRENT) %>%
-  dplyr::mutate(
-    dataset = "Nur vollständige Fälle",
-    share = n / sum(n)
-  )
+age_complete <- panel_complete |>
+  filter(!is.na(AGEGROUP_CURRENT)) |>
+  count(AGEGROUP_CURRENT) |>
+  mutate(dataset = "Nur vollständige Fälle", share = n / sum(n))
 
-age_compare <- dplyr::bind_rows(age_all, age_complete)
-
+age_compare <- bind_rows(age_all, age_complete)
 age_compare
 ```
 
-### Kanton
-
 ```{r canton-distributions}
-canton_all <- panel_all %>%
-  dplyr::filter(!is.na(CANTON)) %>%
-  dplyr::count(CANTON) %>%
-  dplyr::mutate(
-    dataset = "Alle Fälle",
-    share = n / sum(n)
-  )
+canton_all <- panel_all |>
+  filter(!is.na(CANTON)) |>
+  count(CANTON) |>
+  mutate(dataset = "Alle Fälle", share = n / sum(n))
 
-canton_complete <- panel_complete %>%
-  dplyr::filter(!is.na(CANTON)) %>%
-  dplyr::count(CANTON) %>%
-  dplyr::mutate(
-    dataset = "Nur vollständige Fälle",
-    share = n / sum(n)
-  )
+canton_complete <- panel_complete |>
+  filter(!is.na(CANTON)) |>
+  count(CANTON) |>
+  mutate(dataset = "Nur vollständige Fälle", share = n / sum(n))
 
-canton_compare <- dplyr::bind_rows(canton_all, canton_complete)
-
+canton_compare <- bind_rows(canton_all, canton_complete)
 canton_compare
 ```
 
-## 2.2 BFS-Daten einlesen
+## BFS-Daten laden
+
+Die BFS-Daten werden nur verwendet, wenn sie erfolgreich geladen werden können. Falls der Download nicht möglich ist, bricht das Dokument nicht ab.
 
 ```{r bfs-load}
 bfs_raw <- tryCatch(
@@ -387,149 +340,114 @@ bfs_raw <- tryCatch(
   error = function(e) NULL
 )
 
-head(bfs_raw)
+bfs_tbl <- if (is.null(bfs_raw)) NULL else tryCatch(as.data.frame(bfs_raw), error = function(e) NULL)
+bfs_available <- !is.null(bfs_tbl)
+
+bfs_available
 ```
-
-## 2.3 BFS-Daten inspizieren
-
-```{r bfs-inspect}
-if (!is.null(bfs_raw)) {
-  try(str(bfs_raw, max.level = 2), silent = TRUE)
-  try(names(bfs_raw), silent = TRUE)
-  bfs_tbl <- tryCatch(as.data.frame(bfs_raw), error = function(e) NULL)
-} else {
-  bfs_tbl <- NULL
-}
-
-head(bfs_tbl)
-```
-
-## 2.4 BFS-Referenzjahr
 
 ```{r bfs-reference-year}
 bfs_year_ref <- 2023L
 bfs_year_ref
 ```
 
-## 2.5 BFS Geschlecht
+## BFS-Vergleich Geschlecht
 
 ```{r bfs-sex}
-bfs_sex <- bfs_tbl %>%
-  dplyr::filter(
-    as.character(Bevölkerungstyp) == "Ständige Wohnbevölkerung",
-    as.character(Alter) == "Alter - Total",
-    as.character(Zivilstand) == "Zivilstand - Total",
-    as.character(Kanton) == "Schweiz",
-    as.integer(as.character(Jahr)) == bfs_year_ref,
-    as.character(Geschlecht) != "Geschlecht - Total"
-  ) %>%
-  dplyr::mutate(
-    SEX = dplyr::case_when(
-      as.character(Geschlecht) == "Mann" ~ "männlich",
-      as.character(Geschlecht) == "Frau" ~ "weiblich",
-      TRUE ~ NA_character_
-    )
-  ) %>%
-  dplyr::filter(!is.na(SEX)) %>%
-  dplyr::group_by(SEX) %>%
-  dplyr::summarise(
-    n = sum(value, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  dplyr::mutate(
-    dataset = "BFS",
-    share = n / sum(n)
-  )
+if (bfs_available) {
+  bfs_sex <- bfs_tbl |>
+    filter(
+      as.character(Bevölkerungstyp) == "Ständige Wohnbevölkerung",
+      as.character(Alter) == "Alter - Total",
+      as.character(Zivilstand) == "Zivilstand - Total",
+      as.character(Kanton) == "Schweiz",
+      as.integer(as.character(Jahr)) == bfs_year_ref,
+      as.character(Geschlecht) != "Geschlecht - Total"
+    ) |>
+    mutate(
+      SEX = case_when(
+        as.character(Geschlecht) == "Mann" ~ "männlich",
+        as.character(Geschlecht) == "Frau" ~ "weiblich",
+        TRUE ~ NA_character_
+      )
+    ) |>
+    filter(!is.na(SEX)) |>
+    group_by(SEX) |>
+    summarise(n = sum(value, na.rm = TRUE), .groups = "drop") |>
+    mutate(dataset = "BFS", share = n / sum(n))
+} else {
+  bfs_sex <- tibble(SEX = character(), n = numeric(), dataset = character(), share = numeric())
+}
 
 bfs_sex
 ```
 
-```{r sex-compare-full}
-sex_compare_full <- dplyr::bind_rows(
-  sex_all,
-  sex_complete,
-  bfs_sex
-)
-
-sex_compare_full
-```
-
 ```{r plot-sex-compare-full}
-sex_compare_full %>%
-  ggplot2::ggplot(ggplot2::aes(x = SEX, y = share, fill = dataset)) +
-  ggplot2::geom_col(position = "dodge") +
-  ggplot2::scale_y_continuous(labels = scales::percent_format()) +
-  ggplot2::labs(
-    title = paste("Geschlechtsverteilung: SHP vs. BFS (", bfs_year_ref, ")", sep = ""),
+sex_compare_full <- bind_rows(sex_all, sex_complete, bfs_sex)
+
+sex_compare_full |>
+  ggplot(aes(x = SEX, y = share, fill = dataset)) +
+  geom_col(position = "dodge") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
+    title = paste0("Geschlechtsverteilung: SHP vs. BFS (", bfs_year_ref, ")"),
     x = "Geschlecht",
     y = "Anteil"
   )
 ```
 
-## 2.6 BFS Alter
+## BFS-Vergleich Alter
 
 ```{r bfs-age}
-bfs_age <- bfs_tbl %>%
-  dplyr::filter(
-    as.character(Bevölkerungstyp) == "Ständige Wohnbevölkerung",
-    as.character(Geschlecht) == "Geschlecht - Total",
-    as.character(Zivilstand) == "Zivilstand - Total",
-    as.character(Kanton) == "Schweiz",
-    as.integer(as.character(Jahr)) == bfs_year_ref,
-    as.character(Alter) != "Alter - Total"
-  ) %>%
-  dplyr::mutate(
-    age_num = readr::parse_number(as.character(Alter))
-  ) %>%
-  dplyr::filter(!is.na(age_num), age_num >= 18) %>%
-  dplyr::mutate(
-    AGEGROUP_CURRENT = dplyr::case_when(
-      age_num >= 18 & age_num < 30 ~ "18-29",
-      age_num >= 30 & age_num < 45 ~ "30-44",
-      age_num >= 45 & age_num < 60 ~ "45-59",
-      age_num >= 60 & age_num < 75 ~ "60-74",
-      age_num >= 75 ~ "75+",
-      TRUE ~ NA_character_
-    )
-  ) %>%
-  dplyr::group_by(AGEGROUP_CURRENT) %>%
-  dplyr::summarise(
-    n = sum(value, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  dplyr::mutate(
-    dataset = "BFS",
-    share = n / sum(n)
-  )
+if (bfs_available) {
+  bfs_age <- bfs_tbl |>
+    filter(
+      as.character(Bevölkerungstyp) == "Ständige Wohnbevölkerung",
+      as.character(Geschlecht) == "Geschlecht - Total",
+      as.character(Zivilstand) == "Zivilstand - Total",
+      as.character(Kanton) == "Schweiz",
+      as.integer(as.character(Jahr)) == bfs_year_ref,
+      as.character(Alter) != "Alter - Total"
+    ) |>
+    mutate(age_num = readr::parse_number(as.character(Alter))) |>
+    filter(!is.na(age_num), age_num >= 18) |>
+    mutate(
+      AGEGROUP_CURRENT = case_when(
+        age_num >= 18 & age_num < 30 ~ "18-29",
+        age_num >= 30 & age_num < 45 ~ "30-44",
+        age_num >= 45 & age_num < 60 ~ "45-59",
+        age_num >= 60 & age_num < 75 ~ "60-74",
+        age_num >= 75 ~ "75+",
+        TRUE ~ NA_character_
+      )
+    ) |>
+    group_by(AGEGROUP_CURRENT) |>
+    summarise(n = sum(value, na.rm = TRUE), .groups = "drop") |>
+    mutate(dataset = "BFS", share = n / sum(n))
+} else {
+  bfs_age <- tibble(AGEGROUP_CURRENT = character(), n = numeric(), dataset = character(), share = numeric())
+}
 
 bfs_age
 ```
 
-```{r age-compare-full}
-age_compare_full <- dplyr::bind_rows(
-  age_all,
-  age_complete,
-  bfs_age
-)
-
-age_compare_full
-```
-
 ```{r plot-age-compare-full}
-age_compare_full %>%
-  ggplot2::ggplot(ggplot2::aes(x = AGEGROUP_CURRENT, y = share, fill = dataset)) +
-  ggplot2::geom_col(position = "dodge") +
-  ggplot2::scale_y_continuous(labels = scales::percent_format()) +
-  ggplot2::labs(
-    title = paste("Altersverteilung: SHP vs. BFS (", bfs_year_ref, ")", sep = ""),
+age_compare_full <- bind_rows(age_all, age_complete, bfs_age)
+
+age_compare_full |>
+  ggplot(aes(x = AGEGROUP_CURRENT, y = share, fill = dataset)) +
+  geom_col(position = "dodge") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
+    title = paste0("Altersverteilung: SHP vs. BFS (", bfs_year_ref, ")"),
     x = "Altersgruppe",
     y = "Anteil"
   )
 ```
 
-## 2.7 BFS Kantone
+## BFS-Vergleich Kanton
 
-```{r bfs-canton-map}
+```{r bfs-canton}
 bfs_canton_map <- c(
   "Zürich" = "ZH",
   "Bern / Berne" = "BE",
@@ -558,53 +476,41 @@ bfs_canton_map <- c(
   "Genève" = "GE",
   "Jura" = "JU"
 )
-```
 
-```{r bfs-canton}
-bfs_canton <- bfs_tbl %>%
-  dplyr::filter(
-    as.character(Bevölkerungstyp) == "Ständige Wohnbevölkerung",
-    as.character(Alter) == "Alter - Total",
-    as.character(Geschlecht) == "Geschlecht - Total",
-    as.character(Zivilstand) == "Zivilstand - Total",
-    as.integer(as.character(Jahr)) == bfs_year_ref,
-    as.character(Kanton) != "Schweiz"
-  ) %>%
-  dplyr::mutate(
-    CANTON = dplyr::recode(as.character(Kanton), !!!bfs_canton_map, .default = NA_character_)
-  ) %>%
-  dplyr::filter(!is.na(CANTON)) %>%
-  dplyr::group_by(CANTON) %>%
-  dplyr::summarise(
-    n = sum(value, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  dplyr::mutate(
-    dataset = "BFS",
-    share = n / sum(n)
-  )
+if (bfs_available) {
+  bfs_canton <- bfs_tbl |>
+    filter(
+      as.character(Bevölkerungstyp) == "Ständige Wohnbevölkerung",
+      as.character(Alter) == "Alter - Total",
+      as.character(Geschlecht) == "Geschlecht - Total",
+      as.character(Zivilstand) == "Zivilstand - Total",
+      as.integer(as.character(Jahr)) == bfs_year_ref,
+      as.character(Kanton) != "Schweiz"
+    ) |>
+    mutate(
+      CANTON = recode(as.character(Kanton), !!!bfs_canton_map, .default = NA_character_)
+    ) |>
+    filter(!is.na(CANTON)) |>
+    group_by(CANTON) |>
+    summarise(n = sum(value, na.rm = TRUE), .groups = "drop") |>
+    mutate(dataset = "BFS", share = n / sum(n))
+} else {
+  bfs_canton <- tibble(CANTON = character(), n = numeric(), dataset = character(), share = numeric())
+}
 
 bfs_canton
 ```
 
-```{r canton-compare-full}
-canton_compare_full <- dplyr::bind_rows(
-  canton_all,
-  canton_complete,
-  bfs_canton
-)
-
-canton_compare_full
-```
-
 ```{r plot-canton-compare-full}
-canton_compare_full %>%
-  ggplot2::ggplot(ggplot2::aes(x = reorder(CANTON, share), y = share, fill = dataset)) +
-  ggplot2::geom_col(position = "dodge") +
-  ggplot2::coord_flip() +
-  ggplot2::scale_y_continuous(labels = scales::percent_format()) +
-  ggplot2::labs(
-    title = paste("Kantonsverteilung: SHP vs. BFS (", bfs_year_ref, ")", sep = ""),
+canton_compare_full <- bind_rows(canton_all, canton_complete, bfs_canton)
+
+canton_compare_full |>
+  ggplot(aes(x = reorder(CANTON, share), y = share, fill = dataset)) +
+  geom_col(position = "dodge") +
+  coord_flip() +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
+    title = paste0("Kantonsverteilung: SHP vs. BFS (", bfs_year_ref, ")"),
     x = "Kanton",
     y = "Anteil"
   )
@@ -612,12 +518,12 @@ canton_compare_full %>%
 
 # 3. Auswertung
 
-## 3.1 Zeitliche Entwicklung des Vertrauens in den Bundesrat
+## Entwicklung von `PP04` über die Zeit
 
 ```{r trust-over-time}
-trust_over_time <- panel_imputed %>%
-  dplyr::group_by(YEAR) %>%
-  dplyr::summarise(
+trust_over_time <- panel_imputed |>
+  group_by(YEAR) |>
+  summarise(
     mean_PP04 = mean(PP04, na.rm = TRUE),
     median_PP04 = median(PP04, na.rm = TRUE),
     .groups = "drop"
@@ -627,162 +533,133 @@ trust_over_time
 ```
 
 ```{r plot-trust-over-time}
-trust_over_time %>%
-  ggplot2::ggplot(ggplot2::aes(x = YEAR, y = mean_PP04)) +
-  ggplot2::geom_line() +
-  ggplot2::geom_point() +
-  ggplot2::labs(
+trust_over_time |>
+  ggplot(aes(x = YEAR, y = mean_PP04)) +
+  geom_line(color = "#4C78A8") +
+  geom_point(color = "#4C78A8") +
+  labs(
     title = "Vertrauen in den Bundesrat über die Zeit",
     x = "Jahr",
-    y = "Mittleres Vertrauen (PP04)"
+    y = "Mittleres Vertrauen"
   )
 ```
 
-## 3.2 Zusätzliche Grafiken nach Untergruppen
-
-### Grafik 1: nach Geschlecht
+## Zusätzliche Untergruppen-Grafiken
 
 ```{r plot-trust-by-sex}
-panel_imputed %>%
-  dplyr::filter(!is.na(SEX)) %>%
-  dplyr::group_by(YEAR, SEX) %>%
-  dplyr::summarise(
-    mean_PP04 = mean(PP04, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  ggplot2::ggplot(ggplot2::aes(x = YEAR, y = mean_PP04, color = SEX)) +
-  ggplot2::geom_line() +
-  ggplot2::labs(
+panel_imputed |>
+  filter(!is.na(SEX)) |>
+  group_by(YEAR, SEX) |>
+  summarise(mean_PP04 = mean(PP04, na.rm = TRUE), .groups = "drop") |>
+  ggplot(aes(x = YEAR, y = mean_PP04, color = SEX)) +
+  geom_line() +
+  labs(
     title = "Vertrauen in den Bundesrat nach Geschlecht",
     x = "Jahr",
     y = "Mittleres Vertrauen"
   )
 ```
 
-### Grafik 2: nach Geburtskohorte
-
 ```{r plot-trust-by-birthygen}
-panel_imputed %>%
-  dplyr::filter(!is.na(BIRTHYGEN)) %>%
-  dplyr::group_by(YEAR, BIRTHYGEN) %>%
-  dplyr::summarise(
-    mean_PP04 = mean(PP04, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  ggplot2::ggplot(ggplot2::aes(x = YEAR, y = mean_PP04, color = BIRTHYGEN)) +
-  ggplot2::geom_line() +
-  ggplot2::labs(
+panel_imputed |>
+  filter(!is.na(BIRTHYGEN)) |>
+  group_by(YEAR, BIRTHYGEN) |>
+  summarise(mean_PP04 = mean(PP04, na.rm = TRUE), .groups = "drop") |>
+  ggplot(aes(x = YEAR, y = mean_PP04, color = BIRTHYGEN)) +
+  geom_line() +
+  labs(
     title = "Vertrauen in den Bundesrat nach Geburtskohorte",
     x = "Jahr",
     y = "Mittleres Vertrauen"
   )
 ```
 
-### Grafik 3: nach Nationalität
-
 ```{r plot-trust-by-nat}
-panel_imputed %>%
-  dplyr::filter(!is.na(NAT)) %>%
-  dplyr::group_by(YEAR, NAT) %>%
-  dplyr::summarise(
-    mean_PP04 = mean(PP04, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  ggplot2::ggplot(ggplot2::aes(x = YEAR, y = mean_PP04, color = NAT)) +
-  ggplot2::geom_line() +
-  ggplot2::labs(
+panel_imputed |>
+  filter(!is.na(NAT)) |>
+  group_by(YEAR, NAT) |>
+  summarise(mean_PP04 = mean(PP04, na.rm = TRUE), .groups = "drop") |>
+  ggplot(aes(x = YEAR, y = mean_PP04, color = NAT)) +
+  geom_line() +
+  labs(
     title = "Vertrauen in den Bundesrat nach Nationalität",
     x = "Jahr",
     y = "Mittleres Vertrauen"
   )
 ```
 
-### Grafik 4: nach Kindern
-
 ```{r plot-trust-by-haskid}
-panel_imputed %>%
-  dplyr::filter(!is.na(HASKID)) %>%
-  dplyr::group_by(YEAR, HASKID) %>%
-  dplyr::summarise(
-    mean_PP04 = mean(PP04, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  ggplot2::ggplot(ggplot2::aes(x = YEAR, y = mean_PP04, color = HASKID)) +
-  ggplot2::geom_line() +
-  ggplot2::labs(
-    title = "Vertrauen in den Bundesrat nach HASKID",
+panel_imputed |>
+  filter(!is.na(HASKID)) |>
+  group_by(YEAR, HASKID) |>
+  summarise(mean_PP04 = mean(PP04, na.rm = TRUE), .groups = "drop") |>
+  ggplot(aes(x = YEAR, y = mean_PP04, color = HASKID)) +
+  geom_line() +
+  labs(
+    title = "Vertrauen in den Bundesrat nach Kindern",
     x = "Jahr",
     y = "Mittleres Vertrauen"
   )
 ```
 
-### Grafik 5: nach gesundheitlicher Einschränkung
-
 ```{r plot-trust-by-pc19}
-panel_imputed %>%
-  dplyr::filter(!is.na(PC19)) %>%
-  dplyr::group_by(YEAR, PC19) %>%
-  dplyr::summarise(
-    mean_PP04 = mean(PP04, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  ggplot2::ggplot(ggplot2::aes(x = YEAR, y = mean_PP04, color = PC19)) +
-  ggplot2::geom_line() +
-  ggplot2::labs(
+panel_imputed |>
+  filter(!is.na(PC19)) |>
+  group_by(YEAR, PC19) |>
+  summarise(mean_PP04 = mean(PP04, na.rm = TRUE), .groups = "drop") |>
+  ggplot(aes(x = YEAR, y = mean_PP04, color = PC19)) +
+  geom_line() +
+  labs(
     title = "Vertrauen in den Bundesrat nach gesundheitlicher Einschränkung",
     x = "Jahr",
     y = "Mittleres Vertrauen"
   )
 ```
 
-### Grafik 6: nach Zivilstand
-
 ```{r plot-trust-by-civsta}
-panel_imputed %>%
-  dplyr::filter(!is.na(CIVSTA)) %>%
-  dplyr::group_by(YEAR, CIVSTA) %>%
-  dplyr::summarise(
-    mean_PP04 = mean(PP04, na.rm = TRUE),
-    .groups = "drop"
-  ) %>%
-  ggplot2::ggplot(ggplot2::aes(x = YEAR, y = mean_PP04, color = CIVSTA)) +
-  ggplot2::geom_line() +
-  ggplot2::labs(
+panel_imputed |>
+  filter(!is.na(CIVSTA)) |>
+  group_by(YEAR, CIVSTA) |>
+  summarise(mean_PP04 = mean(PP04, na.rm = TRUE), .groups = "drop") |>
+  ggplot(aes(x = YEAR, y = mean_PP04, color = CIVSTA)) +
+  geom_line() +
+  labs(
     title = "Vertrauen in den Bundesrat nach Zivilstand",
     x = "Jahr",
     y = "Mittleres Vertrauen"
   )
 ```
 
-## 3.3 Zusatzhypothese zu `CIVSTA`
+## Hypothese zu `CIVSTA`
 
-```{r hypothesis-summary}
-civsta_summary <- panel_imputed %>%
-  dplyr::filter(!is.na(CIVSTA)) %>%
-  dplyr::group_by(CIVSTA) %>%
-  dplyr::summarise(
+```{r civsta-summary}
+civsta_summary <- panel_imputed |>
+  filter(!is.na(CIVSTA)) |>
+  group_by(CIVSTA) |>
+  summarise(
     mean_PP04 = mean(PP04, na.rm = TRUE),
     median_PP04 = median(PP04, na.rm = TRUE),
-    n = dplyr::n(),
+    n = n(),
     .groups = "drop"
-  )
+  ) |>
+  arrange(desc(mean_PP04))
 
 civsta_summary
 ```
 
 ```{r plot-hypothesis-civsta}
-civsta_summary %>%
-  ggplot2::ggplot(ggplot2::aes(x = reorder(CIVSTA, mean_PP04), y = mean_PP04)) +
-  ggplot2::geom_col() +
-  ggplot2::coord_flip() +
-  ggplot2::labs(
+civsta_summary |>
+  ggplot(aes(x = reorder(CIVSTA, mean_PP04), y = mean_PP04)) +
+  geom_col(fill = "#F58518") +
+  coord_flip() +
+  labs(
     title = "Mittleres Vertrauen in den Bundesrat nach Zivilstand",
     x = "Zivilstand",
     y = "Mittleres Vertrauen"
   )
 ```
 
-# Daten für Woche 3 speichern
+# Daten speichern
 
 ```{r save-week3-data}
 if (!dir.exists("../data/processed")) dir.create("../data/processed", recursive = TRUE)
@@ -791,12 +668,6 @@ write_csv(panel_imputed, "../data/processed/shp_panel_week3_imputed.csv")
 saveRDS(panel_imputed, "../data/processed/shp_panel_week3_imputed.rds")
 ```
 
-# Hinweise für den Bericht
+# Zusammenfassung
 
-Für den späteren Schlussbericht solltet ihr festhalten:
-- wie viele unvollständige Fälle es pro Jahr gab,
-- welche Variable in welchem Jahr den höchsten Missing-Anteil hatte,
-- wie die Imputation durchgeführt wurde,
-- ob sich die Verteilungen von Geschlecht, Altersgruppen und Kanton nach Entfernen unvollständiger Fälle verschieben,
-- wie sich das Vertrauen in den Bundesrat über die Zeit entwickelt,
-- und ob die Hypothese zu `CIVSTA` gestützt wird.
+Das Dokument liefert die Missing-Analyse, die Imputation einer stark betroffenen Variable, die Plausibilisierung über SHP- und BFS-Verteilungen sowie die in der Aufgabenstellung geforderte Auswertung von `PP04` und `CIVSTA`.

@@ -1,12 +1,15 @@
 ---
-title: "Praktikum 2 – Woche 2: Datenaufbereitung mit SHP-Longfiles"
-author: "Name / Gruppe"
+title: "Praktikum 2 - Woche 2: Datenaufbereitung"
+author: "Phineas Berdelis / Valentin Schwarz"
 date: "`r Sys.Date()`"
 output:
   html_document:
     toc: true
     toc_depth: 3
     number_sections: true
+  pdf_document:
+    toc: true
+    toc_depth: 3
 ---
 
 ```{r setup, include=FALSE}
@@ -17,15 +20,32 @@ knitr::opts_chunk$set(
 )
 ```
 
-# Ziel von Woche 2
+# Überblick
 
-In Woche 2 wird der aufbereitete Paneldatensatz erstellt. Eine Zeile im Enddatensatz entspricht **einer Person in einem Befragungsjahr**. Laut Aufgabenstellung sollen die Variablen `IDPERS`, `IDHOUS`, `YEAR`, `PP04`, `BIRTHY`, `BIRTHYGEN`, `SEX`, `CANTON`, `EDUCAT`, `HASKID`, `NAT`, `PC19`, `PP10`, `NETHHINCPP`, `PO58` und `COMPLETE` enthalten sein. Zudem sollen nur Jahre verwendet werden, in denen `PP04` erhoben wurde, und es sollen nur Erwachsene im Datensatz verbleiben. fileciteturn18file0L1-L12 fileciteturn18file0L31-L39
+In Woche 2 wird der Paneldatensatz erstellt, der in Woche 3 weiter ausgewertet wird.
+Eine Zeile des Enddatensatzes entspricht einer Person in einem Befragungsjahr.
 
-# Warum diese Variante mit Longfiles?
+Der Enddatensatz enthält die Variablen:
 
-Im Datensatz gibt es sowohl die jährlichen User-Dateien (`SHP$$_P_USER`, `SHP$$_H_USER`) als auch Longfiles (`SHPLONG_P_USER`, `SHPLONG_H_USER`). Die Longfiles enthalten die jährlichen Informationen bereits in harmonisierter Long-Form mit einer Personen- bzw. Haushalts-ID und einer Jahresvariable. Für die Aufgabe ist das praktisch, weil damit nicht mehr jede Jahresdatei einzeln eingelesen und harmonisiert werden muss.
+- `IDPERS`
+- `IDHOUS`
+- `YEAR`
+- `PP04`
+- `BIRTHY`
+- `BIRTHYGEN`
+- `SEX`
+- `CANTON`
+- `EDUCAT`
+- `HASKID`
+- `NAT`
+- `PC19`
+- `PP10`
+- `NETHHINCPP`
+- `PO58`
+- `COMPLETE`
+- `CIVSTA`
 
-**Wichtig:** Mit den beiden Longfiles allein reicht es aber nicht aus, alle geforderten Zielvariablen zu bauen. Für `BIRTHY` und `PO58` werden zusätzlich weiterhin die Dateien `SHP_MP` und `SHP_SO` benötigt. Das folgt direkt aus den Hinweisen im Aufgabenblatt: `BIRTHY` und `SEX` stammen aus `SHP_MP`, `PO58` stammt aus `SHP_SO/P..O58`, während die übrigen wellenspezifischen Variablen aus `SHP$$_P_USER` bzw. `SHP$$_H_USER` kommen. Inhaltlich bilden die Longfiles genau diese jährlichen User-Dateien in zusammengeführter Form ab. fileciteturn18file0L61-L75
+Zusätzlich werden nur Jahre berücksichtigt, in denen `PP04` erhoben wurde, und es bleiben nur erwachsene Personen im Datensatz.
 
 # Pakete
 
@@ -33,23 +53,21 @@ Im Datensatz gibt es sowohl die jährlichen User-Dateien (`SHP$$_P_USER`, `SHP$$
 library(tidyverse)
 library(foreign)
 library(knitr)
+
+select <- dplyr::select
+filter <- dplyr::filter
+mutate <- dplyr::mutate
+arrange <- dplyr::arrange
+rename <- dplyr::rename
+count <- dplyr::count
+group_by <- dplyr::group_by
+summarise <- dplyr::summarise
+summarize <- dplyr::summarize
+left_join <- dplyr::left_join
+pivot_longer <- tidyr::pivot_longer
 ```
 
-# Ordnerstruktur
-
-Dieses R Markdown geht von folgender Struktur aus:
-
-```{r folder-structure, eval=FALSE}
-projekt/
-├── data_raw/
-│   └── Data_SPSS.zip
-├── data_unzipped/
-├── data_processed/
-└── reports/
-    └── woche2_datenaufbereitung_longfiles.Rmd
-```
-
-# Pfade und Verzeichnisse
+# Pfade
 
 ```{r paths}
 zip_path <- "../data/raw/Data_SPSS.zip"
@@ -62,23 +80,7 @@ if (!dir.exists(processed_dir)) dir.create(processed_dir, recursive = TRUE)
 
 # Hilfsfunktionen
 
-## ZIP entpacken
-
-Die Aufgabe verlangt, dass die gesamte Prozedur von der heruntergeladenen ZIP-Datei ausgeht und auch das Entzippen in R ausgeführt wird. fileciteturn18file0L34-L39
-
-```{r unzip}
-if (!file.exists(zip_path)) {
-  stop("ZIP-Datei nicht gefunden: ", zip_path)
-}
-
-unzip(zipfile = zip_path, exdir = unzipped_dir)
-```
-
-## SPSS-Dateien einlesen
-
-Die Aufgabenstellung empfiehlt die SPSS-Dateien und die Funktion `read.spss()` aus `foreign`. Werden die Dateien mit `use.missings = FALSE` eingelesen, werden SHP-Missing-Codes automatisch zu `NA`. fileciteturn18file0L25-L27 fileciteturn18file0L46-L50
-
-```{r read-function}
+```{r helpers}
 read_spss_file <- function(path) {
   foreign::read.spss(
     file = path,
@@ -88,11 +90,7 @@ read_spss_file <- function(path) {
   ) |>
     tibble::as_tibble()
 }
-```
 
-## Dateien finden
-
-```{r find-files}
 find_single_file <- function(pattern) {
   files <- list.files(
     path = unzipped_dir,
@@ -107,54 +105,51 @@ find_single_file <- function(pattern) {
 
   files
 }
-```
 
-## Hilfsfunktion für numerische Umwandlung
-
-Einige Variablen werden aus SPSS als Faktoren importiert. Die Aufgabenstellung weist ausdrücklich darauf hin, dass solche Variablen in numerische Werte rekodiert werden sollen, zum Beispiel mit `as.numeric(as.character(...))`. fileciteturn18file0L40-L42
-
-```{r to-num}
 to_num <- function(x) {
   if (is.factor(x)) x <- as.character(x)
   suppressWarnings(as.numeric(x))
 }
+
+is_swiss <- function(x) {
+  x %in% c(8100, 756)
+}
+```
+
+# Rohdaten entpacken
+
+```{r unzip}
+if (!file.exists(zip_path)) {
+  stop("ZIP-Datei nicht gefunden: ", zip_path)
+}
+
+unzip(zipfile = zip_path, exdir = unzipped_dir)
 ```
 
 # Benötigte Dateien laden
 
-Für diese Variante werden vier Dateien verwendet:
+Für die Aufbereitung werden vier SPSS-Dateien verwendet:
 
 - `SHPLONG_P_USER.sav`
 - `SHPLONG_H_USER.sav`
 - `SHP_MP.sav`
 - `SHP_SO.sav`
 
-Die beiden Longfiles enthalten die jahresspezifischen Personen- bzw. Haushaltsinformationen. `SHP_MP` und `SHP_SO` bleiben notwendig, weil dort `BIRTHY` und `PO58` liegen. fileciteturn18file0L61-L75
-
 ```{r locate-files}
 p_long_path <- find_single_file("^SHPLONG_P_USER\\.sav$")
 h_long_path <- find_single_file("^SHPLONG_H_USER\\.sav$")
-mp_path     <- find_single_file("^SHP_MP\\.sav$")
-so_path     <- find_single_file("^SHP_SO\\.sav$")
-
-p_long_path
-h_long_path
-mp_path
-so_path
+mp_path <- find_single_file("^SHP_MP\\.sav$")
+so_path <- find_single_file("^SHP_SO\\.sav$")
 ```
 
 ```{r load-files}
 p_long_raw <- read_spss_file(p_long_path)
 h_long_raw <- read_spss_file(h_long_path)
-mp_raw     <- read_spss_file(mp_path)
-so_raw     <- read_spss_file(so_path)
+mp_raw <- read_spss_file(mp_path)
+so_raw <- read_spss_file(so_path)
 ```
 
 # Relevante Variablen auswählen
-
-## Longfile Personen
-
-Für die Aufgabe werden aus dem Personen-Longfile die Variablen für ID, Jahr, Haushalt, Vertrauen in den Bundesrat, Bildung, Kinder, Nationalitäten, gesundheitliche Einschränkung und politische Selbsteinschätzung benötigt. Die Aufgabenstellung nennt für `PC19` ausdrücklich `P$$P19` oder teilweise `P$$P19A`; in der Longdatei liegen diese harmonisiert als `pc19` und `pc19a` vor. fileciteturn18file0L61-L75
 
 ```{r select-p-long}
 p_long <- p_long_raw |>
@@ -164,35 +159,17 @@ p_long <- p_long_raw |>
     nat_1_, nat_2_, nat_3_,
     pp04, pp10, pc19, pc19a
   )
-
-glimpse(p_long)
 ```
-
-## Longfile Haushalt
 
 ```{r select-h-long}
 h_long <- h_long_raw |>
-  select(
-    idhous, year, canton, ihtyn, nbpers
-  )
-
-glimpse(h_long)
+  select(idhous, year, canton, ihtyn, nbpers)
 ```
-
-## Masterdatei Personen
-
-Laut Aufgabenblatt stammen `BIRTHY` und `SEX` aus `SHP_MP`. Da `SEX` im Personen-Longfile ebenfalls vorhanden ist, könnte man es theoretisch auch von dort nehmen. Um aber der Aufgabenstellung möglichst nahe zu bleiben, wird `BIRTHY` und zusätzlich `SEX` aus `SHP_MP` übernommen. fileciteturn18file0L61-L75
 
 ```{r select-mp}
 mp <- mp_raw |>
   select(IDPERS, BIRTHY, SEX)
-
-glimpse(mp)
 ```
-
-## Social-Origin-Datei
-
-Die Aufgabe nennt für `PO58` die Variable `P..O58` in `SHP_SO`. Nach dem Einlesen mit `foreign::read.spss()` kann diese Variable je nach Namensbereinigung etwa als `P..O58` oder ähnlich erscheinen. Deshalb wird sie robust per Suchmuster identifiziert. fileciteturn18file0L73-L75
 
 ```{r select-so}
 o58_candidates <- names(so_raw)[grepl("O58", names(so_raw), ignore.case = TRUE)]
@@ -205,53 +182,51 @@ so_var <- o58_candidates[[1]]
 
 so <- so_raw |>
   select(IDPERS, all_of(so_var)) |>
-  rename(PO58 = all_of(so_var))
-
-glimpse(so)
+  dplyr::rename(PO58 = all_of(so_var))
 ```
 
-# Jahre mit `PP04`
+# Verwendete Befragungsjahre
 
-Es sollen nur Jahre berücksichtigt werden, in denen `PP04` erhoben wurde. Auf Basis der bisherigen Prüfung der SHP-Daten werden die folgenden Wellen verwendet:
+Es werden nur Jahre verwendet, in denen `PP04` tatsächlich erhoben wurde.
 
 ```{r years}
-years_use <- c(1999L, 2000L, 2001L, 2002L, 2003L, 2004L, 2005L, 2006L,
-               2007L, 2008L, 2009L, 2011L, 2014L, 2017L, 2020L, 2023L)
+years_use <- c(
+  1999L, 2000L, 2001L, 2002L, 2003L, 2004L, 2005L, 2006L,
+  2007L, 2008L, 2009L, 2011L, 2014L, 2017L, 2020L, 2023L
+)
 
 years_use
 ```
-
-Optional kann man prüfen, in welchen Jahren im Personen-Longfile tatsächlich nicht-missing Werte für `pp04` vorkommen:
 
 ```{r check-pp04-years}
 p_long |>
   mutate(pp04 = to_num(pp04)) |>
   group_by(year) |>
-  summarise(n_valid_pp04 = sum(!is.na(pp04))) |>
+  summarise(n_valid_pp04 = sum(!is.na(pp04)), .groups = "drop") |>
   filter(n_valid_pp04 > 0)
 ```
 
-# Daten bereinigen und auf benötigte Jahre beschränken
+# Daten bereinigen
 
-Die SHP-Daten enthalten negative Missing-Value-Codes wie `-1`, `-2`, `-3`, `-7` usw. Diese sollen als fehlend behandelt werden. Durch `read.spss(..., use.missings = FALSE)` werden diese Codes in der Regel bereits zu `NA`. Zusätzlich werden hier alle relevanten Variablen explizit numerisch gemacht. fileciteturn18file0L46-L50
+Negative SHP-Codes werden als fehlende Werte behandelt. Zusätzlich werden die relevanten Variablen explizit numerisch umgewandelt.
 
-```{r clean-p-long}
+```{r clean-data}
 p_long_clean <- p_long |>
   mutate(
     idpers = to_num(idpers),
-    year   = to_num(year),
+    year = to_num(year),
     idhous = to_num(idhous),
-    sex    = to_num(sex),
+    sex = to_num(sex),
     civsta = to_num(civsta),
     ownkid = to_num(ownkid),
     educat = to_num(educat),
     nat_1_ = to_num(nat_1_),
     nat_2_ = to_num(nat_2_),
     nat_3_ = to_num(nat_3_),
-    pp04   = to_num(pp04),
-    pp10   = to_num(pp10),
-    pc19   = to_num(pc19),
-    pc19a  = to_num(pc19a)
+    pp04 = to_num(pp04),
+    pp10 = to_num(pp10),
+    pc19 = to_num(pc19),
+    pc19a = to_num(pc19a)
   ) |>
   mutate(
     across(
@@ -264,9 +239,9 @@ p_long_clean <- p_long |>
 h_long_clean <- h_long |>
   mutate(
     idhous = to_num(idhous),
-    year   = to_num(year),
+    year = to_num(year),
     canton = to_num(canton),
-    ihtyn  = to_num(ihtyn),
+    ihtyn = to_num(ihtyn),
     nbpers = to_num(nbpers)
   ) |>
   mutate(
@@ -278,7 +253,7 @@ mp_clean <- mp |>
   mutate(
     IDPERS = to_num(IDPERS),
     BIRTHY = to_num(BIRTHY),
-    SEX    = to_num(SEX)
+    SEX = to_num(SEX)
   ) |>
   mutate(
     across(c(BIRTHY, SEX), ~ if_else(. < 0, NA_real_, .))
@@ -287,44 +262,34 @@ mp_clean <- mp |>
 so_clean <- so |>
   mutate(
     IDPERS = to_num(IDPERS),
-    PO58   = to_num(PO58)
+    PO58 = to_num(PO58)
   ) |>
   mutate(
     PO58 = if_else(PO58 < 0, NA_real_, PO58)
   )
 ```
 
-# Zusammenführen der Daten
+# Daten zusammenführen
 
-Die Daten werden in dieser Reihenfolge verbunden:
-
-1. Personen-Longfile und Haushalts-Longfile über `idhous` und `year`
-2. danach `SHP_MP` über `idpers`
-3. danach `SHP_SO` über `idpers`
-
-Diese Join-Logik entspricht inhaltlich der Aufgabenstellung: Die jährlichen Personeninformationen werden mit den passenden Haushaltsinformationen des gleichen Jahres verbunden; die personenfixen Informationen werden über `IDPERS` angehängt. fileciteturn18file0L37-L43 fileciteturn18file0L61-L68
+Die Verknüpfung erfolgt zuerst über Haushalt und Jahr, danach über die Personen-ID.
 
 ```{r merge}
 panel_joined <- p_long_clean |>
   left_join(h_long_clean, by = c("idhous", "year")) |>
   left_join(mp_clean, by = c("idpers" = "IDPERS")) |>
   left_join(so_clean, by = c("idpers" = "IDPERS"))
-
-glimpse(panel_joined)
 ```
 
 # Erwachsene filtern
 
-Es sollen nur Befragte berücksichtigt werden, die im jeweiligen Jahr erwachsen sind. Hier wird das Alter über `YEAR - BIRTHY` approximiert und dann auf mindestens 18 Jahre gefiltert. fileciteturn18file0L31-L33 fileciteturn18file0L37-L39
-
 ```{r filter-adults}
 panel_adults <- panel_joined |>
   mutate(
-    YEAR   = as.integer(year),
+    YEAR = as.integer(year),
     IDPERS = as.integer(idpers),
     IDHOUS = as.integer(idhous),
     BIRTHY = as.integer(BIRTHY),
-    AGE    = YEAR - BIRTHY
+    AGE = YEAR - BIRTHY
   ) |>
   filter(!is.na(AGE), AGE >= 18)
 
@@ -332,9 +297,9 @@ dim(panel_adults)
 summary(panel_adults$AGE)
 ```
 
-# Konstruktion der Zielvariablen
+# Zielvariablen konstruieren
 
-## `BIRTHYGEN`
+## Geburtskohorte
 
 ```{r birthygen}
 panel_adults <- panel_adults |>
@@ -347,15 +312,13 @@ panel_adults <- panel_adults |>
       BIRTHY >= 1980 & BIRTHY < 1990 ~ "[1980,1990)",
       BIRTHY >= 1990 & BIRTHY < 2000 ~ "[1990,2000)",
       BIRTHY >= 2000 & BIRTHY < 2010 ~ "[2000,2010)",
-      BIRTHY >= 2010 & BIRTHY <= 2026 ~ "[2010,2026]",
+      BIRTHY >= 2010 & BIRTHY <= YEAR ~ "[2010,2026]",
       TRUE ~ NA_character_
     )
   )
 ```
 
-## `SEX`
-
-Die Aufgabenstellung verlangt die Ausprägungen `männlich`, `weiblich`, `andere`. fileciteturn18file0L7-L11
+## Geschlecht
 
 ```{r sex}
 panel_adults <- panel_adults |>
@@ -367,37 +330,9 @@ panel_adults <- panel_adults |>
       TRUE ~ NA_character_
     )
   )
-
-panel_adults |>
-  count(SEX, sort = TRUE)
 ```
 
-## `Zivilstand`
-
-```{r civsta-check}
-tmp_num <- foreign::read.spss(
-  file = p_long_path,
-  to.data.frame = TRUE,
-  use.value.labels = FALSE,
-  use.missings = FALSE
-)
-
-tmp_lab <- foreign::read.spss(
-  file = p_long_path,
-  to.data.frame = TRUE,
-  use.value.labels = TRUE,
-  use.missings = FALSE
-)
-
-unique(data.frame(
-  code = tmp_num$civsta,
-  label = as.character(tmp_lab$civsta)
-))
-
-table(tmp_num$civsta, useNA = "ifany")
-table(tmp_lab$civsta, useNA = "ifany")
-
-```
+## Zivilstand
 
 ```{r civsta}
 panel_adults <- panel_adults |>
@@ -413,88 +348,48 @@ panel_adults <- panel_adults |>
       TRUE ~ NA_character_
     )
   )
-
-panel_adults |>
-  count(CIVSTA, sort = TRUE)
 ```
 
-## `CANTON`
-
-Die Aufgabenstellung verlangt Kantonskürzel. fileciteturn18file0L7-L11
+## Kanton
 
 ```{r canton}
 canton_map <- c(
-  `1`  = "AG",
-  `2`  = "AI",
-  `3`  = "AR",
-  `4`  = "BE",
-  `5`  = "BS",
-  `6`  = "BL",
-  `7`  = "FR",
-  `8`  = "GE",
-  `9`  = "GL",
-  `10` = "GR",
-  `11` = "JU",
-  `12` = "LU",
-  `13` = "NE",
-  `14` = "NW",
-  `15` = "OW",
-  `16` = "SG",
-  `17` = "SH",
-  `18` = "SO",
-  `19` = "SZ",
-  `20` = "TG",
-  `21` = "TI",
-  `22` = "UR",
-  `23` = "VD",
-  `24` = "VS",
-  `25` = "ZG",
-  `26` = "ZH"
+  `1` = "AG", `2` = "AI", `3` = "AR", `4` = "BE", `5` = "BS", `6` = "BL",
+  `7` = "FR", `8` = "GE", `9` = "GL", `10` = "GR", `11` = "JU", `12` = "LU",
+  `13` = "NE", `14` = "NW", `15` = "OW", `16` = "SG", `17` = "SH", `18` = "SO",
+  `19` = "SZ", `20` = "TG", `21` = "TI", `22` = "UR", `23` = "VD", `24` = "VS",
+  `25` = "ZG", `26` = "ZH"
 )
 
 panel_adults <- panel_adults |>
   mutate(
     CANTON = recode(as.character(canton), !!!canton_map, .default = NA_character_)
   )
-
-panel_adults |>
-  count(CANTON, sort = TRUE)
 ```
 
-## `EDUCAT`
-
-Die Aufgabenstellung nennt die gewünschten Bildungskategorien. Diese werden hier aus den 11 SHP-Codes gebaut. fileciteturn18file0L7-L11
+## Bildung
 
 ```{r educat}
 panel_adults <- panel_adults |>
   mutate(
     EDUCAT = case_when(
-      educat == 0  ~ "Unvollständige obligatorische Schulbildung",
-      educat == 1  ~ "Obligatorische Schule grundlegende berufliche Ausbildung",
-      educat == 2  ~ "Hauswirtschaftskurs; einjährige Handelsschule",
-      educat == 3  ~ "Allgemeine Ausbildungsschule",
-      educat == 4  ~ "Lehre (EFZ)",
-      educat == 5  ~ "Vollzeit-Berufsfachschule",
-      educat == 6  ~ "Maturität / Bachelor",
-      educat == 7  ~ "Berufshochschule mit Meisterdiplom, eidgenössisches Zertifikat",
-      educat == 8  ~ "Technische oder berufliche Schule",
-      educat == 9  ~ "Hochschule für Technik (ETS, HTL usw.)",
+      educat == 0 ~ "Unvollständige obligatorische Schulbildung",
+      educat == 1 ~ "Obligatorische Schule grundlegende berufliche Ausbildung",
+      educat == 2 ~ "Hauswirtschaftskurs; einjährige Handelsschule",
+      educat == 3 ~ "Allgemeine Ausbildungsschule",
+      educat == 4 ~ "Lehre (EFZ)",
+      educat == 5 ~ "Vollzeit-Berufsfachschule",
+      educat == 6 ~ "Maturität / Bachelor",
+      educat == 7 ~ "Berufshochschule mit Meisterdiplom, eidgenössisches Zertifikat",
+      educat == 8 ~ "Technische oder berufliche Schule",
+      educat == 9 ~ "Hochschule für Technik (ETS, HTL usw.)",
       educat == 10 ~ "Universität, akademische Mittelschule, PH, HEP, HES, FH",
       TRUE ~ NA_character_
     )
   )
-
-panel_adults |>
-  count(EDUCAT, sort = TRUE)
 ```
 
-## `HASKID`
-
-Laut Aufgabenstellung soll `HASKID` anzeigen, ob eine Person mindestens ein eigenes Kind hat. Die Rohvariable `ownkid` enthält die Anzahl eigener Kinder. Daher gilt:
-
-- `0`  → `nein`
-- `>=1` → `ja`
-- `NA` → `NA` fileciteturn18file0L8-L9 fileciteturn18file0L40-L42
+## Kinder
 
 ```{r haskid}
 panel_adults <- panel_adults |>
@@ -505,44 +400,30 @@ panel_adults <- panel_adults |>
       TRUE ~ NA_character_
     )
   )
-
-panel_adults |>
-  count(HASKID, sort = TRUE)
 ```
 
-## `NAT`
-
-`NAT` wird aus `nat_1_`, `nat_2_`, `nat_3_` in die drei Kategorien `CH`, `CH+Andere`, `Andere` verdichtet. In den SHP-Daten ist `8100` der Code für die Schweiz. Wichtig ist, dass `nat_2_` und `nat_3_` vor der Konstruktion bereits von negativen Missing-Codes bereinigt wurden; sonst würden inapplicable-Codes fälschlich als zweite bzw. dritte Nationalität gezählt. fileciteturn18file0L8-L9
+## Nationalität
 
 ```{r nat}
-is_swiss <- function(x) {
-  x %in% c(8100, 756)
-}
-
 panel_adults <- panel_adults |>
   mutate(
     n_ch = as.integer(replace_na(is_swiss(nat_1_), FALSE)) +
-           as.integer(replace_na(is_swiss(nat_2_), FALSE)) +
-           as.integer(replace_na(is_swiss(nat_3_), FALSE)),
+      as.integer(replace_na(is_swiss(nat_2_), FALSE)) +
+      as.integer(replace_na(is_swiss(nat_3_), FALSE)),
     n_nat = as.integer(!is.na(nat_1_)) +
-            as.integer(!is.na(nat_2_)) +
-            as.integer(!is.na(nat_3_)),
+      as.integer(!is.na(nat_2_)) +
+      as.integer(!is.na(nat_3_)),
     NAT = case_when(
       n_ch >= 1 & n_nat == n_ch ~ "CH",
-      n_ch >= 1 & n_nat > n_ch  ~ "CH+Andere",
-      n_ch == 0 & n_nat >= 1    ~ "Andere",
+      n_ch >= 1 & n_nat > n_ch ~ "CH+Andere",
+      n_ch == 0 & n_nat >= 1 ~ "Andere",
       TRUE ~ NA_character_
     )
   ) |>
   select(-n_ch, -n_nat)
-
-panel_adults |>
-  count(NAT, sort = TRUE)
 ```
 
-## `PC19`
-
-Die Aufgabenstellung nennt `PC19` als „Längerfristiges gesundheitliches Problem oder Behinderung: nein; ja“ und verweist auf `P$$P19` bzw. `P$$P19A`. In der Longdatei werden diese Informationen als `pc19` und `pc19a` geführt. Hier wird zuerst `pc19` verwendet, und falls dort kein Wert vorliegt, `pc19a`. Anschließend wird in `nein/ja` umkodiert. fileciteturn18file0L8-L9 fileciteturn18file0L69-L73
+## Gesundheitliche Einschränkung
 
 ```{r pc19}
 panel_adults <- panel_adults |>
@@ -554,42 +435,23 @@ panel_adults <- panel_adults |>
       TRUE ~ NA_character_
     )
   )
-
-panel_adults |>
-  count(PC19, sort = TRUE)
 ```
 
-## `PP04`
-
-Die Skala soll als numerische Vertrauensskala im Datensatz bleiben. Negative Missing-Codes wurden bereits zu `NA`; gültige Werte liegen auf der Skala von `0` bis `10`. Die Aufgabenbeschreibung formuliert dies als „kein Vertrauen; 1; 2; ... ; 9; volles Vertrauen“. fileciteturn18file0L5-L7
+## Vertrauen in den Bundesrat
 
 ```{r pp04}
 panel_adults <- panel_adults |>
-  mutate(
-    PP04 = pp04
-  )
-
-panel_adults |>
-  count(PP04, sort = TRUE)
+  mutate(PP04 = pp04)
 ```
 
-## `PP10`
-
-Die Variable `PP10` bleibt als numerische Links-Rechts-Selbsteinstufung im Datensatz. fileciteturn18file0L8-L10
+## Links-Rechts-Selbsteinstufung
 
 ```{r pp10}
 panel_adults <- panel_adults |>
-  mutate(
-    PP10 = pp10
-  )
-
-panel_adults |>
-  count(PP10, sort = TRUE)
+  mutate(PP10 = pp10)
 ```
 
-## `NETHHINCPP`
-
-Die Aufgabe verlangt das jährliche Netto-Haushaltseinkommen pro Haushaltsmitglied. Dies wird aus `ihtyn / nbpers` gebildet. fileciteturn18file0L9-L10 fileciteturn18file0L73-L74
+## Netto-Haushaltseinkommen pro Person
 
 ```{r net-income}
 panel_adults <- panel_adults |>
@@ -602,9 +464,7 @@ panel_adults <- panel_adults |>
   )
 ```
 
-## `PO58`
-
-Die Aufgabenstellung verlangt `PO58` als `nein/ja`. In `SHP_SO` ist die Kodierung `1 = yes`, `2 = no`. fileciteturn18file0L9-L10 fileciteturn18file0L73-L75
+## Soziale Herkunft
 
 ```{r po58}
 panel_adults <- panel_adults |>
@@ -615,32 +475,22 @@ panel_adults <- panel_adults |>
       TRUE ~ NA_character_
     )
   )
-
-panel_adults |>
-  count(PO58, sort = TRUE)
 ```
 
-## `COMPLETE`
+## Vollständigkeit
 
-Die Variable `COMPLETE` wird hier so definiert, dass sie `TRUE` ist, wenn in keiner der Zielvariablen ein fehlender Wert vorliegt, und `FALSE` sonst. Das passt zur Bedeutung des Variablennamens. fileciteturn18file0L10-L12
+```{r complete-vars}
+complete_vars <- c(
+  "PP04", "BIRTHY", "BIRTHYGEN", "SEX", "CANTON", "EDUCAT",
+  "HASKID", "NAT", "PC19", "PP10", "NETHHINCPP", "PO58", "CIVSTA"
+)
+```
 
 ```{r complete}
-panel_adults <- panel_adults |>
-  mutate(
-    COMPLETE = !if_any(
-      c(PP04, BIRTHY, BIRTHYGEN, SEX, CANTON, EDUCAT,
-        HASKID, NAT, PC19, PP10, NETHHINCPP, PO58, CIVSTA),
-      is.na
-    )
-  )
-
-panel_adults |>
-  count(COMPLETE)
+panel_adults$COMPLETE <- rowSums(is.na(panel_adults[complete_vars])) == 0
 ```
 
-# Enddatensatz herstellen
-
-Es werden nur die geforderten 16 Variablen behalten. fileciteturn18file0L1-L12
+# Enddatensatz
 
 ```{r final-data}
 panel_final <- panel_adults |>
@@ -649,14 +499,13 @@ panel_final <- panel_adults |>
     BIRTHY, BIRTHYGEN, SEX,
     CANTON, EDUCAT, HASKID, NAT,
     PC19, PP10, NETHHINCPP, PO58,
-    COMPLETE,
-    CIVSTA
+    COMPLETE, CIVSTA
   )
 
 glimpse(panel_final)
 ```
 
-# Plausibilitätschecks für Woche 2
+# Plausibilitätschecks
 
 ```{r checks}
 dim(panel_final)
@@ -666,7 +515,7 @@ summary(panel_final$BIRTHY)
 colSums(is.na(panel_final))
 ```
 
-```{r checks-numeric-ranges}
+```{r checks-ranges}
 sort(unique(panel_final$PP04))
 sort(unique(panel_final$PP10))
 summary(panel_final$NETHHINCPP)
@@ -694,26 +543,11 @@ panel_final |>
 
 # Daten speichern
 
-Die aufbereiteten Daten werden als CSV und als R-Objekt abgelegt. Die Aufgabenstellung erlaubt ausdrücklich auch mehrere Speicherformate. fileciteturn18file0L42-L44
-
 ```{r save-data}
 write_csv(panel_final, file.path(processed_dir, "shp_panel_week2_longfiles.csv"))
 saveRDS(panel_final, file.path(processed_dir, "shp_panel_week2_longfiles.rds"))
 ```
 
-# Schematische Darstellung des Datenzusammenführens
+# Ergebnis
 
-Die Daten wurden in dieser Reihenfolge verbunden:
-
-```{r join-schema, eval=FALSE}
-SHPLONG_P_USER
-  LEFT JOIN SHPLONG_H_USER  by c("idhous", "year")
-  LEFT JOIN SHP_MP          by "idpers"
-  LEFT JOIN SHP_SO          by "idpers"
-```
-
-# Hinweise für die nächsten Wochen
-
-- Die hier erzeugte Datei ist der Grunddatensatz für Woche 3.
-- In Woche 3 folgen die systematische Missing-Value-Analyse, die Identifikation einer Variable mit mehr als 90% Missing in einem Jahr, die gezielte Imputation aus früheren Jahren, der Plausibilitätsvergleich mit BFS-Daten und die grafische Auswertung. fileciteturn18file0L45-L56
-- Die zusätzliche Einflussvariable, die laut Aufgabe ebenfalls bestimmt werden soll, ist in diesem Woche-2-Dokument noch nicht umgesetzt. Sie kann in Woche 3 ergänzt und im Schlussbericht dokumentiert werden. fileciteturn18file0L28-L29
+Der aufbereitete Datensatz aus Woche 2 wird als Grundlage für die Missing-Analyse, Plausibilisierung und Auswertung in Woche 3 gespeichert.
