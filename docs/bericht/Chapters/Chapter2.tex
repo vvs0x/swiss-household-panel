@@ -18,7 +18,7 @@ angelegt und orientiert sich an der in der Aufgabenstellung vorgegebenen Glieder
 
 \begin{table}[h]
 \centering
-\caption{Projektplan mit Meilensteinen und Verantwortlichkeiten}
+\caption{Projektplan mit Meilensteinen und Tätigkeiten}
 \label{tab:projektplan}
 \begin{tabularx}{\textwidth}{p{1cm}p{2.8cm}X}
 \toprule
@@ -28,35 +28,36 @@ Woche & Meilenstein & Tätigkeiten und Verantwortlichkeiten \\
 Sichtung der Aufgabenstellung und des SHP User Guide~\cite{Voorpostel2018}.
 Registrierung bei SWISSUbase und Download der Rohdaten.
 Festlegung der Ordnerstruktur und Erstellung des Git-Repositories.
-Auswahl der zusätzlichen Einflussvariable \texttt{CIVSTA}.
+Auswahl der zusätzlichen Einflussvariable \emph{CIVSTA}.
 Gemeinsame Arbeit, Koordination durch beide Teammitglieder. \\
+\midrule
 2 & Daten\-aufbereitung &
 Programmierung der Skripte zum Entpacken, Einlesen, Bereinigen, Mergen und Filtern der SHP-Dateien.
 Konstruktion der Zielvariablen.
 Speicherung des aufbereiteten Datensatzes.
 Hauptverantwortung Programmierung: Berdelis; Review und Dokumentation: Schwarz. \\
+\midrule
 3 & Qualität, Plausibilität, Auswertung &
-Analyse fehlender Werte und LOCF-Imputation.
+Analyse fehlender Werte und LOCF-Imputation \footnotemark.
 Plausibilitätsvergleich mit BFS-Referenzdaten.
 Deskriptive Auswertung der Zielvariable nach Untergruppen.
 Hypothesenprüfung zum Zivilstand.
 Hauptverantwortung Auswertung: Schwarz; Review und Dokumentation: Berdelis. \\
-4 & Bericht, Abschluss &
+\midrule
+4 & Bericht, \newline Abschluss &
 Zusammenführung der Teilergebnisse in diesem Bericht.
 Redaktion, Schlusskontrolle, Abgabe.
 Gemeinsame Arbeit. \\
 \bottomrule
 \end{tabularx}
 \end{table}
-
-Die Koordination erfolgte über kurze, regelmässige Abstimmungen. Der Programmcode wird
-mit Git versioniert und über ein gemeinsames Repository geteilt. Zur Qualitätssicherung
+\footnotetext{Imputation ersetzt fehlenden Wert mit letztem früheren verfügbaren Wert.}
+Der Programmcode wird mit Git versioniert und über ein gemeinsames Repository\footnote{\href{https://github.com/vvs0x/swiss-household-panel}{https://github.com/vvs0x/swiss-household-panel}} geteilt. Zur Qualitätssicherung
 wurde jedes Skript vor dem Zusammenführen in den Hauptzweig vom jeweils anderen
-Teammitglied gesichtet. Der Bericht wird in \LaTeX{} verfasst; die Vorlage basiert auf
-dem ZHAW-Template für studentische Arbeiten.
+Teammitglied gesichtet und anschliessend verbesserungen vorgenommen.
 
 %----------------------------------------------------------------------------------------
-
+\newpage
 \section{Beschreibung der Daten, Beschaffung und Storage}
 \label{sec:daten}
 
@@ -65,16 +66,12 @@ dem ZHAW-Template für studentische Arbeiten.
 
 Die Rohdaten stammen aus dem Swiss Household Panel (SHP), das vom Schweizerischen
 Kompetenzzentrum für Sozialwissenschaften FORS in Lausanne betrieben wird
-\cite{FORS2024}. Verwendet wird die Version 14.5 des Datensatzes (Referenznummer 6097),
-bezogen über die Forschungsdatenplattform SWISSUbase
-(\url{https://www.swissubase.ch/}). Der Zugriff erfolgt nach Anmeldung mit der
+\cite{FORS2024}. Der Zugriff erfolgt nach Anmeldung mit der
 akademischen edu-ID und Zustimmung zu den Nutzungsbedingungen von FORS, die eine
 Verwendung ausschliesslich zu Forschungs- und Lehrzwecken vorsehen.
 
-Von SWISSUbase wurde das vollständige Datenpaket im SPSS-Format
-(\texttt{Data\_SPSS.zip}) heruntergeladen und unverändert im Projektverzeichnis
-unter \texttt{data/raw/} abgelegt. Zusätzlich wurde der SHP User Guide in der Fassung
-\textit{Voorpostel et al.\ (2021)} bezogen und unter \texttt{docs/} zur Dokumentation
+Von SWISSUbase wurde das vollständige Datenpaket im SPSS-Format heruntergeladen.
+Zusätzlich wurde der SHP User Guide in der Fassung bezogen und zur Dokumentation
 hinterlegt \cite{Voorpostel2018}. Die Rohdaten werden nicht verändert; sämtliche
 Aufbereitungsschritte erzeugen daraus abgeleitete Datensätze in einem separaten
 Verzeichnis.
@@ -99,19 +96,24 @@ Daten, Programmcode und Dokumentation. Tabelle~\ref{tab:ordnerstruktur} gibt ein
 \toprule
 Verzeichnis & Inhalt \\
 \midrule
-\texttt{data/raw/}           & Unveränderte SHP-Rohdaten im SPSS-Format sowie die Datei \texttt{metadata.yaml} mit Angaben zu Version und Bezugsquelle. Ebenfalls hier abgelegt ist das entpackte Arbeitsverzeichnis \texttt{data\_unzipped/}. \\
+\texttt{data/raw/}           & Unveränderte SHP-Rohdaten im SPSS-Format. \\
+
 \texttt{data/processed/}     & Aus der Aufbereitung erzeugte Zwischen- und Enddatensätze im CSV- und RDS-Format. \\
+
 \texttt{src/}                & R-Markdown-Skripte für Datenaufbereitung und Auswertung sowie die aus ihnen erzeugten PDF-Berichte. \\
-\texttt{docs/}               & Dokumentation: Aufgabenstellung, SHP User Guide sowie das \LaTeX-Projekt für den vorliegenden technischen Bericht unter \texttt{docs/bericht/}. \\
+
+\texttt{docs/bericht/}       & Dokumentation: Aufgabenstellung, SHP User Guide sowie das \LaTeX-Projekt für den vorliegenden technischen Bericht. \\
+
 \texttt{figures/}            & Ausgabeverzeichnis für Grafiken, sofern diese ausserhalb der R-Markdown-Berichte verwendet werden. \\
+
 \texttt{README.md}           & Kurzbeschreibung des Repositories, Hinweise zur Reproduktion der Aufbereitung. \\
+
+\texttt{.gitignore}          & Alle Rohdaten sind im .gitignore aufgrund der Forderungen von FORS. \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-Der gesamte Programmcode wird mit Git versioniert. Das Repository ist privat und nur
-den beiden Teammitgliedern und dem Dozenten zugänglich. Grosse Binärdateien
-(insbesondere die Rohdaten und abgeleitete RDS-Dateien) werden über \texttt{.gitignore}
+Grosse Binärdateien (insbesondere die Rohdaten und abgeleitete RDS-Dateien) werden über 
 von der Versionierung ausgeschlossen, um das Repository schlank zu halten und
 urheberrechtliche Anforderungen von FORS einzuhalten. Die Rohdaten verbleiben
 ausschliesslich lokal. Alle Ergebnisse lassen sich mit den im Repository hinterlegten

@@ -9,38 +9,38 @@
 \contentsline {section}{\numberline {1.2}Hypothese}{1}{section.10}%
 \contentsline {chapter}{\numberline {2}Methodik}{2}{chapter.11}%
 \contentsline {section}{\numberline {2.1}Projektmanagement und Projektplan}{2}{section.12}%
-\contentsline {section}{\numberline {2.2}Beschreibung der Daten, Beschaffung und Storage}{2}{section.14}%
-\contentsline {subsection}{\numberline {2.2.1}Datenquelle und Beschaffung}{2}{subsection.15}%
-\contentsline {subsection}{\numberline {2.2.2}Ordnerstruktur und Storage}{3}{subsection.16}%
-\contentsline {subsection}{\numberline {2.2.3}Verwendete Dateien}{4}{subsection.18}%
-\contentsline {subsection}{\numberline {2.2.4}Datenkatalog}{4}{subsection.44}%
-\contentsline {subsection}{\numberline {2.2.5}Übersicht der R-Skripte}{5}{subsection.46}%
-\contentsline {subsection}{\numberline {2.2.6}Datenaufbereitung: Merging und Filtering}{5}{subsection.48}%
-\contentsline {subsection}{\numberline {2.2.7}Datenqualität: Fehlende Werte}{7}{subsection.49}%
-\contentsline {subsection}{\numberline {2.2.8}Plausibilität: Vergleich mit BFS-Daten}{8}{subsection.51}%
-\contentsline {paragraph}{Geschlecht.}{8}{paragraph*.52}%
-\contentsline {paragraph}{Altersgruppen.}{8}{paragraph*.53}%
-\contentsline {paragraph}{Kantone.}{8}{paragraph*.54}%
-\contentsline {chapter}{\numberline {3}Ergebnisse}{9}{chapter.55}%
-\contentsline {section}{\numberline {3.1}Deskriptive Auswertung}{9}{section.56}%
-\contentsline {subsection}{\numberline {3.1.1}Zeitliche Entwicklung des Vertrauens in den Bundesrat}{9}{subsection.57}%
-\contentsline {subsection}{\numberline {3.1.2}Vertrauen nach soziodemografischen Merkmalen}{9}{subsection.59}%
-\contentsline {paragraph}{Geschlecht.}{9}{paragraph*.60}%
-\contentsline {paragraph}{Geburtskohorte.}{10}{paragraph*.61}%
-\contentsline {paragraph}{Nationalität.}{10}{paragraph*.62}%
-\contentsline {paragraph}{Eigene Kinder.}{10}{paragraph*.63}%
-\contentsline {paragraph}{Gesundheitliche Einschränkung.}{10}{paragraph*.64}%
-\contentsline {paragraph}{Zivilstand.}{10}{paragraph*.65}%
-\contentsline {section}{\numberline {3.2}Auswertung der Hypothese}{10}{section.66}%
-\contentsline {chapter}{\numberline {4}Diskussion}{12}{chapter.68}%
-\contentsline {section}{\numberline {4.1}Kritische Reflexion der Ergebnisse}{12}{section.69}%
-\contentsline {section}{\numberline {4.2}Limitationen}{12}{section.70}%
-\contentsline {section}{\numberline {4.3}Nächste Schritte}{13}{section.71}%
-\contentsline {chapter}{\numberline {A}Datenkatalog}{14}{appendix.72}%
-\contentsline {chapter}{\numberline {B}R-Skripte}{15}{appendix.73}%
-\contentsline {section}{\numberline {B.1}Hilfsfunktion zum Einlesen von SPSS-Dateien}{15}{section.74}%
-\contentsline {section}{\numberline {B.2}Merging der Datensätze}{15}{section.85}%
-\contentsline {section}{\numberline {B.3}Konstruktion der Variable NAT}{15}{section.91}%
-\contentsline {section}{\numberline {B.4}Imputation mit LOCF}{15}{section.110}%
-\contentsline {section}{\numberline {B.5}BFS-Daten einlesen}{16}{section.119}%
-\contentsline {chapter}{Literatur}{17}{appendix*.126}%
+\contentsline {section}{\numberline {2.2}Beschreibung der Daten, Beschaffung und Storage}{3}{section.15}%
+\contentsline {subsection}{\numberline {2.2.1}Datenquelle und Beschaffung}{3}{subsection.16}%
+\contentsline {subsection}{\numberline {2.2.2}Ordnerstruktur und Storage}{3}{subsection.17}%
+\contentsline {subsection}{\numberline {2.2.3}Verwendete Dateien}{4}{subsection.19}%
+\contentsline {subsection}{\numberline {2.2.4}Datenkatalog}{4}{subsection.45}%
+\contentsline {subsection}{\numberline {2.2.5}Übersicht der R-Skripte}{5}{subsection.47}%
+\contentsline {subsection}{\numberline {2.2.6}Datenaufbereitung: Merging und Filtering}{5}{subsection.49}%
+\contentsline {subsection}{\numberline {2.2.7}Datenqualität: Fehlende Werte}{7}{subsection.50}%
+\contentsline {subsection}{\numberline {2.2.8}Plausibilität: Vergleich mit BFS-Daten}{8}{subsection.52}%
+\contentsline {paragraph}{Geschlecht.}{8}{paragraph*.53}%
+\contentsline {paragraph}{Altersgruppen.}{8}{paragraph*.54}%
+\contentsline {paragraph}{Kantone.}{8}{paragraph*.55}%
+\contentsline {chapter}{\numberline {3}Ergebnisse}{9}{chapter.56}%
+\contentsline {section}{\numberline {3.1}Deskriptive Auswertung}{9}{section.57}%
+\contentsline {subsection}{\numberline {3.1.1}Zeitliche Entwicklung des Vertrauens in den Bundesrat}{9}{subsection.58}%
+\contentsline {subsection}{\numberline {3.1.2}Vertrauen nach soziodemografischen Merkmalen}{9}{subsection.60}%
+\contentsline {paragraph}{Geschlecht.}{9}{paragraph*.61}%
+\contentsline {paragraph}{Geburtskohorte.}{10}{paragraph*.62}%
+\contentsline {paragraph}{Nationalität.}{10}{paragraph*.63}%
+\contentsline {paragraph}{Eigene Kinder.}{10}{paragraph*.64}%
+\contentsline {paragraph}{Gesundheitliche Einschränkung.}{10}{paragraph*.65}%
+\contentsline {paragraph}{Zivilstand.}{10}{paragraph*.66}%
+\contentsline {section}{\numberline {3.2}Auswertung der Hypothese}{10}{section.67}%
+\contentsline {chapter}{\numberline {4}Diskussion}{12}{chapter.69}%
+\contentsline {section}{\numberline {4.1}Kritische Reflexion der Ergebnisse}{12}{section.70}%
+\contentsline {section}{\numberline {4.2}Limitationen}{12}{section.71}%
+\contentsline {section}{\numberline {4.3}Nächste Schritte}{13}{section.72}%
+\contentsline {chapter}{\numberline {A}Datenkatalog}{14}{appendix.73}%
+\contentsline {chapter}{\numberline {B}R-Skripte}{15}{appendix.74}%
+\contentsline {section}{\numberline {B.1}Hilfsfunktion zum Einlesen von SPSS-Dateien}{15}{section.75}%
+\contentsline {section}{\numberline {B.2}Merging der Datensätze}{15}{section.86}%
+\contentsline {section}{\numberline {B.3}Konstruktion der Variable NAT}{15}{section.92}%
+\contentsline {section}{\numberline {B.4}Imputation mit LOCF}{15}{section.111}%
+\contentsline {section}{\numberline {B.5}BFS-Daten einlesen}{16}{section.120}%
+\contentsline {chapter}{Literatur}{17}{appendix*.127}%

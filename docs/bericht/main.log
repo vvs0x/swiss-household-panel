@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  24 APR 2026 15:06
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  24 APR 2026 15:55
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/mg/Documents/swiss-household-panel/docs/bericht/main
@@ -1232,144 +1232,127 @@ File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
  (./Chapters/Chapter2.tex
 Kapitel 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
 []|\T1/ppl/m/n/10.95 Wo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
+Underfull \hbox (badness 10000) in paragraph at lines 52--52
 []|\T1/ppl/m/n/10.95 Daten-
  []
 
 
-Underfull \hbox (badness 3128) in paragraph at lines 49--49
+Underfull \hbox (badness 3128) in paragraph at lines 52--52
 \T1/ppl/m/n/10.95 le-sen, Be-rei-ni-gen, Mer-gen und Fil-tern der SHP-
  []
 
 
-Underfull \hbox (badness 1281) in paragraph at lines 49--49
+Underfull \hbox (badness 1281) in paragraph at lines 52--52
 \T1/ppl/m/n/10.95 bi-li-tät, Aus-wer-
  []
 
 
-Underfull \hbox (badness 5417) in paragraph at lines 49--49
-[]|\T1/ppl/m/n/10.95 Ana-ly-se feh-len-der Wer-te und LOCF-Imputation.
- []
-
-
-Underfull \hbox (badness 3323) in paragraph at lines 49--49
+Underfull \hbox (badness 3323) in paragraph at lines 52--52
 \T1/ppl/m/n/10.95 Plau-si-bi-li-täts-ver-gleich mit BFS-Referenzdaten. De-
  []
 
 
-Underfull \hbox (badness 3229) in paragraph at lines 49--49
+Underfull \hbox (badness 3229) in paragraph at lines 52--52
 \T1/ppl/m/n/10.95 skrip-ti-ve Aus-wer-tung der Ziel-va-ria-ble nach Un-
  []
 
 
-Underfull \hbox (badness 7256) in paragraph at lines 49--49
+Underfull \hbox (badness 7256) in paragraph at lines 52--52
 \T1/ppl/m/n/10.95 ter-grup-pen. Hy-po-the-sen-prü-fung zum Zi-vil-stand.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
-[]|\T1/ppl/m/n/10.95 Be-richt, Ab-
- []
-
+warning  (pdf backend): ignoring duplicate destination with the name 'Hfootnote.9'
 [2
 
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 74--81
-[]\T1/ppl/m/n/10.95 Von SWISSUb-ase wur-de das voll-stän-di-ge Da-ten-pa-ket im SPSS-Format
- []
-
-
-Underfull \hbox (badness 7759) in paragraph at lines 74--81
-\T1/ppl/m/n/10.95 (\T1/fvm/m/n/10.95 Data_SPSS.zip\T1/ppl/m/n/10.95 ) her-un-ter-ge-la-den und un-ver-än-dert im Pro-jekt-ver-zeich-nis
- []
-
 Package babel Info: 'german' activates 'german' shorthands.
-(babel)             Reported on input line 129.
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+(babel)             Reported on input line 131.
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 []|\T1/ppl/m/n/10.95 Per-so-nen-be-zo-ge-ne Va-ria-
  []
 
 
-Underfull \hbox (badness 5417) in paragraph at lines 143--143
+Underfull \hbox (badness 5417) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 blen je Wel-le: Ver-trau-en
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 143--143
+Underfull \hbox (badness 1067) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 in den Bun-des-rat (\T1/fvm/m/n/10.95 pp04\T1/ppl/m/n/10.95 ),
  []
 
 
-Underfull \hbox (badness 5832) in paragraph at lines 143--143
+Underfull \hbox (badness 5832) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 ei-ge-ne Kin-der (\T1/fvm/m/n/10.95 ownkid\T1/ppl/m/n/10.95 ),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 Na-tio-na-li-tät (\T1/fvm/m/n/10.95 nat_1_\T1/ppl/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 heit-li-che Ein-schrän-kung
  []
 
 
-Underfull \hbox (badness 1946) in paragraph at lines 143--143
+Underfull \hbox (badness 1946) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 (\T1/fvm/m/n/10.95 pc19\T1/ppl/m/n/10.95 /\T1/fvm/m/n/10.95 pc19a\T1/ppl/m/n/10.95 ), Zi-vil-stand
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 []|\T1/ppl/m/n/10.95 Haus-halts-be-zo-ge-ne Va-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 ria-blen je Wel-le: Kan-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 ton (\T1/fvm/m/n/10.95 canton\T1/ppl/m/n/10.95 ), Netto-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 Haushaltseinkommen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 (\T1/fvm/m/n/10.95 ihtyn\T1/ppl/m/n/10.95 ), Haus-halts-grö-sse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 pro Per-son: Ge-burts-jahr
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 143--143
+Underfull \hbox (badness 10000) in paragraph at lines 145--145
 \T1/ppl/m/n/10.95 (\T1/fvm/m/n/10.95 BIRTHY\T1/ppl/m/n/10.95 ), Ge-schlecht
  []
 
 
-Underfull \hbox (badness 4328) in paragraph at lines 143--143
+Underfull \hbox (badness 4328) in paragraph at lines 145--145
 []|\T1/ppl/m/n/10.95 Da-ten zur so-zia-len Her-
  []
 
 
-Underfull \hbox (badness 1496) in paragraph at lines 177--177
+Underfull \hbox (badness 1496) in paragraph at lines 179--179
  []\T1/ppl/m/sc/10 Ab-bil-dung 2.1: |\T1/ppl/m/n/10 Sche-ma zum Zu-sam-men-füh-ren der vier SHP- 
  []
 
@@ -1380,12 +1363,12 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 223--229
+Underfull \hbox (badness 1102) in paragraph at lines 225--231
 \T1/ppl/m/n/10.95 Die Da-ten-ver-ar-bei-tung ist auf zwei R-Markdown-Skripte auf-ge-teilt. Das er-ste
  []
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 223--229
+Underfull \hbox (badness 1005) in paragraph at lines 225--231
 \T1/ppl/m/n/10.95 Mer-ging, Fil-te-ring, Va-riablen-kon-struk-ti-on und Spei-che-rung. Das zwei-te Skript
  []
 
@@ -1394,12 +1377,12 @@ Underfull \hbox (badness 1005) in paragraph at lines 223--229
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 1902) in paragraph at lines 244--249
+Underfull \hbox (badness 1902) in paragraph at lines 246--251
 []\T1/ppl/m/n/10.95 An R-Paketen kom-men \T1/fvm/m/n/10.95 tidyverse \T1/ppl/m/n/10.95 (Da-ten-ma-ni-pu-la-ti-on und Vi-sua-li-sie-rung),
  []
 
 [5] [6] [7]
-Underfull \hbox (badness 1472) in paragraph at lines 360--367
+Underfull \hbox (badness 1472) in paragraph at lines 362--369
 \T1/ppl/m/n/10.95 Zur Ein-schät-zung der Stich-pro-ben-qua-li-tät wer-den die Ver-tei-lun-gen nach Ge-
  []
 
@@ -1461,26 +1444,26 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: A49931E9C9728E06FA89A616F749F623;5590.
+(rerunfilecheck)             Checksum: CF7170C49E30A76CB98BB3FC5A52F2C5;5590.
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 45925 strings out of 476081
- 477130,1977958 words of node,token memory allocated
- 5436 words of node memory still in use:
-   4 hlist, 1 vlist, 1 rule, 6 glue, 660 kern, 1 glyph, 525 attribute, 73 glue_spec, 264 attribute_list, 2 write, 3 pdf_action nodes
-   avail lists: 1:11,2:9704,3:545,4:8292,5:7607,6:151,7:13833,8:71,9:23142,10:37,11:1317,12:2
+ 45926 strings out of 476081
+ 477139,1977958 words of node,token memory allocated
+ 5375 words of node memory still in use:
+   4 hlist, 1 vlist, 1 rule, 8 glue, 645 kern, 1 glyph, 527 attribute, 73 glue_spec, 265 attribute_list, 2 write, 2 pdf_action nodes
+   avail lists: 1:15,2:9704,3:545,4:8292,5:7607,6:153,7:13833,8:71,9:23142,10:37,11:1317,12:2
  66912 multiletter control sequences out of 65536+600000
  153 fonts using 10003039 bytes
  105i,21n,107p,1247b,1754s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/Users/mg/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (20 pages, 201379 bytes).
+Output written on main.pdf (20 pages, 200938 bytes).
 
-PDF statistics: 452 PDF objects out of 1000 (max. 8388607)
- 411 compressed objects within 5 object streams
- 151 named destinations out of 1000 (max. 131072)
+PDF statistics: 448 PDF objects out of 1000 (max. 8388607)
+ 407 compressed objects within 5 object streams
+ 152 named destinations out of 1000 (max. 131072)
  272 words of extra memory for PDF output out of 10000 (max. 100000000)
 
