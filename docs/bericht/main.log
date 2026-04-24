@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  24 APR 2026 12:01
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  24 APR 2026 15:06
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/mg/Documents/swiss-household-panel/docs/bericht/main
@@ -895,7 +895,7 @@ Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
 \TX@delta=\dimen312
 \TX@cols=\count492
 \TX@ftn=\toks49
-)) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/enumitem/enumitem.sty
+) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
 \labelindent=\skip83
 \enit@outerparindent=\dimen313
@@ -903,7 +903,18 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@inbox=\box92
 \enit@count@id=\count493
 \enitdp@description=\count494
-) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/scrhack/scrhack.sty
+) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/titlesec/titlesec.sty
+Package: titlesec 2025/01/04 v2.17 Sectioning titles
+\ttl@box=\box93
+\beforetitleunit=\skip84
+\aftertitleunit=\skip85
+\ttl@plus=\dimen314
+\ttl@minus=\dimen315
+\ttl@toksa=\toks51
+\titlewidth=\dimen316
+\titlewidthlast=\dimen317
+\titlewidthfirst=\dimen318
+)) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/scrhack/scrhack.sty
 Package: scrhack 2024-09-04 v3.42 scrhack emulation package
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/setspaceenhanced/setspaceenhanced.sty
 Package: setspaceenhanced 2024-11-12 v1.04 improved setspace package
@@ -926,7 +937,7 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 ) (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\@linkdim=\dimen314
+\@linkdim=\dimen319
 \Hy@linkcounter=\count496
 \Hy@pagecounter=\count497
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
@@ -947,15 +958,15 @@ Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
 \c@Hy@tempcnt=\count499
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen315
+\XeTeXLinkMargin=\dimen320
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
 \Fld@menulength=\count500
-\Field@Width=\dimen316
-\Fld@charsize=\dimen317
+\Field@Width=\dimen321
+\Fld@charsize=\dimen322
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -979,7 +990,7 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 284.
 )
-\Hy@SectionHShift=\skip84
+\Hy@SectionHShift=\skip86
 )
 Package hyperref Info: Option `bookmarksopen' set `true' on input line 129.
 Package hyperref Info: Option `hypertexnames' set `false' on input line 129.
@@ -1069,7 +1080,7 @@ Package scrbase Info: activating german \acknowledgementname on input line 129.
 Package scrbase Info: activating german \authorshipname on input line 129.
 Package scrbase Info: activating german \constantsname on input line 129.
 Package scrbase Info: activating german \symbolsname on input line 129.
-\big@size=\dimen318
+\big@size=\dimen323
 (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
 Package: pdflscape 2025-06-23 v0.14 Display of landscape pages in PDF
  (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape-nometadata.sty
@@ -1082,7 +1093,7 @@ Package: lscapeenhanced 2024-04-16 v1.0 improved lscape package
 Package: xpatch 2020/03/25 v0.3a Extending etoolbox patching commands
 )
 Package lscapeenhanced Info: \landscape patched to make \textheight change optional on input line 72.
-\@lscapeenhanced@textheight=\skip85
+\@lscapeenhanced@textheight=\skip87
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 ))
@@ -1209,163 +1220,156 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 \openout2 = Chapters/Chapter1.aux
  (./Chapters/Chapter1.tex
 Kapitel 1.
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 31.
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 48.
 (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/bera/t1fvm.fd
 File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-) [1
+)) [1
 
 
 
-])
-Package babel Info: 'german' activates 'german' shorthands.
-(babel)             Reported on input line 193.
- [2]
+]
 \openout2 = Chapters/Chapter2.aux
  (./Chapters/Chapter2.tex
 Kapitel 2.
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
 []|\T1/ppl/m/n/10.95 Wo-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
 []|\T1/ppl/m/n/10.95 Daten-
  []
 
 
-Underfull \hbox (badness 3128) in paragraph at lines 50--50
+Underfull \hbox (badness 3128) in paragraph at lines 49--49
 \T1/ppl/m/n/10.95 le-sen, Be-rei-ni-gen, Mer-gen und Fil-tern der SHP-
  []
 
 
-Underfull \hbox (badness 1281) in paragraph at lines 50--50
+Underfull \hbox (badness 1281) in paragraph at lines 49--49
 \T1/ppl/m/n/10.95 bi-li-tät, Aus-wer-
  []
 
 
-Underfull \hbox (badness 5417) in paragraph at lines 50--50
+Underfull \hbox (badness 5417) in paragraph at lines 49--49
 []|\T1/ppl/m/n/10.95 Ana-ly-se feh-len-der Wer-te und LOCF-Imputation.
  []
 
 
-Underfull \hbox (badness 3323) in paragraph at lines 50--50
+Underfull \hbox (badness 3323) in paragraph at lines 49--49
 \T1/ppl/m/n/10.95 Plau-si-bi-li-täts-ver-gleich mit BFS-Referenzdaten. De-
  []
 
 
-Underfull \hbox (badness 3229) in paragraph at lines 50--50
+Underfull \hbox (badness 3229) in paragraph at lines 49--49
 \T1/ppl/m/n/10.95 skrip-ti-ve Aus-wer-tung der Ziel-va-ria-ble nach Un-
  []
 
 
-Underfull \hbox (badness 7256) in paragraph at lines 50--50
+Underfull \hbox (badness 7256) in paragraph at lines 49--49
 \T1/ppl/m/n/10.95 ter-grup-pen. Hy-po-the-sen-prü-fung zum Zi-vil-stand.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 50--50
+Underfull \hbox (badness 10000) in paragraph at lines 49--49
 []|\T1/ppl/m/n/10.95 Be-richt, Ab-
  []
 
-[3
+[2
 
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 75--82
+Underfull \hbox (badness 10000) in paragraph at lines 74--81
 []\T1/ppl/m/n/10.95 Von SWISSUb-ase wur-de das voll-stän-di-ge Da-ten-pa-ket im SPSS-Format
  []
 
 
-Underfull \hbox (badness 7759) in paragraph at lines 75--82
+Underfull \hbox (badness 7759) in paragraph at lines 74--81
 \T1/ppl/m/n/10.95 (\T1/fvm/m/n/10.95 Data_SPSS.zip\T1/ppl/m/n/10.95 ) her-un-ter-ge-la-den und un-ver-än-dert im Pro-jekt-ver-zeich-nis
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Package babel Info: 'german' activates 'german' shorthands.
+(babel)             Reported on input line 129.
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 []|\T1/ppl/m/n/10.95 Per-so-nen-be-zo-ge-ne Va-ria-
  []
 
 
-Underfull \hbox (badness 5417) in paragraph at lines 144--144
+Underfull \hbox (badness 5417) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 blen je Wel-le: Ver-trau-en
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 144--144
+Underfull \hbox (badness 1067) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 in den Bun-des-rat (\T1/fvm/m/n/10.95 pp04\T1/ppl/m/n/10.95 ),
  []
 
 
-Underfull \hbox (badness 5832) in paragraph at lines 144--144
+Underfull \hbox (badness 5832) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 ei-ge-ne Kin-der (\T1/fvm/m/n/10.95 ownkid\T1/ppl/m/n/10.95 ),
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 Na-tio-na-li-tät (\T1/fvm/m/n/10.95 nat_1_\T1/ppl/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 heit-li-che Ein-schrän-kung
  []
 
 
-Underfull \hbox (badness 1946) in paragraph at lines 144--144
+Underfull \hbox (badness 1946) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 (\T1/fvm/m/n/10.95 pc19\T1/ppl/m/n/10.95 /\T1/fvm/m/n/10.95 pc19a\T1/ppl/m/n/10.95 ), Zi-vil-stand
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 []|\T1/ppl/m/n/10.95 Haus-halts-be-zo-ge-ne Va-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 ria-blen je Wel-le: Kan-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 ton (\T1/fvm/m/n/10.95 canton\T1/ppl/m/n/10.95 ), Netto-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 Haushaltseinkommen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 (\T1/fvm/m/n/10.95 ihtyn\T1/ppl/m/n/10.95 ), Haus-halts-grö-sse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 pro Per-son: Ge-burts-jahr
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--144
+Underfull \hbox (badness 10000) in paragraph at lines 143--143
 \T1/ppl/m/n/10.95 (\T1/fvm/m/n/10.95 BIRTHY\T1/ppl/m/n/10.95 ), Ge-schlecht
  []
 
 
-Underfull \hbox (badness 4328) in paragraph at lines 144--144
+Underfull \hbox (badness 4328) in paragraph at lines 143--143
 []|\T1/ppl/m/n/10.95 Da-ten zur so-zia-len Her-
  []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4]
-Underfull \hbox (badness 1496) in paragraph at lines 178--178
+Underfull \hbox (badness 1496) in paragraph at lines 177--177
  []\T1/ppl/m/sc/10 Ab-bil-dung 2.1: |\T1/ppl/m/n/10 Sche-ma zum Zu-sam-men-füh-ren der vier SHP- 
  []
 
@@ -1376,55 +1380,56 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 224--230
+Underfull \hbox (badness 1102) in paragraph at lines 223--229
 \T1/ppl/m/n/10.95 Die Da-ten-ver-ar-bei-tung ist auf zwei R-Markdown-Skripte auf-ge-teilt. Das er-ste
  []
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 224--230
+Underfull \hbox (badness 1005) in paragraph at lines 223--229
 \T1/ppl/m/n/10.95 Mer-ging, Fil-te-ring, Va-riablen-kon-struk-ti-on und Spei-che-rung. Das zwei-te Skript
  []
 
+[4]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 1902) in paragraph at lines 245--250
+Underfull \hbox (badness 1902) in paragraph at lines 244--249
 []\T1/ppl/m/n/10.95 An R-Paketen kom-men \T1/fvm/m/n/10.95 tidyverse \T1/ppl/m/n/10.95 (Da-ten-ma-ni-pu-la-ti-on und Vi-sua-li-sie-rung),
  []
 
-[5] [6]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[7]
-Underfull \hbox (badness 1472) in paragraph at lines 361--368
+[5] [6] [7]
+Underfull \hbox (badness 1472) in paragraph at lines 360--367
 \T1/ppl/m/n/10.95 Zur Ein-schät-zung der Stich-pro-ben-qua-li-tät wer-den die Ver-tei-lun-gen nach Ge-
  []
 
-[8]) [9] [10]
+) [8]
 \openout2 = Chapters/Chapter3.aux
  (./Chapters/Chapter3.tex
 Kapitel 3.
-[11
+[9
 
 
 
 
-] [12]) [13]
+]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10]) [11]
 \openout2 = Chapters/Chapter4.aux
  (./Chapters/Chapter4.tex
 Kapitel 4.
-[14
+[12
 
 
 
 
-]) [15]
+]) [13]
 \openout2 = Appendices/AppendixA.aux
  (./Appendices/AppendixA.tex
 Anhang A.
-) [16
+) [14
 
 
 
@@ -1441,12 +1446,12 @@ File: lstlang2.sty 2025/11/14 1.11b listings language file
 File: lstlang3.sty 2025/11/14 1.11b listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 18.
- [17
+ [15
 
 
 
 
-]) [18] [19
+]) [16] [17
 
 
 
@@ -1456,26 +1461,26 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 597F74B41F620BD3EA1652E4A32B85EB;5589.
+(rerunfilecheck)             Checksum: A49931E9C9728E06FA89A616F749F623;5590.
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 45563 strings out of 476081
- 477151,1977958 words of node,token memory allocated
- 5597 words of node memory still in use:
-   4 hlist, 1 vlist, 1 rule, 5 glue, 692 kern, 1 glyph, 531 attribute, 71 glue_spec, 267 attribute_list, 2 write, 3 pdf_action nodes
-   avail lists: 1:10,2:8693,3:442,4:7306,5:6695,6:152,7:15536,8:71,9:20383,10:37,11:1268
- 66611 multiletter control sequences out of 65536+600000
- 113 fonts using 7704239 bytes
+ 45925 strings out of 476081
+ 477130,1977958 words of node,token memory allocated
+ 5436 words of node memory still in use:
+   4 hlist, 1 vlist, 1 rule, 6 glue, 660 kern, 1 glyph, 525 attribute, 73 glue_spec, 264 attribute_list, 2 write, 3 pdf_action nodes
+   avail lists: 1:11,2:9704,3:545,4:8292,5:7607,6:151,7:13833,8:71,9:23142,10:37,11:1317,12:2
+ 66912 multiletter control sequences out of 65536+600000
+ 153 fonts using 10003039 bytes
  105i,21n,107p,1247b,1754s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/Users/mg/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (22 pages, 203216 bytes).
+Output written on main.pdf (20 pages, 201379 bytes).
 
-PDF statistics: 458 PDF objects out of 1000 (max. 8388607)
- 415 compressed objects within 5 object streams
- 152 named destinations out of 1000 (max. 131072)
+PDF statistics: 452 PDF objects out of 1000 (max. 8388607)
+ 411 compressed objects within 5 object streams
+ 151 named destinations out of 1000 (max. 131072)
  272 words of extra memory for PDF output out of 10000 (max. 100000000)
 
