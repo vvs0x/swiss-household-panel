@@ -22,6 +22,8 @@ knitr::opts_chunk$set(
   warning = FALSE,
   collapse = TRUE,
   comment = "#>",
+  dev = "png",
+  fig.path = "../figures/",
   fig.width = 9,
   fig.height = 5.5
 )
@@ -143,9 +145,11 @@ pivot_longer <- tidyr::pivot_longer
 zip_path <- "../data/raw/Data_SPSS.zip"
 unzipped_dir <- "../data/raw/data_unzipped"
 processed_dir <- "../data/processed"
+figures_dir <- "../figures"
 
 if (!dir.exists(unzipped_dir)) dir.create(unzipped_dir, recursive = TRUE)
 if (!dir.exists(processed_dir)) dir.create(processed_dir, recursive = TRUE)
+if (!dir.exists(figures_dir)) dir.create(figures_dir, recursive = TRUE)
 ```
 
 # Hilfsfunktionen
