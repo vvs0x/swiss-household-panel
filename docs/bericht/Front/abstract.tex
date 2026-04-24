@@ -15,5 +15,28 @@
 \begin{extraAbstract}
 \addchaptertocentry{\extraabstractname} % Add the abstract to the table of contents
 
-Die Zusammenfassung entspricht einer Miniaturversion des gesamten Dokuments. Gliedere sie ähnlich: Beginne mit dem Kontext und der  Motivation für das Projekt, einer kurzen Beschreibung der Methode und der verfügbaren Daten, Ihren Ergebnissen und den Schlussfolgerungen. Beschränke dich auf eine Seite!    
+\textbf{Hintergrund}. Das Schweizer Haushalt-Panel (SHP) befragt seit 1999 jährlich die
+gleichen Personen zu ihren Lebensbedingungen und liefert damit eine der wichtig-
+sten Datenquellen zur sozialen Entwicklung in der Schweiz. Im Rahmen von Prak-
+tikum 2 des Moduls Data Processing with R an der ZHAW wird aus den Rohdaten
+ein bereinigter Datensatz aufgebaut, der als Grundlage für weiterführende Analysen
+dient.
+
+\textbf{Methodik}. Mit R werden die SHP-Dateien eingelesen, zusammengeführt und auf
+Erwachsene sowie auf Jahre mit Erhebung der Zielvariable PP04 (Vertrauen in den
+Bundesrat) gefiltert. Fehlende Werte werden kenntlich gemacht und, wo sinnvoll,
+durch den zuletzt bekannten Wert der jeweiligen Person ersetzt. Zur Plausibilitäts-
+prüfung wird der Datensatz mit Referenzzahlen des Bundesamts für Statistik (STAT-
+POP 2023) verglichen. Als eigene Fragestellung wird untersucht, ob der Zivilstand
+mit dem Vertrauen in den Bundesrat zusammenhängt.
+
+\textbf{Ergebnisse}. Der aufbereitete Datensatz umfasst 162 593 Personenjahre über 16 Wellen (1999 bis 2023). Das durchschnittliche Vertrauen in den Bundesrat steigt von 5.74 (1999) auf 6.76 (2020) und sinkt anschliessend leicht auf 6.36 (2023). Geschlecht, Alter und Kanton stimmen weitgehend mit den BFS Zahlen überein; jüngere Personen sind leicht untervertreten und die Gruppe der 45 bis 59 Jährigen leicht übervertreten. Verheiratete Personen vertrauen dem Bundesrat im Mittel stärker (5.96) als Ledige (5.86), Getrennte (5.61) oder Geschiedene (5.49).
+
+\textbf{Diskussion}. Die Ergebnisse stützen die Hypothese teilweise: Es gibt Unterschiede
+nach Zivilstand, diese sind aber gering. Einschränkend wirken der Wegfall von Teil-
+nehmenden über die Jahre, fehlende Werte in einzelnen Variablen und der Umstand,
+dass die Angaben auf Selbstauskünften beruhen. Ein sinnvoller nächster Schritt wäre
+eine vertiefte statistische Analyse, die individuelle Unterschiede zwischen Personen
+berücksichtigt.
+
 \end{extraAbstract}
