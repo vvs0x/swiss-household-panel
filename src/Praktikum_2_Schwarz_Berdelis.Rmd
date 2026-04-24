@@ -20,6 +20,10 @@ knitr::opts_chunk$set(
   echo = TRUE,
   message = FALSE,
   warning = FALSE,
+  collapse = TRUE,
+  comment = "#>",
+  dev = "png",
+  fig.path = "../figures/",
   fig.width = 9,
   fig.height = 5.5
 )
@@ -27,26 +31,23 @@ knitr::opts_chunk$set(
 
 # Zusammenfassung
 
-In diesem Bericht wird Praktikum 2 als zusammenhängende R-Markdown-Dokumentation dargestellt.
+Dieser Bericht dokumentiert die Aufbereitung und Analyse der Daten des Swiss Household Panel in einem zusammenhängenden R-Markdown-Dokument.
 Ausgehend von den SHP-Rohdaten in der bereitgestellten ZIP-Datei wird ein Paneldatensatz auf Personen-Jahr-Ebene aufgebaut, bereinigt und für die Auswertung vorbereitet.
 Anschliessend werden die Datenqualität, die Missing-Struktur, die Plausibilität der Verteilungen und die Entwicklung des Vertrauens in den Bundesrat untersucht.
 
 Als zusätzliche Einflussvariable wird der Zivilstand (`CIVSTA`) betrachtet.
-Die Ergebnisse werden in Tabellen und Grafiken zusammengeführt und am Ende als aufbereitete Datensätze für Woche 2 und Woche 3 gespeichert.
+Die Ergebnisse werden in Tabellen und Grafiken zusammengeführt und am Ende als aufbereitete Datensätze gespeichert.
+Die Auswertung zeigt, dass verheiratete Personen im Mittel ein etwas höheres Vertrauen in den Bundesrat aufweisen als die in der Hypothese definierten Vergleichsgruppen ledig, getrennt und geschieden.
 
 # Einleitung
 
-Dieses Dokument fasst die Bearbeitung von Praktikum 2 in einem einzigen R-Markdown-Bericht zusammen.
-Der Bericht deckt die Datenaufbereitung aus Woche 2 sowie die Missing-Analyse, Plausibilisierung und Auswertung aus Woche 3 ab.
-
-Die Bearbeitung folgt derselben Logik wie in den Arbeitsdateien `Datenaufbereitung.Rmd` und `Datenqualitaet_Plausibilisierung_Auswertung.Rmd`, ist hier aber als vollständige Abgabe zusammengeführt.
+Das Dokument fasst Datenaufbereitung, Missing-Analyse, Plausibilisierung und Auswertung in einer einzigen Darstellung zusammen.
+Die Bearbeitung folgt derselben Logik wie in den Arbeitsdateien `Datenaufbereitung.Rmd` und `Datenqualitaet_Plausibilisierung_Auswertung.Rmd`, bündelt die Schritte jedoch in einer durchgehenden Analyse.
 
 # Zielsetzung
 
-Die Aufgabenstellung verlangt:
-
 1. die Erstellung eines Paneldatensatzes auf Personen-Jahr-Ebene,
-2. die Konstruktion der geforderten Zielvariablen,
+2. die Konstruktion der benötigten Zielvariablen,
 3. die Analyse unvollständiger Fälle und Missing Values,
 4. die Imputation einer stark betroffenen Variable mit früheren Personenwerten,
 5. die Plausibilisierung mit BFS-Vergleichen,
@@ -57,13 +58,24 @@ Als zusätzliche Einflussvariable wird `CIVSTA` verwendet.
 
 **Hypothese:** Verheiratete Personen weisen im Durchschnitt ein höheres Vertrauen in den Bundesrat auf als ledige, getrennte oder geschiedene Personen.
 
+# Aufbau des Berichts
+
+Der Bericht ist entlang der Arbeitsschritte strukturiert:
+
+1. Planung, Organisation und Dateiverwaltung
+2. Datensicherheit und Replizierbarkeit
+3. Bestimmung und Begründung des zusätzlichen Einflussfaktors
+4. Datenaufbereitung inklusive Join-Skizze und Beschrieb des Enddatensatzes
+5. Datenqualität, Imputation, Plausibilisierung und Auswertung
+6. Zusammenfassende Beurteilung der Ergebnisse in Fazit und Schlusswort
+
 # Planung und Organisation
 
 Die Bearbeitung wurde in vier Arbeitsschritte gegliedert:
 
-1. Sichtung der Aufgabenstellung und Identifikation der benötigten SHP-Dateien.
-2. Aufbau des Datensatzes für Woche 2 mit allen geforderten Zielvariablen.
-3. Analyse der Datenqualität, Plausibilisierung und Auswertung für Woche 3.
+1. Sichtung der verfügbaren SHP-Dateien und Identifikation der benötigten Variablen.
+2. Aufbau des Datensatzes auf Personen-Jahr-Ebene mit allen Zielvariablen.
+3. Analyse der Datenqualität, Plausibilisierung und Auswertung.
 4. Zusammenführung aller Teilarbeiten in einem einzigen dokumentierten R-Markdown-Bericht.
 
 Die Verantwortlichkeiten wurden innerhalb der Gruppe arbeitsteilig organisiert:
@@ -76,8 +88,12 @@ Die Projektorganisation im Repository ist funktional getrennt:
 
 - `data/raw` enthält die bereitgestellte ZIP-Datei.
 - `data/processed` enthält die erzeugten Zwischen- und Enddatensätze.
-- `src` enthält die R-Markdown-Dateien für Arbeits- und Abgabedokumente.
-- `docs` bleibt für diese Abgabe unberücksichtigt, da es die Dokumentation für den Kommunikationsteil.
+- `src` enthält die R-Markdown-Dateien für Arbeits- und Berichtsdokumente.
+- `docs` enthält ergänzende Unterlagen sowie die separate Dokumentation für den Kommunikationsteil des Projekts.
+
+Die Datenakquisition ist direkt in den Workflow eingebettet:
+Ausgangspunkt ist die lokal abgelegte ZIP-Datei `data/raw/Data_SPSS.zip`, aus der die benötigten SPSS-Dateien per R entpackt und anschliessend automatisiert eingelesen werden.
+Damit ist der Workflow ohne manuelle Zwischenschritte reproduzierbar.
 
 # Datensicherheit
 
@@ -85,7 +101,7 @@ Die Rohdaten werden lokal aus der ZIP-Datei gelesen und im Projektverzeichnis ve
 Es werden keine Originaldaten verändert; alle erzeugten Datensätze werden in `data/processed` separat abgelegt.
 Die Verarbeitung erfolgt reproduzierbar aus den Quell-Dateien, sodass der finale Datensatz jederzeit neu erstellt werden kann.
 
-Für den Bericht werden nur die für die Aufgabenstellung benötigten Variablen ausgewählt.
+Es werden nur die für die Analyse benötigten Variablen ausgewählt.
 Die BFS-Daten werden ausschliesslich für den Plausibilitätsvergleich verwendet und nur dann geladen, wenn der Zugriff in der Laufumgebung möglich ist.
 
 # Eigener Einflussfaktor
@@ -129,9 +145,11 @@ pivot_longer <- tidyr::pivot_longer
 zip_path <- "../data/raw/Data_SPSS.zip"
 unzipped_dir <- "../data/raw/data_unzipped"
 processed_dir <- "../data/processed"
+figures_dir <- "../figures"
 
 if (!dir.exists(unzipped_dir)) dir.create(unzipped_dir, recursive = TRUE)
 if (!dir.exists(processed_dir)) dir.create(processed_dir, recursive = TRUE)
+if (!dir.exists(figures_dir)) dir.create(figures_dir, recursive = TRUE)
 ```
 
 # Hilfsfunktionen
@@ -172,6 +190,7 @@ is_swiss <- function(x) {
 }
 
 fill_from_past <- function(data, varname, target_year) {
+  # Sortierung ist notwendig, damit der letzte frühere Wert korrekt übernommen wird.
   data <- data[order(data$IDPERS, data$YEAR), ]
   split_data <- split(data, data$IDPERS)
 
@@ -201,17 +220,77 @@ fill_from_past <- function(data, varname, target_year) {
 
 ## Skizze zum Zusammenführen der Daten
 
-Die Zusammenführung erfolgt in vier Schritten:
+Die Zusammenführung erfolgt über Personen- und Haushaltskennungen.
+Das folgende Diagramm zeigt verwendete Tabellen, Join-Typen und Schlüsselvariablen:
+
+```{r join-diagram, fig.height=6.5}
+plot.new()
+plot.window(xlim = c(0, 10), ylim = c(0, 10))
+
+draw_box <- function(xleft, ybottom, xright, ytop, label, fill = "#E8F1F8") {
+  rect(xleft, ybottom, xright, ytop, col = fill, border = "#2F5D7E", lwd = 2)
+  text((xleft + xright) / 2, (ybottom + ytop) / 2, label, cex = 0.95)
+}
+
+draw_box(
+  3.2, 7.7, 6.8, 9.1,
+  "SHPLONG_P_USER\nBasis: idpers, idhous, year"
+)
+draw_box(
+  0.4, 5.0, 3.4, 6.3,
+  "SHPLONG_H_USER\nLEFT JOIN über\nidhous + year",
+  fill = "#F6E8EA"
+)
+draw_box(
+  3.5, 5.0, 6.5, 6.3,
+  "SHP_MP\nLEFT JOIN über\nidpers",
+  fill = "#EAF4E6"
+)
+draw_box(
+  6.6, 5.0, 9.6, 6.3,
+  "SHP_SO\nLEFT JOIN über\nidpers",
+  fill = "#F8F1DD"
+)
+draw_box(
+  2.2, 2.0, 7.8, 3.6,
+  "panel_final\nFilter auf relevante Jahre und Erwachsene\nKonstruktion der Zielvariablen\nSpeicherung in data/processed",
+  fill = "#EDE7F6"
+)
+
+arrows(5.0, 7.7, 1.9, 6.35, length = 0.1, lwd = 2, col = "#4D4D4D")
+arrows(5.0, 7.7, 5.0, 6.35, length = 0.1, lwd = 2, col = "#4D4D4D")
+arrows(5.0, 7.7, 8.1, 6.35, length = 0.1, lwd = 2, col = "#4D4D4D")
+arrows(1.9, 5.0, 4.2, 3.65, length = 0.1, lwd = 2, col = "#4D4D4D")
+arrows(5.0, 5.0, 5.0, 3.65, length = 0.1, lwd = 2, col = "#4D4D4D")
+arrows(8.1, 5.0, 5.8, 3.65, length = 0.1, lwd = 2, col = "#4D4D4D")
+
+text(5, 1.1, "Schematische Darstellung der Datenzusammenführung", cex = 0.95)
+```
+
+Ergänzend fasst die folgende textliche Skizze die gleiche Logik zusammen:
 
 ```text
 SHPLONG_P_USER
-  -> Auswahl der personen- und wellenspezifischen Variablen
-  -> LEFT JOIN mit SHPLONG_H_USER über (idhous, year)
-  -> LEFT JOIN mit SHP_MP über idpers
-  -> LEFT JOIN mit SHP_SO über idpers
-  -> Filter auf relevante Jahre und Erwachsene
-  -> Konstruktion der Zielvariablen
-  -> Speicherung als panel_final
+  Basisdatei auf Personen-Jahr-Ebene
+  Schlüssel: idpers, idhous, year
+
+  LEFT JOIN SHPLONG_H_USER
+    Schlüssel: (idhous, year)
+    Inhalt: Haushaltsmerkmale wie CANTON, IHTYN, NBPERS
+
+  LEFT JOIN SHP_MP
+    Schlüssel: idpers
+    Inhalt: zeitinvariante Personenmerkmale wie BIRTHY, SEX
+
+  LEFT JOIN SHP_SO
+    Schlüssel: idpers
+    Inhalt: retrospektive Angabe zu PO58
+
+  Danach:
+    Filter auf relevante Jahre
+    Filter auf Erwachsene
+    Konstruktion der Zielvariablen
+    Speicherung als panel_final
 ```
 
 ## 1.1 Rohdaten entpacken
@@ -280,6 +359,7 @@ so <- so_raw |>
 ## 1.4 Verwendete Befragungsjahre
 
 Es werden nur Jahre berücksichtigt, in denen `PP04` erhoben wurde.
+Die Auswahl basiert auf den SHP-Hinweisen zur Variablenverfügbarkeit und wird im Datensatz zusätzlich dadurch plausibilisiert, dass nur Wellen mit inhaltlich verwendbarer Zielvariable in die Analyse übernommen werden.
 
 ```{r years}
 years_use <- c(
@@ -354,6 +434,7 @@ so_clean <- so |>
 ## 1.6 Daten zusammenführen
 
 ```{r merge}
+# Personen-Jahr-Daten werden um Haushalts-, Personenstamm- und Herkunftsangaben ergänzt.
 panel_joined <- p_long_clean |>
   left_join(h_long_clean, by = c("idhous", "year")) |>
   left_join(mp_clean, by = c("idpers" = "IDPERS")) |>
@@ -489,6 +570,7 @@ panel_final <- panel_adults |>
     PC19, PP10, NETHHINCPP, PO58, CIVSTA
   )
 
+# COMPLETE markiert Beobachtungen ohne fehlende Werte in den Analysevariablen.
 panel_final$COMPLETE <- rowSums(is.na(panel_final[complete_vars])) == 0
 
 panel_final <- panel_final |>
@@ -582,6 +664,9 @@ missing_rows_by_year <- panel_final |>
 missing_rows_by_year
 ```
 
+Die Tabelle zeigt den Anteil von Personen-Jahr-Beobachtungen mit mindestens einem fehlenden Wert.
+Damit werden sowohl die absoluten Fallzahlen als auch die jährlichen Anteile der unvollständigen Beobachtungen sichtbar.
+
 ```{r plot-missing-rows}
 missing_rows_by_year |>
   ggplot(aes(x = YEAR, y = share_incomplete)) +
@@ -622,6 +707,9 @@ missing_by_var_year <- panel_final |>
 missing_by_var_year
 ```
 
+Diese Übersicht macht sichtbar, in welchen Jahren einzelne Variablen besonders stark von Missing Values betroffen sind.
+Sie dient als Grundlage für die Auswahl der Variable, die im nächsten Schritt imputiert wird.
+
 ## 2.4 Auswahl der Imputationsvariable
 
 ```{r choose-target}
@@ -643,10 +731,12 @@ target_info
 ```
 
 Die Imputation wird für `r target_info$variable[[1]]` im Jahr `r target_info$YEAR[[1]]` durchgeführt.
+Im vorliegenden Datensatz ist dies `r target_info$variable[[1]]` im Jahr `r target_info$YEAR[[1]]`.
 
 ## 2.5 Imputation
 
 ```{r imputation}
+# Imputiert wird ausschliesslich die ausgewählte Variable im ausgewählten Jahr.
 panel_imputed <- fill_from_past(
   data = panel_final,
   varname = as.character(target_info$variable[[1]]),
@@ -694,6 +784,7 @@ comparison_missing |>
 
 Die Imputation ersetzt fehlende Werte nicht generell, sondern nur für die ausgewählte Zielvariable im Zieljahr durch den jeweils letzten früheren verfügbaren Personenwert.
 Dadurch bleibt der Eingriff methodisch eng begrenzt und nachvollziehbar.
+Gleichzeitig entspricht dieses Vorgehen der Idee, fehlende Werte einer stark betroffenen Variable mit dem neuesten früheren Personenwert zu ersetzen.
 
 # 3. Plausibilisierung
 
@@ -906,6 +997,7 @@ bind_rows(canton_all, canton_complete, bfs_canton) |>
 
 Die Plausibilisierung vergleicht die SHP-Verteilungen mit externen BFS-Referenzwerten für Geschlecht, Altersgruppen und Kantone.
 Zusätzlich wird geprüft, ob sich die Verteilungen nach dem Entfernen unvollständiger Fälle merklich verschieben.
+So lässt sich beurteilen, ob bestimmte Gruppen im Analysebestand systematisch unter- oder übervertreten sind.
 
 # 4. Auswertung
 
@@ -934,6 +1026,9 @@ trust_over_time |>
     y = "Mittleres Vertrauen"
   )
 ```
+
+Die Zeitreihe liefert einen Überblick über die Entwicklung der Zielgrösse `PP04` seit 1999.
+Die anschliessenden Untergruppen-Grafiken vertiefen diese Entwicklung für mehrere potenzielle Einflussfaktoren.
 
 ## 4.2 Zusätzliche Untergruppen-Grafiken
 
@@ -1052,8 +1147,29 @@ civsta_summary |>
 
 Die höchste mittlere Ausprägung von `PP04` zeigt in dieser Auswertung die Kategorie `r civsta_summary$CIVSTA[[1]]`.
 
+```{r civsta-hypothesis-check}
+hypothesis_check <- panel_imputed |>
+  filter(CIVSTA %in% c("verheiratet", "ledig", "getrennt", "geschieden")) |>
+  mutate(
+    hypothesis_group = if_else(CIVSTA == "verheiratet", "verheiratet", "Vergleichsgruppe")
+  ) |>
+  group_by(hypothesis_group) |>
+  summarise(
+    mean_PP04 = mean(PP04, na.rm = TRUE),
+    median_PP04 = median(PP04, na.rm = TRUE),
+    n = n(),
+    .groups = "drop"
+  )
+
+hypothesis_check
+```
+
 Die Hypothese wird anhand der gruppenspezifischen Mittelwerte geprüft.
-Ob sie vollständig gestützt wird, hängt von der konkreten Rangfolge der Zivilstandskategorien in den berechneten Ergebnissen ab.
+Verheiratete Personen erreichen im Mittel einen `PP04`-Wert von `r round(hypothesis_check$mean_PP04[hypothesis_check$hypothesis_group == "verheiratet"], 2)`, während die zusammengefasste Vergleichsgruppe aus ledigen, getrennten und geschiedenen Personen einen Mittelwert von `r round(hypothesis_check$mean_PP04[hypothesis_check$hypothesis_group == "Vergleichsgruppe"], 2)` aufweist.
+
+Damit ist die formulierte Hypothese in den vorliegenden Daten deskriptiv **gestützt**.
+Die Differenz ist nicht sehr gross, aber in der erwarteten Richtung.
+Es wird keine kausale oder inferenzstatistische Prüfung vorgenommen; die Beurteilung bleibt daher bewusst deskriptiv.
 
 # 5. Speicherung der Ergebnisse
 
@@ -1064,5 +1180,16 @@ saveRDS(panel_imputed, file.path(processed_dir, "shp_panel_week3_imputed.rds"))
 
 # 6. Fazit
 
-Der Datensatz für Woche 2 wurde erfolgreich aufgebaut und enthält alle geforderten Variablen auf Personen-Jahr-Ebene.
-In Woche 3 wurden die unvollständigen Fälle pro Jahr bestimmt, Missing Values systematisch ausgewertet, eine stark betroffene Variable mit früheren Personenwerten imputiert, die Plausibilität mit BFS-Verteilungen verglichen und die Entwicklung von `PP04` über mehrere Untergruppen hinweg untersucht.
+Der Datensatz wurde erfolgreich aufgebaut und enthält alle benötigten Variablen auf Personen-Jahr-Ebene.
+Anschliessend wurden die unvollständigen Fälle pro Jahr bestimmt, Missing Values systematisch ausgewertet, eine stark betroffene Variable mit früheren Personenwerten imputiert, die Plausibilität mit BFS-Verteilungen verglichen und die Entwicklung von `PP04` über mehrere Untergruppen hinweg untersucht.
+
+Die Dokumentation umfasst Planung, Organisation, Datensicherheit, eigenen Einflussfaktor, Datenzusammenführung, Beschrieb der aufbereiteten Daten, Datenqualität, Plausibilisierung und Auswertung.
+Besonders wichtig für die Nachvollziehbarkeit ist, dass alle Schritte direkt aus der ZIP-Datei reproduzierbar sind und die erzeugten Datensätze automatisiert gespeichert werden.
+
+Inhaltlich zeigt die Analyse, dass das Vertrauen in den Bundesrat über die Zeit variiert und sich zwischen Untergruppen unterscheidet.
+Für den zusätzlich gewählten Einflussfaktor `CIVSTA` ergibt sich ein deskriptiver Befund zugunsten der Hypothese: Verheiratete Personen weisen im Mittel ein höheres Vertrauen auf als ledige, getrennte und geschiedene Personen.
+
+# 7. Schlusswort
+
+Der Bericht bündelt alle Arbeitsschritte in einem einzigen reproduzierbaren R-Markdown-Dokument.
+Damit liegt eine technisch nachvollziehbare und inhaltlich geschlossene Darstellung der Datenaufbereitung und Auswertung vor.
