@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  17 APR 2026 09:15
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  24 APR 2026 10:45
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/mg/Documents/swiss-household-panel/docs/bericht/main
@@ -985,7 +985,7 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 ) (./main.aux (./Front/titlepage.aux)
 Package babel Info: 'german' activates 'german' shorthands.
 (babel)             Reported on input line 10.
- (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Appendices/AppendixA.aux))
+ (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Appendices/AppendixA.aux) (./Appendices/AppendixB.aux))
 \openout1 = main.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
@@ -1140,12 +1140,12 @@ Package hyperref Info: Link coloring ON on input line 129.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<Figures/zhaw_rgb.png, id=123, 1362.08875pt x 1424.32124pt>
+<Figures/zhaw_rgb.png, id=135, 1362.08875pt x 1424.32124pt>
 File: Figures/zhaw_rgb.png Graphic file (type png)
 <use Figures/zhaw_rgb.png>
 Package luatex.def Info: Figures/zhaw_rgb.png  used on input line 14.
 (luatex.def)             Requested size: 67.94241pt x 71.04636pt.
-<Figures/zhaw_font_deu_font.pdf, id=124, 537.99997pt x 20.99844pt>
+<Figures/zhaw_font_deu_font.pdf, id=136, 537.99997pt x 20.99844pt>
 File: Figures/zhaw_font_deu_font.pdf Graphic file (type pdf)
 <use Figures/zhaw_font_deu_font.pdf>
 Package luatex.def Info: Figures/zhaw_font_deu_font.pdf  used on input line 22.
@@ -1189,11 +1189,7 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 
 
 
-] (./main.toc
-LaTeX Font Info:    Trying to load font information for T1+fvm on input line 16.
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/bera/t1fvm.fd
-File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
-))
+] (./main.toc)
 \tf@toc=\write6
 
 \openout6 = main.toc
@@ -1210,83 +1206,62 @@ File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
 \openout2 = Chapters/Chapter1.aux
  (./Chapters/Chapter1.tex
 Kapitel 1.
-[1
+) [1
 
 
 
 
 
 ]
-Package babel Info: 'german' activates 'german' shorthands.
-(babel)             Reported on input line 77.
- [2]
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 103.
- (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ppl.fd
-File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
-) [3] [4] [5]
-LaTeX Font Info:    Font shape `T1/fvm/m/it' in size <10.95> not available
-(Font)              Font shape `T1/fvm/m/sl' tried instead on input line 179.
- [6]
-
-LaTeX Warning: Citation 'Reference1' on page 7 undefined on input line 205.
-
-
-LaTeX Warning: Citation 'Reference2' on page 7 undefined on input line 208.
-
-
-LaTeX Warning: Citation 'Reference1' on page 7 undefined on input line 208.
-
-
-LaTeX Warning: Citation 'Reference3' on page 7 undefined on input line 208.
-
-[7]
-Overfull \hbox (23.39014pt too wide) in paragraph at lines 231--231
-[]    \T1/fvm/m/n/10 \tabhead{Groups} & \tabhead{Treatment X} & \tabhead{Treatment Y} \\[] 
- []
-
-[8]
-<Figures/Electron.pdf, id=253, 398.3386pt x 284.52756pt>
-File: Figures/Electron.pdf Graphic file (type pdf)
-<use Figures/Electron.pdf>
-Package luatex.def Info: Figures/Electron.pdf  used on input line 277.
-(luatex.def)             Requested size: 398.33762pt x 284.52686pt.
- [9<./Figures/Electron.pdf>] [10]) [11]
 \openout2 = Chapters/Chapter2.aux
  (./Chapters/Chapter2.tex
 Kapitel 2.
-(/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 17.
- (./Code/example.py) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2025/11/14 1.11b (Carsten Heinz)
-) [12
+) [2
 
 
 
 
-] (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-) (/Users/mg/Library/TinyTeX/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)) [13]
+]
+\openout2 = Chapters/Chapter3.aux
+ (./Chapters/Chapter3.tex
+Kapitel 3.
+) [3
+
+
+
+
+]
+\openout2 = Chapters/Chapter4.aux
+ (./Chapters/Chapter4.tex
+Kapitel 4.
+) [4
+
+
+
+
+]
 \openout2 = Appendices/AppendixA.aux
  (./Appendices/AppendixA.tex
 Anhang A.
-) [14
+) [5
+
+
+
+
+]
+\openout2 = Appendices/AppendixB.aux
+ (./Appendices/AppendixB.tex
+Anhang B.
+) [6
 
 
 
 
 ]
 
-LaTeX Warning: Empty bibliography on input line 217.
+LaTeX Warning: Empty bibliography on input line 215.
 
-(./main.aux (./Front/titlepage.aux) (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Appendices/AppendixA.aux))
+(./main.aux (./Front/titlepage.aux) (./Front/abstract.aux) (./Front/symbols.aux) (./Chapters/Chapter1.aux) (./Chapters/Chapter2.aux) (./Chapters/Chapter3.aux) (./Chapters/Chapter4.aux) (./Appendices/AppendixA.aux) (./Appendices/AppendixB.aux))
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2020/03/25>
@@ -1296,7 +1271,7 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 7CCA419937413349368F6254418E9067;4764.
+(rerunfilecheck)             Checksum: 2FBE7EB3DB0C58413F9D21B3890BFADC;5634.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1308,19 +1283,19 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 45200 strings out of 476081
- 305364,1977958 words of node,token memory allocated
- 1727 words of node memory still in use:
-   4 hlist, 1 vlist, 1 rule, 6 glue, 119 kern, 1 glyph, 189 attribute, 69 glue_spec, 96 attribute_list, 4 write, 6 pdf_action nodes
-   avail lists: 1:9,2:6719,3:450,4:5770,5:5060,6:139,7:9546,8:67,9:15647,10:35,11:858
- 66138 multiletter control sequences out of 65536+600000
- 247 fonts using 16042631 bytes
- 105i,23n,113p,1173b,1849s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{/Users/mg/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmbo8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmro8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (18 pages, 209538 bytes).
+ 44306 strings out of 476081
+ 125056,1977958 words of node,token memory allocated
+ 953 words of node memory still in use:
+   4 hlist, 1 vlist, 1 rule, 5 glue, 41 kern, 1 glyph, 77 attribute, 68 glue_spec, 40 attribute_list, 4 write nodes
+   avail lists: 1:3,2:1515,3:409,4:260,5:300,6:150,7:3453,8:1,9:773,10:6,11:302
+ 65493 multiletter control sequences out of 65536+600000
+ 95 fonts using 6240191 bytes
+ 105i,21n,107p,743b,1756s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/Users/mg/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on main.pdf (10 pages, 114608 bytes).
 
-PDF statistics: 440 PDF objects out of 1000 (max. 8388607)
- 393 compressed objects within 4 object streams
- 100 named destinations out of 1000 (max. 131072)
- 248 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 242 PDF objects out of 1000 (max. 8388607)
+ 219 compressed objects within 3 object streams
+ 45 named destinations out of 1000 (max. 131072)
+ 272 words of extra memory for PDF output out of 10000 (max. 100000000)
 

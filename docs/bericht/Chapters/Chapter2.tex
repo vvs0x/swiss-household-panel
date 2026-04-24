@@ -5,53 +5,56 @@
 % CHAPTER 2
 %----------------------------------------------------------------------------------------
 
-\chapter{Code Listings}
-
-\label{Chapter2} % For referencing the chapter elsewhere, use \ref{Chapter2} 
+\chapter{Methodik}
+\label{Chapter2}
 
 %----------------------------------------------------------------------------------------
 
-The package \href{https://www.overleaf.com/learn/latex/Code\_listing}{\code{listings}} permits to easily include existing code. Simply use the command \verb|\lstinputlisting[language=name]{path/to/file}|. See \href{https://www.overleaf.com/learn/latex/Code\_listing#Supported\_languages}{here} for a list of supported programming languages.
-
-
-\lstinputlisting[language=Python,caption=External file: code/example.py]{Code/example.py}
-
-It is also possible to enter code directly into \LaTeX:
-
-\begin{lstlisting}[language=C++]
-#include <stdio>
-void hello_world(void){
-   std::cout << "Hello World!" << std::endl;
-}    
-\end{lstlisting}
-
-Alternatively, one can use the syntax highlighting toolbox \href{https://pygments.org/}{\code{Pygments}} in combination with the \LaTeX-package \href{www.overleaf.com/learn/latex/Code\_Highlighting\_with\_minted}{\code{minted}}. It provides slightly better results, as the code will actually be parsed.
-
-To install Pygments, use the following command. For \code{minted} to work properly, run the pdflatex tool with the flag \code{--shell-escape}. If you are using a TEX editor, you can modify the typesetting   command somewhere in the settings.
-
-\begin{lstlisting}[language=bash]
-# Make sure that Pygments is installed.
-python -m pip install pygments
-
-# Then add the --shell-escape flag to the command 
-# that is used to compile your LaTeX code.
-pdflatex --output-dir="$BUILD_DIR" \
-         --file-line-error \
-         --shell-escape \
-         --synctex=1 "$1"
-\end{lstlisting}
+\section{Projektmanagement und Projektplan}
+\label{sec:projektmanagement}
 
 
 
-% Set the following line to \iftrue if minted is available on your system.
-% See the above instructions to see how.
+%----------------------------------------------------------------------------------------
 
-\iffalse
-See below how the result looks like if minted is available on your system.
+\section{Beschreibung der Daten, Beschaffung und Storage}
+\label{sec:daten}
 
-\begin{listing}[!ht]
-\inputminted[linenos, bgcolor=codebackground, style=friendly]{python}{Code/example.py}
-\caption{Example from external file, parsed using \code{Pygments}}
-\end{listing}
+\subsection{Datenquelle und Beschaffung}
+\label{subsec:datenquelle}
 
-\fi
+
+
+\subsection{Ordnerstruktur und Storage}
+\label{subsec:ordnerstruktur}
+
+
+
+\subsection{Verwendete Dateien}
+\label{subsec:dateien}
+
+
+
+\subsection{Datenkatalog}
+\label{subsec:datenkatalog}
+
+
+
+\subsection{Übersicht der R-Skripte}
+\label{subsec:rskripte}
+
+
+
+\subsection{Datenaufbereitung: Merging und Filtering}
+\label{subsec:merging}
+
+
+
+\subsection{Datenqualität: Fehlende Werte}
+\label{subsec:datenqualitaet}
+
+
+
+\subsection{Plausibilität: Vergleich mit BFS-Daten}
+\label{subsec:plausibilitaet}
+
