@@ -32,11 +32,11 @@
 \contentsline {section}{\numberline {4.1}Kritische Reflexion der Ergebnisse}{10}{section.50}%
 \contentsline {section}{\numberline {4.2}Limitationen}{11}{section.51}%
 \contentsline {section}{\numberline {4.3}N\"achste Schritte}{11}{section.52}%
-\contentsline {chapter}{\numberline {A}Datenkatalog}{11}{chapter.53}%
-\contentsline {chapter}{\numberline {B}R-Skripte (Auszüge)}{12}{chapter.54}%
+\contentsline {chapter}{\numberline {A}Datenkatalog}{12}{chapter.53}%
+\contentsline {chapter}{\numberline {B}R-Skripte}{12}{chapter.54}%
 \contentsline {section}{\numberline {B.1}Hilfsfunktion zum Einlesen von SPSS-Dateien}{12}{section.55}%
 \contentsline {section}{\numberline {B.2}Merging der Datensätze}{12}{section.66}%
 \contentsline {section}{\numberline {B.3}Konstruktion der Variable NAT}{12}{section.72}%
 \contentsline {section}{\numberline {B.4}Imputation mit LOCF}{13}{section.91}%
 \contentsline {section}{\numberline {B.5}BFS-Daten einlesen}{13}{section.100}%
-\contentsline {chapter}{Literatur}{13}{lstnumber.107}%
+\contentsline {chapter}{Literatur}{14}{lstnumber.107}%
