@@ -1,4 +1,3 @@
-% Indicate the main file. Must go at the beginning of the file.
 % !TEX root = ../main.tex
 
 %----------------------------------------------------------------------------------------
@@ -13,10 +12,73 @@
 \section{Ausgangslage und Zielsetzung}
 \label{sec:ausgangslage}
 
+Das Swiss Household Panel, abgekürzt SHP, ist eine seit 1999 jährlich durchgeführte
+Panelbefragung. Sie wird vom Schweizerischen Kompetenzzentrum für Sozialwissenschaften
+FORS in Lausanne koordiniert und erfasst Lebensbedingungen, soziale Einbettung,
+politische Einstellungen und subjektive Bewertungen der Befragten über mehrere
+Erhebungswellen hinweg \cite{FORS2024}. Die Stichprobe beruht auf einer zufälligen
+Auswahl von Privathaushalten in der gesamten Schweiz und wird durch
+Auffrischungsstichproben (SHP II 2004, SHP III 2013 und SHP IV 2020) regelmässig
+ergänzt, um selektive Panelattrition auszugleichen. Dank der jährlichen Erhebung derselben
+Personen erlaubt das SHP nicht nur Querschnittsvergleiche, sondern auch längsschnittliche
+Analysen individueller Veränderungen über die Zeit. Für die vorliegende Arbeit stellt das
+SHP damit eine der umfassendsten Datenquellen zur Untersuchung sozialer und politischer
+Entwicklungen in der Schweiz dar.
 
+Die übergeordnete Fragestellung dieses Praktikums lautet, wie sich das Vertrauen der
+Schweizer Wohnbevölkerung in den Bundesrat seit 1999 entwickelt hat und ob sich zwischen
+verschiedenen Untergruppen systematische Unterschiede zeigen. Die Zielvariable
+\texttt{PP04} misst das Vertrauen in den Bundesrat auf einer elfstufigen Skala von 0
+(kein Vertrauen) bis 10 (volles Vertrauen). Die Variable wird im SHP in unregelmässigen
+Abständen erhoben, erstmals 1999 und zuletzt 2023.
+
+Der vorliegende Bericht dokumentiert Praktikum 2 des Moduls Data Processing with R an der
+ZHAW. Ausgehend von den SHP-Rohdaten wird ein bereinigter Paneldatensatz auf
+Personen-Jahr-Ebene aufgebaut, der sämtliche aufgabenseitig vorgegebenen Variablen
+enthält sowie eine zusätzliche, vom Projektteam ausgewählte Einflussgrösse. Der Bericht
+beschreibt die Planung der Arbeitsschritte, die Beschaffung und Ablage der Rohdaten, die
+Datenaufbereitung, die Prüfung der Datenqualität, die Plausibilisierung mit externen
+Referenzdaten und die deskriptive Auswertung.
+
+Das Projekt folgt dem IMRD-Schema (Introduction, Materials and Methods, Results,
+Discussion): Nach dieser Einleitung werden in Kapitel~\ref{Chapter2} das
+Projektmanagement, die Datenbeschaffung, die Datenaufbereitung sowie die Prüfung der
+Datenqualität und Plausibilität beschrieben. Kapitel~\ref{Chapter3} präsentiert die
+deskriptiven Ergebnisse und die Auswertung der Hypothese. Kapitel~\ref{Chapter4}
+diskutiert die Befunde kritisch, benennt die methodischen Grenzen und skizziert
+mögliche nächste Schritte. Der Anhang enthält einen vollständigen Datenkatalog sowie
+ausgewählte Auszüge aus dem R-Code.
+
+Ein besonderes Augenmerk liegt auf der Reproduzierbarkeit der Datenaufbereitung. Alle
+Verarbeitungsschritte werden ausgehend von der ursprünglichen ZIP-Datei in R
+programmiert, dokumentiert und in einem öffentlich nachvollziehbaren Projektverzeichnis
+abgelegt. Eine Drittperson kann den Datenaufbereitungsprozess mit den im Repository
+hinterlegten Skripten eigenständig nachvollziehen.
 
 %----------------------------------------------------------------------------------------
 
 \section{Hypothese}
 \label{sec:hypothese}
 
+Neben den in der Aufgabenstellung vorgegebenen Variablen verlangt das Praktikum die
+Aufnahme einer zusätzlichen, vom Projektteam gewählten Einflussgrösse. Als ergänzende
+Variable wird der Zivilstand (\texttt{CIVSTA}) aufgenommen. Der Zivilstand strukturiert
+die unmittelbare Lebenswelt einer Person, prägt den Alltag durch soziale Einbettung oder
+Trennungserfahrungen und steht damit in einem plausiblen Zusammenhang mit dem Vertrauen
+in staatliche Institutionen. In der soziologischen Literatur wird wiederholt darauf
+verwiesen, dass verheiratete Personen tendenziell höhere Werte für generalisiertes
+Vertrauen und Lebenszufriedenheit aufweisen, während Trennungs- und Scheidungserfahrungen
+mit niedrigerem institutionellen Vertrauen assoziiert sind.
+
+Auf dieser Grundlage wird die folgende Hypothese formuliert:
+
+\begin{quote}
+Verheiratete Personen weisen im Durchschnitt ein höheres Vertrauen in den Bundesrat auf
+als ledige, getrennte oder geschiedene Personen.
+\end{quote}
+
+Die Hypothese wird in Kapitel~\ref{Chapter3} deskriptiv anhand der gruppenspezifischen
+Mittelwerte und Mediane von \texttt{PP04} überprüft. Zusätzlich wird die zeitliche
+Entwicklung des Vertrauens je Zivilstandsgruppe dargestellt, um zu beurteilen, ob die
+allfälligen Unterschiede über den gesamten Beobachtungszeitraum stabil sind oder ob sie
+sich in bestimmten Phasen verstärken oder verringern.

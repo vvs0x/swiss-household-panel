@@ -7,3 +7,32 @@
 \chapter{Datenkatalog}
 \label{AppendixA}
 
+\begin{longtable}{llll}
+\toprule
+Variable & Wertebereich & Quelle & Rekodierung \\
+\midrule
+\endfirsthead
+\toprule
+Variable & Wertebereich & Quelle & Rekodierung \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+IDPERS      & $> 0$           & SHPLONG\_P  & unverändert \\
+IDHOUS      & $> 0$           & SHPLONG\_P  & unverändert \\
+YEAR        & 1999--2023      & SHPLONG\_P  & 16 Wellen mit PP04 \\
+PP04        & 0--10           & SHPLONG\_P  & neg. Codes $\rightarrow$ NA \\
+BIRTHY      & 1904--2005      & SHP\_MP     & neg. Codes $\rightarrow$ NA \\
+BIRTHYGEN   & 7 Kohorten      & Konstruiert & Intervalle \\
+SEX         & m/w/a           & SHP\_MP     & 1$\rightarrow$m, 2$\rightarrow$w, 3$\rightarrow$a \\
+CANTON      & 26 Kürzel       & SHPLONG\_H  & Code $\rightarrow$ Kürzel \\
+EDUCAT      & 11 Stufen       & SHPLONG\_P  & Code 0--10 $\rightarrow$ Text \\
+HASKID      & ja/nein         & SHPLONG\_P  & ownkid$\,\geq 1\,\rightarrow$ ja \\
+NAT         & CH/CH+A/Andere  & SHPLONG\_P  & Aus 3 Nat.-Codes \\
+PC19        & ja/nein         & SHPLONG\_P  & 1$\rightarrow$ja, 2$\rightarrow$nein \\
+PP10        & 0--10           & SHPLONG\_P  & neg. Codes $\rightarrow$ NA \\
+NETHHINCPP  & $> 0$ (CHF)     & SHPLONG\_H  & ihtyn/nbpers \\
+PO58        & ja/nein         & SHP\_SO     & 1$\rightarrow$ja, 2$\rightarrow$nein \\
+COMPLETE    & TRUE/FALSE      & Konstruiert & kein Missing \\
+CIVSTA      & 7 Auspr.        & SHPLONG\_P  & 1--7 $\rightarrow$ Klartext \\
+\end{longtable}

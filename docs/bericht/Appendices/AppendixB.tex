@@ -7,36 +7,87 @@
 \chapter{R-Skripte}
 \label{AppendixB}
 
+Die vollständigen R-Markdown-Skripte befinden sich im Verzeichnis \texttt{src/} des
+Projektrepositories.
+
 %----------------------------------------------------------------------------------------
 
 \section{Hilfsfunktion zum Einlesen von SPSS-Dateien}
 \label{sec:hilfsfunktion}
 
-
+\begin{lstlisting}[language=R, caption={Einlesen einer SPSS-Datei}, label=lst:readspss]
+read_spss_file <- function(path) {
+  foreign::read.spss(
+    file = path,
+    to.data.frame = TRUE,
+    use.value.labels = FALSE,
+    use.missings = FALSE
+  ) |>
+  tibble::as_tibble()
+}
+\end{lstlisting}
 
 %----------------------------------------------------------------------------------------
 
 \section{Merging der Datensätze}
 \label{sec:merging}
 
-
+\begin{lstlisting}[language=R, caption={Zusammenführung der vier Quelldateien}, label=lst:merging]
+panel_joined <- p_long_clean |>
+  left_join(h_long_clean, by = c("idhous", "year")) |>
+  left_join(mp_clean, by = c("idpers" = "IDPERS")) |>
+  left_join(so_clean, by = c("idpers" = "IDPERS"))
+\end{lstlisting}
 
 %----------------------------------------------------------------------------------------
 
 \section{Konstruktion der Variable NAT}
 \label{sec:nat}
 
+\begin{lstlisting}[language=R, caption={Verdichtung der Nationalitätsvariablen}, label=lst:nat]
+is_swiss <- function(x) x %in% c(8100, 756)
 
+panel_adults <- panel_adults |>
+  mutate(
+    n_ch = as.integer(replace_na(is_swiss(nat_1_), FALSE)) +
+           as.integer(replace_na(is_swiss(nat_2_), FALSE)) +
+           as.integer(replace_na(is_swiss(nat_3_), FALSE)),
+    n_nat = as.integer(!is.na(nat_1_)) +
+            as.integer(!is.na(nat_2_)) +
+            as.integer(!is.na(nat_3_)),
+    NAT = case_when(
+      n_ch >= 1 & n_nat == n_ch ~ "CH",
+      n_ch >= 1 & n_nat > n_ch  ~ "CH+Andere",
+      n_ch == 0 & n_nat >= 1    ~ "Andere",
+      TRUE                       ~ NA_character_
+    )
+  )
+\end{lstlisting}
 
 %----------------------------------------------------------------------------------------
 
 \section{Imputation mit LOCF}
 \label{sec:locf}
 
-
+\begin{lstlisting}[language=R, caption={Last Observation Carried Forward für PC19}, label=lst:locf]
+panel_imputed <- panel_final %>%
+  dplyr::arrange(IDPERS, YEAR) %>%
+  dplyr::group_by(IDPERS) %>%
+  dplyr::mutate(
+    PC19 = zoo::na.locf(PC19, na.rm = FALSE)
+  ) %>%
+  dplyr::ungroup()
+\end{lstlisting}
 
 %----------------------------------------------------------------------------------------
 
 \section{BFS-Daten einlesen}
 \label{sec:bfs}
 
+\begin{lstlisting}[language=R, caption={Einlesen der BFS-Referenzdaten via pxR}, label=lst:bfs]
+bfs_raw <- pxR::read.px(
+  filename = "https://dam-api.bfs.admin.ch/hub/api/dam/assets/36021707/master",
+  encoding = "utf-8"
+)
+bfs_tbl <- as.data.frame(bfs_raw)
+\end{lstlisting}
