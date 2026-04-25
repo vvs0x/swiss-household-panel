@@ -1,0 +1,97 @@
+%% Creator: Inkscape 1.4.3 (0d15f75, 2025-12-25), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'shp_panel_etl_refined_svg-tex.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{465.375bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,1.37088915)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0.48388396,1.35374698){\color[rgb]{0.98039216,0.97647059,0.96078431}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Source tables}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.11321515,1.29250604){\color[rgb]{0.70980392,0.83137255,0.95686275}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{SHPLONG_P}\end{tabular}}}}%
+    \put(0.11321515,1.26349718){\color[rgb]{0.52156863,0.71764706,0.92156863}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Personal level\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.37107172,1.29250604){\color[rgb]{0.62352941,0.88235294,0.79607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{SHPLONG_H}\end{tabular}}}}%
+    \put(0.37107172,1.26349718){\color[rgb]{0.36470588,0.79215686,0.64705882}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Household level\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.62892828,1.29250604){\color[rgb]{0.80784314,0.79607843,0.96470588}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{SHP_MP}\end{tabular}}}}%
+    \put(0.62892828,1.26349718){\color[rgb]{0.68627451,0.6627451,0.9254902}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Birth, sex\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.88678485,1.29250604){\color[rgb]{0.96078431,0.76862745,0.70196078}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{SHP_SO}\end{tabular}}}}%
+    \put(0.88678485,1.26349718){\color[rgb]{0.94117647,0.6,0.48235294}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Occupational\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.48388396,1.1361805){\color[rgb]{0.98039216,0.97647059,0.96078431}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Join phase}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.48388396,1.07171636){\color[rgb]{0.82745098,0.81960784,0.78039216}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Merged dataset}\end{tabular}}}}%
+    \put(0.48388396,1.03948429){\color[rgb]{0.70588235,0.69803922,0.6627451}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}All 4 tables joined on (idpers, year, idhous)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.48388396,0.95890411){\color[rgb]{0.98039216,0.97647059,0.96078431}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Filter phase}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.48388396,0.88960516){\color[rgb]{0.98039216,0.78039216,0.45882353}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Subset by year and age}\end{tabular}}}}%
+    \put(0.48388396,0.85414988){\color[rgb]{0.9372549,0.62352941,0.15294118}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}year ∈ {1999–2009, 2011, 2014, 2017, 2020, 2023}\end{tabular}}}}%
+    \put(0.48388396,0.82191781){\color[rgb]{0.9372549,0.62352941,0.15294118}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}AGE = year − BIRTHY ≥ 18\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.48388396,0.74939565){\color[rgb]{0.98039216,0.97647059,0.96078431}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Variable construction}\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.48388396,0.67365028){\color[rgb]{0.75294118,0.86666667,0.59215686}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Create derived variables}\end{tabular}}}}%
+    \put(0.48388396,0.6365834){\color[rgb]{0.59215686,0.76862745,0.34901961}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}BIRTHYGEN (5-year cohorts) • CIVSTA (marital status)\end{tabular}}}}%
+    \put(0.48388396,0.60435133){\color[rgb]{0.59215686,0.76862745,0.34901961}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}EDUCAT • HASKID (has children) • NAT (nationality) • PC19 • NETHHINCPP\end{tabular}}}}%
+    \put(0.48388396,0.57211926){\color[rgb]{0.59215686,0.76862745,0.34901961}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}COMPLETE (flag for missing data)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.48388396,0.40290089){\color[rgb]{0.62352941,0.88235294,0.79607843}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{panel_final}\end{tabular}}}}%
+    \put(0.48388396,0.36744561){\color[rgb]{0.36470588,0.79215686,0.64705882}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}Person-year observations (idpers, year)\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{shp_panel_etl_refined_svg-tex.pdf}}%
+    \put(0.48388396,0.21756648){\color[rgb]{0.98039216,0.97647059,0.96078431}\makebox(0,0)[t]{\lineheight{1.25}\smash{\begin{tabular}[t]{c}\textbf{Data shape at each step}\end{tabular}}}}%
+    \put(0.09709911,0.16921837){\color[rgb]{0.76078431,0.75294118,0.71372549}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}1. Source tables: ~200k P records/year × 4 tables\end{tabular}}}}%
+    \put(0.09709911,0.13376309){\color[rgb]{0.76078431,0.75294118,0.71372549}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2. After joins: Same P records, enriched with H, MP, SO data\end{tabular}}}}%
+    \put(0.09709911,0.09830782){\color[rgb]{0.76078431,0.75294118,0.71372549}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}3. After filters: ~15k–40k records (depends on year, age cutoff)\end{tabular}}}}%
+    \put(0.09709911,0.06285254){\color[rgb]{0.76078431,0.75294118,0.71372549}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}4. Final panel: All filtered records with 25 variables, ready for analysis\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

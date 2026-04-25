@@ -1,0 +1,63 @@
+% !TEX root = ../main.tex
+
+%----------------------------------------------------------------------------------------
+% CHAPTER 1
+%----------------------------------------------------------------------------------------
+
+\chapter{Einleitung}
+\label{Chapter1}
+
+%----------------------------------------------------------------------------------------
+
+\section{Ausgangslage und Zielsetzung}
+\label{sec:ausgangslage}
+
+Das Swiss Household Panel (SHP) ist eine jährliche Panelbefragung, die seit 1999
+durchgeführt wird. Koordiniert wird sie vom Schweizerischen Kompetenzzentrum für
+Sozialwissenschaften FORS in Lausanne. Erhoben werden Lebensbedingungen, soziale
+Einbettung, politische Einstellungen und subjektive Bewertungen. Dieselben Personen
+werden über mehrere Wellen hinweg befragt \cite{FORS2024}. Die Stichprobe beruht auf
+einer Zufallsauswahl von Privathaushalten in der ganzen Schweiz. Um selektive
+Panelattrition auszugleichen, wird sie in regelmässigen Abständen durch
+Auffrischungsstichproben ergänzt \cite{Voorpostel2018}. Weil die Befragung
+längsschnittlich angelegt ist, lassen sich nicht nur Querschnittsvergleiche zwischen
+Gruppen, sondern auch individuelle Veränderungen über die Zeit beobachten. Das SHP
+gehört damit zu den zentralen Datenquellen für die Analyse sozialer und politischer
+Entwicklungen in der Schweiz.
+
+Die Fragestellung dieses Projekts lautet: Wie hat sich das Vertrauen der Schweizer Wohnbevölkerung in den Bundesrat seit 1999 entwickelt, und gibt es
+zwischen verschiedenen Untergruppen systematische Unterschiede? Die Zielvariable
+PP04\footnote{Ist die Variable aus dem Datensatz. Siehe Anhang \ref{AppendixA}.} misst dieses Vertrauen auf einer elfstufigen Skala von 0 (kein Vertrauen)
+bis 10 (volles Vertrauen). Sie wird im SHP in unregelmässigen Abständen erhoben,
+erstmals 1999 und zuletzt 2023.
+
+Ausgangspunkt der Auswertung sind die SHP-Rohdaten. Daraus wird ein bereinigter
+Paneldatensatz auf Personen-Jahr-Ebene aufgebaut. Er enthält alle in der Aufgabenstellung
+vorgegebenen Variablen sowie eine zusätzliche Einflussgrösse, die vom Projektteam
+gewählt wurde.
+
+Ein besonderes Augenmerk liegt auf der Reproduzierbarkeit. Alle Verarbeitungsschritte,
+von der ursprünglichen ZIP-Datei bis zum fertigen Analysedatensatz, sind in R
+programmiert und im Projektverzeichnis abgelegt.
+
+%----------------------------------------------------------------------------------------
+
+\section{Hypothese}
+\label{sec:hypothese}
+
+Als zusätzliche Einflussgrösse wählt das Projektteam den Zivilstand.
+Der Zivilstand prägt die soziale Einbettung einer Person und steht damit plausibel in
+Zusammenhang mit dem Vertrauen in staatliche Institutionen. In der Literatur weisen
+verheiratete Personen im Schnitt höhere Werte für generalisiertes Vertrauen auf, während
+Trennungen mit tieferem institutionellen Vertrauen assoziiert sind.
+
+Daraus leitet sich folgende Hypothese ab:
+
+\begin{quote}
+Verheiratete Personen weisen im Durchschnitt ein höheres Vertrauen in den Bundesrat
+auf als ledige, getrennte oder geschiedene Personen.
+\end{quote}
+
+Die Prüfung erfolgt in Kapitel~\ref{Chapter3} deskriptiv über gruppenspezifische
+Mittelwerte und Mediane von PP04 sowie über die zeitliche Entwicklung je
+Zivilstandsgruppe.

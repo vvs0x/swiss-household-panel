@@ -1,0 +1,405 @@
+% Indicate the main file. Must go at the beginning of the file.
+% !TEX root = ../main.tex
+
+%----------------------------------------------------------------------------------------
+% CHAPTER 2
+%----------------------------------------------------------------------------------------
+
+\chapter{Methodik}
+\label{Chapter2}
+
+%----------------------------------------------------------------------------------------
+
+\section{Projektmanagement und Projektplan}
+\label{sec:projektmanagement}
+
+Die Arbeit wurde innerhalb einer Zweiergruppe arbeitsteilig organisiert. Die Bearbeitung war auf vier Wochen
+angelegt und orientiert sich an der in der Aufgabenstellung vorgegebenen Gliederung.
+
+\begin{table}[h]
+\centering
+\caption{Projektplan mit Meilensteinen und Tätigkeiten}
+\label{tab:projektplan}
+\begin{tabularx}{\textwidth}{p{1cm}p{2.8cm}X}
+\toprule
+Woche & Meilenstein & Tätigkeiten und Verantwortlichkeiten \\
+\midrule
+1 & Planung, Daten\-beschaffung &
+Sichtung der Aufgabenstellung und des SHP User Guide~\cite{Voorpostel2018}.
+Registrierung bei SWISSUbase und Download der Rohdaten.
+Festlegung der Ordnerstruktur und Erstellung des Git-Repositories.
+Auswahl der zusätzlichen Einflussvariable Zivilstand.
+Gemeinsame Arbeit, Koordination durch beide Teammitglieder. \\
+\midrule
+2 & Daten\-aufbereitung &
+Programmierung der Skripte zum Entpacken, Einlesen, Bereinigen, Mergen und Filtern der SHP-Dateien.
+Konstruktion der Zielvariablen.
+Speicherung des aufbereiteten Datensatzes.
+Hauptverantwortung Programmierung: Berdelis; Review und Dokumentation: Schwarz. \\
+\midrule
+3 & Qualität, Plausibilität, Auswertung &
+Analyse fehlender Werte und LOCF-Imputation \footnotemark.
+Plausibilitätsvergleich mit BFS-Referenzdaten.
+Deskriptive Auswertung der Zielvariable nach Untergruppen.
+Hypothesenprüfung zum Zivilstand.
+Hauptverantwortung Auswertung: Schwarz; Review und Dokumentation: Berdelis. \\
+\midrule
+4 & Bericht, \newline Abschluss &
+Zusammenführung der Teilergebnisse in diesem Bericht.
+Redaktion, Schlusskontrolle, Abgabe.
+Gemeinsame Arbeit. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\footnotetext{Imputation ersetzt fehlenden Wert mit letztem früheren verfügbaren Wert.}
+Der Programmcode wird mit Git versioniert und über ein gemeinsames Repository\footnote{\href{https://github.com/vvs0x/swiss-household-panel}{https://github.com/vvs0x/swiss-household-panel}} geteilt. Zur Qualitätssicherung
+wurde jedes Skript vor dem Zusammenführen in den Hauptzweig vom jeweils anderen
+Teammitglied gesichtet und anschliessend verbesserungen vorgenommen.
+
+%----------------------------------------------------------------------------------------
+\newpage
+\section{Beschreibung der Daten, Beschaffung und Storage}
+\label{sec:daten}
+
+\subsection{Datenquelle und Beschaffung}
+\label{subsec:datenquelle}
+
+Die Rohdaten stammen aus dem Swiss Household Panel (SHP), das vom Schweizerischen
+Kompetenzzentrum für Sozialwissenschaften FORS in Lausanne betrieben wird
+\cite{FORS2024}. Der Zugriff erfolgt nach Anmeldung mit der
+akademischen edu-ID und Zustimmung zu den Nutzungsbedingungen von FORS, die eine
+Verwendung ausschliesslich zu Forschungs- und Lehrzwecken vorsehen.
+
+Von SWISSUbase wurde das vollständige Datenpaket im SPSS-Format heruntergeladen.
+Zusätzlich wurde der SHP User Guide in der Fassung bezogen und zur Dokumentation
+hinterlegt \cite{Voorpostel2018}. Die Rohdaten werden nicht verändert; sämtliche
+Aufbereitungsschritte erzeugen daraus abgeleitete Datensätze in einem separaten
+Verzeichnis.
+
+Die für die Plausibilisierung verwendeten Referenzzahlen zur ständigen Wohnbevölkerung
+werden direkt über die API des Bundesamts für Statistik im PX-Format eingelesen
+\cite{BFS2023}. Auf diese Weise ist jederzeit nachvollziehbar, welcher Stand der
+BFS-Daten in den Vergleich eingeflossen ist.
+
+\subsection{Ordnerstruktur und Storage}
+\label{subsec:ordnerstruktur}
+
+Das Projektverzeichnis ist funktional gegliedert und trennt Rohdaten, aufbereitete
+Daten, Programmcode und Dokumentation. Tabelle~\ref{tab:ordnerstruktur} gibt einen
+Überblick über die verwendete Struktur.
+
+\begin{table}[h]
+\centering
+\caption{Ordnerstruktur des Projektrepositories}
+\label{tab:ordnerstruktur}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+Verzeichnis & Inhalt \\
+\midrule
+data/raw/           & Unveränderte SHP-Rohdaten im SPSS-Format. \\
+
+data/processed/     & Aus der Aufbereitung erzeugte Zwischen- und Enddatensätze im CSV- und RDS-Format. \\
+
+src/                & R-Markdown-Skripte für Datenaufbereitung und Auswertung sowie die aus ihnen erzeugten PDF-Berichte. \\
+
+docs/bericht/       & Dokumentation: Aufgabenstellung, SHP User Guide sowie das \LaTeX-Projekt für den vorliegenden technischen Bericht. \\
+
+figures/            & Ausgabeverzeichnis für Grafiken, sofern diese ausserhalb der R-Markdown-Berichte verwendet werden. \\
+
+README.md           & Kurzbeschreibung des Repositories, Hinweise zur Reproduktion der Aufbereitung. \\
+
+.gitignore          & Alle Rohdaten sind im .gitignore aufgrund der Forderungen von FORS. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Grosse Binärdateien (insbesondere die Rohdaten und abgeleitete RDS-Dateien) werden über 
+von der Versionierung ausgeschlossen, um das Repository schlank zu halten und
+urheberrechtliche Anforderungen von FORS einzuhalten. Die Rohdaten verbleiben
+ausschliesslich lokal. Alle Ergebnisse lassen sich mit den im Repository hinterlegten
+R-Skripten aus der ursprünglichen ZIP-Datei reproduzieren.
+
+\subsection{Verwendete Dateien}
+\label{subsec:dateien}
+
+Für die Aufgabe werden vier Dateien des SHP-Datensatzes verwendet. Es handelt sich um
+zwei Long-Files, die Beobachtungen über mehrere Wellen hinweg in einer gestapelten
+Form enthalten, sowie um zwei Master-Files mit zeitinvarianten Informationen zur Person
+beziehungsweise zur sozialen Herkunft. Die Long-Files wurden den klassischen
+jahrspezifischen Dateien vorgezogen, weil sie das Stapeln der Wellen überflüssig machen
+und damit die Aufbereitung deutlich vereinfachen.
+
+\begin{table}[h]
+\centering
+\caption{Verwendete Dateien des SHP-Datensatzes}
+\label{tab:dateien}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{@{}p{2.8cm} p{2.6cm} X@{}}
+\toprule
+Datei & Schlüssel & Inhalt \\
+\midrule
+SHPLONG\_P\_\allowbreak USER.sav &
+idpers, year, idhous &
+Personenbezogene Variablen je Welle: Vertrauen in den Bundesrat (PP04), politische Selbsteinstufung (PP10), Bildung (EDUCAT), eigene Kinder (OWNKID), Nationalität (NAT\_1\_, NAT\_2\_, NAT\_3\_), gesundheitliche Einschränkung (PC19/PC19A), Zivilstand (CIVSTA). \\
+\addlinespace
+SHPLONG\_H\_\allowbreak USER.sav &
+idhous, year &
+Haushaltsbezogene Variablen je Welle: Kanton (CANTON), Netto-Haushaltseinkommen (IHTYN), Haushaltsgrösse (NBPERS). \\
+\addlinespace
+SHP\_MP.sav &
+IDPERS &
+Zeitinvariante Masterdaten pro Person: Geburtsjahr (BIRTHY), Geschlecht (SEX). \\
+\addlinespace
+SHP\_SO.sav &
+IDPERS &
+Daten zur sozialen Herkunft: finanzielle Probleme in der Jugend (PO58). \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Abbildung~\ref{fig:joinschema} fasst schematisch zusammen, über welche
+Schlüsselvariablen die vier Dateien zusammengeführt werden. Alle Verknüpfungen
+erfolgen als Left Join ausgehend von SHPLONG\_P\_USER, sodass die
+Ausgangsmenge der Personen-Jahr-Beobachtungen erhalten bleibt.
+
+\begin{figure}[h]
+\centering
+\begin{lstlisting}[basicstyle=\ttfamily\small, frame=single, backgroundcolor=\color{white}, numbers=none]
+SHPLONG_P_USER  (idpers, year, idhous, pp04, ...)
+       |
+       |  LEFT JOIN on (idhous, year)
+       v
+SHPLONG_H_USER  (idhous, year, canton, ihtyn, nbpers)
+       |
+       |  LEFT JOIN on idpers
+       v
+SHP_MP          (IDPERS, BIRTHY, SEX)
+       |
+       |  LEFT JOIN on idpers
+       v
+SHP_SO          (IDPERS, PO58)
+       |
+       v
+ Filter: year in {1999..2009, 2011, 2014, 2017, 2020, 2023}
+ Filter: AGE = year - BIRTHY >= 18
+ Konstruktion: BIRTHYGEN, SEX, CIVSTA, CANTON, EDUCAT,
+               HASKID, NAT, PC19, NETHHINCPP, PO58, COMPLETE
+       |
+       v
+ panel_final (Personen-Jahr-Ebene)
+\end{lstlisting}
+\caption{Schema zum Zusammenführen der vier SHP-Dateien zu einem Paneldatensatz.}
+\label{fig:joinschema}
+\end{figure}
+
+\subsection{Datenkatalog}
+\label{subsec:datenkatalog}
+
+Der aufbereitete Datensatz liegt auf Personen-Jahr-Ebene vor. Jede Zeile beschreibt
+eine volljährige Person in einem Jahr, in dem die Vertrauensfrage erhoben wurde. Der
+Datensatz umfasst 162\,593 Beobachtungen auf 17 Variablen. Ein vollständiger
+Datenkatalog mit Wertebereichen, Quelldateien und Rekodierungsregeln findet sich in
+Anhang~\ref{AppendixA}. Tabelle~\ref{tab:datenkatalog-kurz} fasst die Variablen
+vorab zusammen.
+
+\begin{table}[h]
+\centering
+\caption{Variablen des aufbereiteten Datensatzes (Kurzfassung)}
+\label{tab:datenkatalog-kurz}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+Variable & Inhalt \\
+\midrule
+IDPERS     & Personen-ID (Integer). \\
+IDHOUS     & Haushalts-ID (Integer). \\
+YEAR       & Befragungsjahr (1999--2023, nur Jahre mit PP04). \\
+PP04       & Zielvariable: Vertrauen in den Bundesrat, 0--10. \\
+BIRTHY     & Geburtsjahr. \\
+BIRTHYGEN  & Konstruierte Geburtskohorte in Zehnjahresabschnitten. \\
+SEX        & Geschlecht (männlich, weiblich, andere). \\
+CANTON     & Wohnkanton (26 Kürzel). \\
+EDUCAT     & Höchste abgeschlossene Ausbildung (11 Stufen). \\
+HASKID     & Mindestens ein eigenes Kind (ja/nein). \\
+NAT        & Nationalitätengruppe (CH, CH+Andere, Andere). \\
+PC19       & Langfristige gesundheitliche Einschränkung (ja/nein). \\
+PP10       & Politische Selbsteinstufung links--rechts, 0--10. \\
+NETHHINCPP & Netto-Haushaltseinkommen pro Kopf (CHF pro Jahr). \\
+PO58       & Finanzielle Probleme in der Jugend (ja/nein). \\
+COMPLETE   & Kennzeichen vollständiger Beobachtungen (TRUE/FALSE). \\
+CIVSTA     & Zivilstand (zusätzliche Einflussvariable). \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Übersicht der R-Skripte}
+\label{subsec:rskripte}
+
+Die Datenverarbeitung ist auf zwei R-Markdown-Skripte aufgeteilt. Das erste Skript
+(Datenaufbereitung.Rmd) übernimmt Entpacken, Einlesen, Bereinigung, Merging,
+Filtering, Variablenkonstruktion und Speicherung. Das zweite Skript
+(Datenqualitaet\_\allowbreak Plausibilisierung\_\allowbreak Auswertung.Rmd) setzt auf dem erzeugten
+Datensatz auf und führt die Missing-Analyse, die Imputation, den
+BFS-Plausibilitätsvergleich sowie die deskriptive Auswertung durch.
+
+\begin{table}[h]
+\centering
+\caption{Erstellte R-Skripte}
+\label{tab:rskripte}
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+Skript & Inhalt \\
+\midrule
+Datenaufbereitung.Rmd & Entpacken, Einlesen SPSS, Bereinigung, Merging, Filtering, Variablenkonstruktion, Speicherung. \\[4pt]
+\makecell[l]{Datenqualitaet\_ \\ Plausibilisierung\_ \\ Auswertung.Rmd} & Missing-Analyse, Imputation, BFS-Vergleich, deskriptive Auswertung, Hypothesenprüfung. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+An R-Paketen kommen tidyverse (Datenmanipulation und Visualisierung),
+foreign (SPSS-Import), zoo (LOCF-Imputation), pxR (Einlesen
+der BFS-Daten im PX-Format), knitr (Berichterstellung) und scales
+(Achsenformatierung) zum Einsatz. Die Auswahl dieser Pakete orientiert sich an den
+Empfehlungen der Modulunterlagen.
+
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Datenaufbereitung: Merging und Filtering}
+\label{subsec:merging}
+
+Die Aufbereitung des Paneldatensatzes folgt einer festen Abfolge von Arbeitsschritten,
+die vollständig aus R heraus gesteuert werden. Die Reihenfolge entspricht dem in
+Abbildung~\ref{fig:joinschema} dargestellten Schema.
+
+Im ersten Schritt wird die SPSS-ZIP-Datei in ein Arbeitsverzeichnis entpackt und die
+vier benötigten Dateien mit read.spss() eingelesen. Mit dem Argument
+,,use.missings = FALSE`` werden die SHP-spezifischen Missing-Codes, darunter
+\mbox{$-1$} (inapplicable), \mbox{$-2$} (no answer), \mbox{$-3$} (does not know) und
+\mbox{$-7$} (filter error), automatisch als fehlende Werte markiert. Alle relevanten
+Variablen werden anschliessend in numerische Typen umgewandelt, um einheitliche
+Datentypen sicherzustellen. Verbliebene negative Codes werden in einem zusätzlichen
+Bereinigungsschritt ebenfalls als fehlend gesetzt.
+
+Im zweiten Schritt wird ein Jahrfilter angewendet. Behalten werden ausschliesslich die
+16 Wellen, in denen die Zielvariable Vertrauen in den Bundesrat erhoben wurde, nämlich 1999 bis
+2009, 2011, 2014, 2017, 2020 und 2023. Die übrigen Wellen enthalten keine
+Vertrauensfrage und tragen zur Analyse nichts bei.
+
+Im dritten Schritt werden die vier Dateien schrittweise über Left Joins
+zusammengeführt. Das Long-File der Personen wird zuerst mit dem Long-File der
+Haushalte über Personen-ID und Befragungsjahr verbunden, sodass jede
+Personenbeobachtung die zugehörigen Haushaltsinformationen desselben Jahres erhält.
+Anschliessend werden die zeitinvarianten Angaben aus den Masterdaten (Geburtsjahr,
+Geschlecht) und aus den Herkunftsdaten (finanzielle Probleme in der Jugend) über die
+Personen-ID angehängt. Der Left Join stellt sicher, dass keine
+Personenbeobachtung aus dem Personen-Long-File verloren geht.
+
+Im vierten Schritt wird der Erwachsenenfilter gesetzt. Behalten werden nur
+Beobachtungen, bei denen das rechnerische Alter mindestens 18 Jahre beträgt. Im fünften
+Schritt werden die Zielvariablen gemäss Aufgabenstellung konstruiert. Die Nationalität
+wird aus bis zu drei Codes zu den Kategorien CH, CH+Andere und Andere verdichtet, wobei
+der Schweizer Code (756 bzw.\ 8100) als Entscheidungskriterium dient. Der Kinderstatus
+wird aus der Anzahl eigener Kinder abgeleitet, die Geburtskohorte aus dem Geburtsjahr
+als Intervall in Zehnjahresschritten. Das pro Kopf berechnete Netto-Haushaltseinkommen
+ergibt sich als Quotient aus dem jährlichen Haushaltseinkommen und der Haushaltsgrösse.
+Zum Abschluss wird ein Vollständigkeitskennzeichen gesetzt, das angibt, ob in einer
+Zeile alle 15 inhaltlichen Variablen gefüllt sind.
+
+Im sechsten Schritt wird der aufbereitete Datensatz sowohl als CSV- wie auch als
+RDS-Datei unter data/processed/ gespeichert. Er umfasst 162\,593
+Personenjahre auf 17 Variablen und bildet die gemeinsame Grundlage für alle
+nachfolgenden Auswertungen.
+
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Datenqualität: Fehlende Werte}
+\label{subsec:datenqualitaet}
+
+Die Prüfung der Datenqualität konzentriert sich auf fehlende Werte. Tabelle~\ref{tab:missing}
+zeigt für jedes Erhebungsjahr die Anzahl der Beobachtungen sowie den Anteil jener Zeilen,
+bei denen mindestens eine der 15 inhaltlichen Variablen fehlt.
+
+\begin{table}[h]
+\centering
+\caption{Anteil Datensätze mit mindestens einem Missing pro Jahr}
+\label{tab:missing}
+\begin{tabular}{rrrr@{\hspace{2em}}rrrr}
+\toprule
+Jahr & $n$ & $n_{\text{miss.}}$ & \% &
+Jahr & $n$ & $n_{\text{miss.}}$ & \% \\
+\midrule
+1999 & 9\,633  & 4\,621  & 48.0 & 2005 & 9\,055  & 8\,617  & 95.2 \\
+2000 & 8\,719  & 8\,366  & 95.9 & 2006 & 8\,706  & 8\,268  & 95.0 \\
+2001 & 8\,168  & 7\,887  & 96.6 & 2007 & 8\,478  & 8\,036  & 94.8 \\
+2002 & 8\,019  & 7\,750  & 96.6 & 2008 & 8\,376  & 7\,882  & 94.1 \\
+2003 & 7\,837  & 7\,545  & 96.3 & 2009 & 8\,119  & 7\,615  & 93.8 \\
+2004 & 7\,593  & 7\,226  & 95.2 & 2011 & 14\,030 & 11\,746 & 83.7 \\
+     &         &         &      & 2014 & 14\,943 & 11\,414 & 76.4 \\
+     &         &         &      & 2017 & 12\,999 & 9\,139  & 70.3 \\
+     &         &         &      & 2020 & 10\,953 & 6\,265  & 57.2 \\
+     &         &         &      & 2023 & 10\,965 & 5\,649  & 51.5 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Auffällig ist der sprunghafte Anstieg des Missing-Anteils von 48\,\% im Jahr 1999 auf
+über 95\,\% ab dem Jahr 2000. Die Auswertung der Missings pro Variable und Jahr zeigt,
+dass dieser Anstieg massgeblich auf die Variable langfristige Gesundheitseinschränkung
+zurückzuführen ist. Sie wird im SHP nur in den Jahren 1999, 2004, 2009, 2011, 2014,
+2017, 2020 und 2023 erhoben. In den übrigen Jahren fehlt die Angabe vollständig, was
+nach Konstruktion zu einem Anteil unvollständiger Fälle von nahezu 100\,\% führt.
+Ab 2011 fällt der Missing-Anteil allmählich, was mit den Auffrischungsstichproben
+(Refreshment Samples SHP III 2013 und SHP IV 2020) und der damit
+verbundenen besseren Abdeckung dieser Variable zusammenhängt.
+
+Für die Imputation wird die Variable mit dem höchsten Missing-Anteil im jeweiligen
+Zieljahr ausgewählt und mit dem Verfahren Last Observation Carried Forward (LOCF)
+behandelt. Für jede Person wird dabei der letzte gültige Wert aus einer früheren
+Welle übernommen. Das Verfahren ist konservativ und unterstellt, dass sich der
+Zustand zwischen zwei Erhebungen nicht verändert. Nach der Imputation wird das Vollständigkeitskennzeichen neu berechnet, wodurch der
+Anteil vollständiger Fälle für das jeweilige Zieljahr steigt.
+
+
+%----------------------------------------------------------------------------------------
+
+\subsection{Plausibilität: Vergleich mit BFS-Daten}
+\label{subsec:plausibilitaet}
+
+Zur Einschätzung der Stichprobenqualität werden die Verteilungen nach Geschlecht,
+Altersgruppe und Kanton mit Referenzzahlen des Bundesamts für Statistik verglichen.
+Als Referenz dient die ständige Wohnbevölkerung der Schweiz im Jahr 2023 gemäss
+STATPOP \cite{BFS2023}. Die BFS-Daten werden über die offene BFS-API direkt aus R im
+PX-Format geladen, was die Reproduktion des Vergleichs erleichtert. Verglichen werden
+jeweils drei Verteilungen: der gesamte SHP-Datensatz, die Teilmenge der vollständigen
+Fälle und die BFS-Referenz.
+
+\paragraph{Geschlecht.}
+Im SHP liegen alle Fälle bei 48{,}1\,\% Männern und 51{,}9\,\% Frauen. Die BFS-Referenz
+weist 49{,}7\,\% Männer und 50{,}3\,\% Frauen aus. Nach dem Entfernen unvollständiger
+Fälle steigt der Frauenanteil auf 52{,}6\,\%. Der Unterschied zur Referenz ist gering
+und entspricht dem bekannten, leicht erhöhten Frauenanteil in Haushaltsbefragungen.
+Eine systematische Verzerrung ist nicht erkennbar.
+
+\paragraph{Altersgruppen.}
+Bei den Altersgruppen sind die Abweichungen deutlicher. Die Gruppe 18 bis 29 Jahre ist
+im SHP mit 18{,}1\,\% aller Fälle leicht über, bei den vollständigen Fällen hingegen
+deutlich unter der BFS-Referenz von 16{,}5\,\% vertreten (nur 11{,}2\,\%). Die
+Altersgruppe 45 bis 59 ist im SHP mit 29{,}2\,\% gegenüber 25{,}7\,\% in der
+BFS-Referenz leicht übervertreten. Das Muster entspricht der bekannten
+Panelattrition: Jüngere Befragte steigen häufiger aus der Studie aus, während mittlere
+und ältere Altersgruppen im Panel bleiben.
+
+\paragraph{Kantone.}
+Die Kantonsverteilung im SHP entspricht weitgehend der BFS-Referenz. Die
+bevölkerungsreichsten Kantone Zürich, Bern und Waadt sind in beiden Quellen am
+stärksten vertreten. Geringe Abweichungen bei kleineren Kantonen lassen sich durch die
+geschichtete Stichprobenziehung des SHP erklären, die einzelne Regionen gezielt
+übergewichtet, damit auch für kleinere Kantone belastbare Fallzahlen vorliegen.
+
+Insgesamt bildet der SHP-Datensatz die Schweizer Wohnbevölkerung hinsichtlich
+Geschlecht und Kanton gut ab. Bei den Altersgruppen ist die für Panels typische
+Unterrepräsentation jüngerer und Überrepräsentation mittlerer Personen zu beachten.
+Für repräsentative Schätzungen kämen die vom SHP bereitgestellten
+Längsschnittgewichte in Frage; für die hier dokumentierte deskriptive Auswertung
+werden sie nicht verwendet.
