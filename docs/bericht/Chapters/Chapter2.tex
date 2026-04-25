@@ -133,14 +133,26 @@ und damit die Aufbereitung deutlich vereinfachen.
 \centering
 \caption{Verwendete Dateien des SHP-Datensatzes}
 \label{tab:dateien}
-\begin{tabularx}{\textwidth}{llX}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\textwidth}{@{}p{2.8cm} p{2.6cm} X@{}}
 \toprule
 Datei & Schlüssel & Inhalt \\
 \midrule
-\texttt{SHPLONG\_P\_USER.sav} & \texttt{idpers}, \texttt{year}, \texttt{idhous} & Personenbezogene Variablen je Welle: Vertrauen in den Bundesrat (\texttt{pp04}), politische Selbsteinstufung (\texttt{pp10}), Bildung (\texttt{educat}), eigene Kinder (\texttt{ownkid}), Nationalität (\texttt{nat\_1\_}, \texttt{nat\_2\_}, \texttt{nat\_3\_}), gesundheitliche Einschränkung (\texttt{pc19}/\texttt{pc19a}), Zivilstand (\texttt{civsta}). \\
-\texttt{SHPLONG\_H\_USER.sav} & \texttt{idhous}, \texttt{year} & Haushaltsbezogene Variablen je Welle: Kanton (\texttt{canton}), Netto-Haushaltseinkommen (\texttt{ihtyn}), Haushaltsgrösse (\texttt{nbpers}). \\
-\texttt{SHP\_MP.sav}          & \texttt{IDPERS} & Zeitinvariante Masterdaten pro Person: Geburtsjahr (\texttt{BIRTHY}), Geschlecht (\texttt{SEX}). \\
-\texttt{SHP\_SO.sav}          & \texttt{IDPERS} & Daten zur sozialen Herkunft: finanzielle Probleme in der Jugend (\texttt{PO58}). \\
+\texttt{SHPLONG\_P\_\allowbreak USER.sav} &
+\texttt{idpers}, \texttt{year}, \texttt{idhous} &
+Personenbezogene Variablen je Welle: Vertrauen in den Bundesrat (\texttt{pp04}), politische Selbsteinstufung (\texttt{pp10}), Bildung (\texttt{educat}), eigene Kinder (\texttt{ownkid}), Nationalität (\texttt{nat\_1\_}, \texttt{nat\_2\_}, \texttt{nat\_3\_}), gesundheitliche Einschränkung (\texttt{pc19}/\texttt{pc19a}), Zivilstand (\texttt{civsta}). \\
+\addlinespace
+\texttt{SHPLONG\_H\_\allowbreak USER.sav} &
+\texttt{idhous}, \texttt{year} &
+Haushaltsbezogene Variablen je Welle: Kanton (\texttt{canton}), Netto-Haushaltseinkommen (\texttt{ihtyn}), Haushaltsgrösse (\texttt{nbpers}). \\
+\addlinespace
+\texttt{SHP\_MP.sav} &
+\texttt{IDPERS} &
+Zeitinvariante Masterdaten pro Person: Geburtsjahr (\texttt{BIRTHY}), Geschlecht (\texttt{SEX}). \\
+\addlinespace
+\texttt{SHP\_SO.sav} &
+\texttt{IDPERS} &
+Daten zur sozialen Herkunft: finanzielle Probleme in der Jugend (\texttt{PO58}). \\
 \bottomrule
 \end{tabularx}
 \end{table}

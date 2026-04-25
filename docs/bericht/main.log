@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  24 APR 2026 15:55
+This is LuaHBTeX, Version 1.22.0 (TeX Live 2025)  (format=lualatex 2026.3.27)  24 APR 2026 16:18
  restricted system commands enabled.
  file:line:error style messages enabled.
 **/Users/mg/Documents/swiss-household-panel/docs/bericht/main
@@ -1277,82 +1277,37 @@ warning  (pdf backend): ignoring duplicate destination with the name 'Hfootnote.
 Package babel Info: 'german' activates 'german' shorthands.
 (babel)             Reported on input line 131.
  [3]
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
-[]|\T1/ppl/m/n/10.95 Per-so-nen-be-zo-ge-ne Va-ria-
+Underfull \hbox (badness 10000) in paragraph at lines 157--157
+[]|\T1/fvm/m/n/10.95 SHPLONG_P_
  []
 
 
-Underfull \hbox (badness 5417) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 blen je Wel-le: Ver-trau-en
+Underfull \hbox (badness 1163) in paragraph at lines 157--157
+\T1/ppl/m/n/10.95 ein-stu-fung (\T1/fvm/m/n/10.95 pp10\T1/ppl/m/n/10.95 ), Bil-dung (\T1/fvm/m/n/10.95 educat\T1/ppl/m/n/10.95 ), ei-ge-
  []
 
 
-Underfull \hbox (badness 1067) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 in den Bun-des-rat (\T1/fvm/m/n/10.95 pp04\T1/ppl/m/n/10.95 ),
+Underfull \hbox (badness 1546) in paragraph at lines 157--157
+\T1/ppl/m/n/10.95 ne Kin-der (\T1/fvm/m/n/10.95 ownkid\T1/ppl/m/n/10.95 ), Na-tio-na-li-tät (\T1/fvm/m/n/10.95 nat_1_\T1/ppl/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 5832) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 ei-ge-ne Kin-der (\T1/fvm/m/n/10.95 ownkid\T1/ppl/m/n/10.95 ),
+Underfull \hbox (badness 10000) in paragraph at lines 157--157
+[]|\T1/fvm/m/n/10.95 SHPLONG_H_
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 Na-tio-na-li-tät (\T1/fvm/m/n/10.95 nat_1_\T1/ppl/m/n/10.95 ,
+Underfull \hbox (badness 10000) in paragraph at lines 157--157
+\T1/ppl/m/n/10.95 ton (\T1/fvm/m/n/10.95 canton\T1/ppl/m/n/10.95 ), Netto-Haushaltseinkommen
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 heit-li-che Ein-schrän-kung
+Underfull \hbox (badness 1466) in paragraph at lines 157--157
+[]|\T1/ppl/m/n/10.95 Zeit-in-va-ri-an-te Ma-ster-da-ten pro Per-son: Ge-
  []
 
 
-Underfull \hbox (badness 1946) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 (\T1/fvm/m/n/10.95 pc19\T1/ppl/m/n/10.95 /\T1/fvm/m/n/10.95 pc19a\T1/ppl/m/n/10.95 ), Zi-vil-stand
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
-[]|\T1/ppl/m/n/10.95 Haus-halts-be-zo-ge-ne Va-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 ria-blen je Wel-le: Kan-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 ton (\T1/fvm/m/n/10.95 canton\T1/ppl/m/n/10.95 ), Netto-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 Haushaltseinkommen
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 (\T1/fvm/m/n/10.95 ihtyn\T1/ppl/m/n/10.95 ), Haus-halts-grö-sse
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 pro Per-son: Ge-burts-jahr
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 145--145
-\T1/ppl/m/n/10.95 (\T1/fvm/m/n/10.95 BIRTHY\T1/ppl/m/n/10.95 ), Ge-schlecht
- []
-
-
-Underfull \hbox (badness 4328) in paragraph at lines 145--145
-[]|\T1/ppl/m/n/10.95 Da-ten zur so-zia-len Her-
- []
-
-
-Underfull \hbox (badness 1496) in paragraph at lines 179--179
+Underfull \hbox (badness 1496) in paragraph at lines 191--191
  []\T1/ppl/m/sc/10 Ab-bil-dung 2.1: |\T1/ppl/m/n/10 Sche-ma zum Zu-sam-men-füh-ren der vier SHP- 
  []
 
@@ -1363,30 +1318,29 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 1102) in paragraph at lines 225--231
+Underfull \hbox (badness 1102) in paragraph at lines 237--243
 \T1/ppl/m/n/10.95 Die Da-ten-ver-ar-bei-tung ist auf zwei R-Markdown-Skripte auf-ge-teilt. Das er-ste
  []
 
 
-Underfull \hbox (badness 1005) in paragraph at lines 225--231
+Underfull \hbox (badness 1005) in paragraph at lines 237--243
 \T1/ppl/m/n/10.95 Mer-ging, Fil-te-ring, Va-riablen-kon-struk-ti-on und Spei-che-rung. Das zwei-te Skript
  []
 
-[4]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 1902) in paragraph at lines 246--251
+Underfull \hbox (badness 1902) in paragraph at lines 258--263
 []\T1/ppl/m/n/10.95 An R-Paketen kom-men \T1/fvm/m/n/10.95 tidyverse \T1/ppl/m/n/10.95 (Da-ten-ma-ni-pu-la-ti-on und Vi-sua-li-sie-rung),
  []
 
-[5] [6] [7]
-Underfull \hbox (badness 1472) in paragraph at lines 362--369
+[4] [5] [6]
+Underfull \hbox (badness 1472) in paragraph at lines 374--381
 \T1/ppl/m/n/10.95 Zur Ein-schät-zung der Stich-pro-ben-qua-li-tät wer-den die Ver-tei-lun-gen nach Ge-
  []
 
-) [8]
+[7]) [8]
 \openout2 = Chapters/Chapter3.aux
  (./Chapters/Chapter3.tex
 Kapitel 3.
@@ -1452,18 +1406,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
 Here is how much of LuaTeX's memory you used:
  45926 strings out of 476081
- 477139,1977958 words of node,token memory allocated
+ 477136,1977958 words of node,token memory allocated
  5375 words of node memory still in use:
    4 hlist, 1 vlist, 1 rule, 8 glue, 645 kern, 1 glyph, 527 attribute, 73 glue_spec, 265 attribute_list, 2 write, 2 pdf_action nodes
-   avail lists: 1:15,2:9704,3:545,4:8292,5:7607,6:153,7:13833,8:71,9:23142,10:37,11:1317,12:2
+   avail lists: 1:9,2:9704,3:545,4:8292,5:7607,6:158,7:14323,8:71,9:23142,10:37,11:1317,12:2
  66912 multiletter control sequences out of 65536+600000
  153 fonts using 10003039 bytes
  105i,21n,107p,1247b,1754s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/Users/mg/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}</Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></Users/mg/Library/TinyTeX/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (20 pages, 200938 bytes).
+Output written on main.pdf (20 pages, 200821 bytes).
 
-PDF statistics: 448 PDF objects out of 1000 (max. 8388607)
- 407 compressed objects within 5 object streams
+PDF statistics: 447 PDF objects out of 1000 (max. 8388607)
+ 406 compressed objects within 5 object streams
  152 named destinations out of 1000 (max. 131072)
  272 words of extra memory for PDF output out of 10000 (max. 100000000)
 

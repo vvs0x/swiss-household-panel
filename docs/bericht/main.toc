@@ -14,10 +14,10 @@
 \contentsline {subsection}{\numberline {2.2.2}Ordnerstruktur und Storage}{3}{subsection.17}%
 \contentsline {subsection}{\numberline {2.2.3}Verwendete Dateien}{4}{subsection.19}%
 \contentsline {subsection}{\numberline {2.2.4}Datenkatalog}{4}{subsection.45}%
-\contentsline {subsection}{\numberline {2.2.5}Übersicht der R-Skripte}{5}{subsection.47}%
+\contentsline {subsection}{\numberline {2.2.5}Übersicht der R-Skripte}{4}{subsection.47}%
 \contentsline {subsection}{\numberline {2.2.6}Datenaufbereitung: Merging und Filtering}{5}{subsection.49}%
 \contentsline {subsection}{\numberline {2.2.7}Datenqualität: Fehlende Werte}{7}{subsection.50}%
-\contentsline {subsection}{\numberline {2.2.8}Plausibilität: Vergleich mit BFS-Daten}{8}{subsection.52}%
+\contentsline {subsection}{\numberline {2.2.8}Plausibilität: Vergleich mit BFS-Daten}{7}{subsection.52}%
 \contentsline {paragraph}{Geschlecht.}{8}{paragraph*.53}%
 \contentsline {paragraph}{Altersgruppen.}{8}{paragraph*.54}%
 \contentsline {paragraph}{Kantone.}{8}{paragraph*.55}%
