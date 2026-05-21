@@ -1,0 +1,281 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{SUNG2023103812}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=7d046bb025d13e491755a369c1574aa9}{%
+           family={Sung},
+           familyi={S\bibinitperiod},
+           given={Jihye},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ad044cbb0f650138031a24f8b0780cc8}{%
+           family={Bock},
+           familyi={B\bibinitperiod},
+           given={Gee-Woo},
+           giveni={G\bibinithyphendelim W\bibinitperiod}}}%
+        {{hash=730de57324f2ddd567600996b5157582}{%
+           family={Kim},
+           familyi={K\bibinitperiod},
+           given={Han-Min},
+           giveni={H\bibinithyphendelim M\bibinitperiod}}}%
+      }
+      \strng{namehash}{ec6f557d69e00c2c2341d0d797639b62}
+      \strng{fullhash}{04840b3be4c54383bac2aab3c9185d57}
+      \strng{fullhashraw}{04840b3be4c54383bac2aab3c9185d57}
+      \strng{bibnamehash}{04840b3be4c54383bac2aab3c9185d57}
+      \strng{authorbibnamehash}{04840b3be4c54383bac2aab3c9185d57}
+      \strng{authornamehash}{ec6f557d69e00c2c2341d0d797639b62}
+      \strng{authorfullhash}{04840b3be4c54383bac2aab3c9185d57}
+      \strng{authorfullhashraw}{04840b3be4c54383bac2aab3c9185d57}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Donation-phobia has been spreading across several Korean nonprofit organizations (NPOs) because of donation-related scandals. This study analyzes whether blockchain-based donation system (BDS) can resolve this problem by enhancing NPOs’ trustworthiness. This study examined the effects of the following three features of BDS: transparency, immutability, and efficiency, along with their subsequent effects on formation of NPOs’ trustworthiness. Accordingly, information on NPOs’ activities was offered using a BDS with a two-group post-test-only design. The results demonstrated that information provided on the BDS site enhanced the three features of the BDS, which improved the trustworthiness of the NPO.}
+      \field{journaltitle}{Information and Management}
+      \field{number}{5}
+      \field{title}{Effect of blockchain-based donation system on trustworthiness of NPOs}
+      \field{volume}{60}
+      \field{year}{2023}
+      \field{pages}{103812}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.im.2023.103812
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0378720623000605
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0378720623000605
+      \endverb
+      \keyw{Blockchain-based donation system,Transparency,Immutability,Efficiency,Trustworthiness}
+    \endentry
+    \entry{Teng2021}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e0cce6dbccb61e80a3830a7722cf1a24}{%
+           family={Teng},
+           familyi={T\bibinitperiod},
+           given={Yan},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \strng{namehash}{e0cce6dbccb61e80a3830a7722cf1a24}
+      \strng{fullhash}{e0cce6dbccb61e80a3830a7722cf1a24}
+      \strng{fullhashraw}{e0cce6dbccb61e80a3830a7722cf1a24}
+      \strng{bibnamehash}{e0cce6dbccb61e80a3830a7722cf1a24}
+      \strng{authorbibnamehash}{e0cce6dbccb61e80a3830a7722cf1a24}
+      \strng{authornamehash}{e0cce6dbccb61e80a3830a7722cf1a24}
+      \strng{authorfullhash}{e0cce6dbccb61e80a3830a7722cf1a24}
+      \strng{authorfullhashraw}{e0cce6dbccb61e80a3830a7722cf1a24}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper proposes a novel way to understand trust in blockchain technology by analogy with trust placed in institutions. In support of the analysis, a detailed investigation of institutional trust is provided, which is then used as the basis for understanding the nature and ethical limits of blockchain trust. Two interrelated arguments are presented. First, given blockchains’ capacity for being institution-like entities by inviting expectations similar to those invited by traditional institutions, blockchain trust is argued to be best conceptualized as a specialized form of trust in institutions. Keeping only the core functionality and certain normative ideas of institutions, this technology broadens our understanding of trust by removing the need for third parties while retaining the value of trust for the trustor. Second, the paper argues that blockchains’ decentralized nature and the implications and effects of this decentralization on trust issues are double-edged. With the erasure of central points, the systems simultaneously crowd out the pivotal role played by traditional institutions and a cadre of representatives in meeting their assigned obligations and securing the functional systems’ trustworthy performances. As such, blockchain is positioned as a technology containing both disruptive features that can be embedded with meaningful normative values and inherent ethical limits that pose a direct challenge to the actual trustworthiness of blockchain implementations. Such limits are proposed to be ameliorated by facilitating a shift of responsibility to the groups of people directly associated with the engendering of trust in the blockchain context.}
+      \field{journaltitle}{Ethics and Information Technology}
+      \field{month}{9}
+      \field{number}{3}
+      \field{title}{Towards trustworthy blockchains: normative reflections on blockchain-enabled virtual institutions}
+      \field{volume}{23}
+      \field{year}{2021}
+      \field{pages}{385\bibrangedash 397}
+      \range{pages}{13}
+      \verb{doi}
+      \verb 10.1007/s10676-021-09581-3
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/article/10.1007/s10676-021-09581-3
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/article/10.1007/s10676-021-09581-3
+      \endverb
+    \endentry
+    \entry{givingblock}{online}{}{}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labeltitlesource}{title}
+      \field{note}{[Accessed: Mar. 10, 2026]}
+      \field{title}{The Giving Block: Crypto Philanthropy Platform}
+      \field{year}{2026}
+      \verb{urlraw}
+      \verb https://thegivingblock.com
+      \endverb
+      \verb{url}
+      \verb https://thegivingblock.com
+      \endverb
+    \endentry
+    \entry{nakamoto2008}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=1977190f018b398e43ede3de043de8ea}{%
+           family={Nakamoto},
+           familyi={N\bibinitperiod},
+           given={Satoshi},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{fullhash}{1977190f018b398e43ede3de043de8ea}
+      \strng{fullhashraw}{1977190f018b398e43ede3de043de8ea}
+      \strng{bibnamehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authorbibnamehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authornamehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authorfullhash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authorfullhashraw}{1977190f018b398e43ede3de043de8ea}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{[Accessed: Mar. 6, 2026]}
+      \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://bitcoin.org/bitcoin.pdf
+      \endverb
+      \verb{url}
+      \verb https://bitcoin.org/bitcoin.pdf
+      \endverb
+    \endentry
+    \entry{BAUDIER2023122524}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=1f257aff5b45456e0d81e42b2c766407}{%
+           family={Baudier},
+           familyi={B\bibinitperiod},
+           given={Patricia},
+           giveni={P\bibinitperiod}}}%
+        {{hash=fbee82842c684e5e4c813af9882e388c}{%
+           family={Kondrateva},
+           familyi={K\bibinitperiod},
+           given={Galina},
+           giveni={G\bibinitperiod}}}%
+        {{hash=ce807f5dd737782edaf3154170026c3d}{%
+           family={Ammi},
+           familyi={A\bibinitperiod},
+           given={Chantal},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{479de8fda3601b787faa230fcbe0e047}
+      \strng{fullhash}{193161dd970127a5c2d50973daa3b26d}
+      \strng{fullhashraw}{193161dd970127a5c2d50973daa3b26d}
+      \strng{bibnamehash}{193161dd970127a5c2d50973daa3b26d}
+      \strng{authorbibnamehash}{193161dd970127a5c2d50973daa3b26d}
+      \strng{authornamehash}{479de8fda3601b787faa230fcbe0e047}
+      \strng{authorfullhash}{193161dd970127a5c2d50973daa3b26d}
+      \strng{authorfullhashraw}{193161dd970127a5c2d50973daa3b26d}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Charity and its corollary donations are often considered moral obligations in different cultures and religions. In the humanitarian aid field, trust in the donor is crucial, and scandals, inefficiencies, or corruption can undermine confidence in charity organizations. In this context, the characteristics of blockchain, which improve the transparency and traceability of transactions, are well-adapted to charity collection and humanitarian causes. This research investigates the acceptability of blockchain by donors and analyzes religion's moderating impact on the acceptance of such technology. The research framework was developed by applying and extending theories of reasoned action and planned behavior. A quantitative approach was selected, and a survey of 590 respondents issued by principal monotheist religions was collected in the USA between April 21, 2022, and May 18, 2022. The results confirmed the impact of transparency on attitudes and subjective norms and removed barriers. Second, attitudes and subjective norms strongly influence behavioral intention to give. Third, the moderating impact of religion on donations is partially verified. This article contributes to the literature related to blockchain.}
+      \field{journaltitle}{Technological Forecasting and Social Change}
+      \field{title}{Can blockchain enhance motivation to donate: The moderating impact of religion on donors' behavior in the USA's charity organizations}
+      \field{volume}{191}
+      \field{year}{2023}
+      \field{pages}{122524}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1016/j.techfore.2023.122524
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/S0040162523002093
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/S0040162523002093
+      \endverb
+      \keyw{Blockchain,Religion,Donation,Traceability,Theory of planned behavior,Theory of reasoned action}
+    \endentry
+    \entry{MeierStormer2018}{article}{}{}
+      \name{author}{2}{}{%
+        {{hash=c85850c63c930c4211bd1baa46598989}{%
+           family={Meier},
+           familyi={M\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a2c69f87205cb5f23c45a044cc31a2d0}{%
+           family={Stormer},
+           familyi={S\bibinitperiod},
+           given={Henrik},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {german}%
+      }
+      \list{publisher}{1}{%
+        {Springer Vieweg}%
+      }
+      \strng{namehash}{6323fe752b35c269eeb3412156c5d879}
+      \strng{fullhash}{6323fe752b35c269eeb3412156c5d879}
+      \strng{fullhashraw}{6323fe752b35c269eeb3412156c5d879}
+      \strng{bibnamehash}{6323fe752b35c269eeb3412156c5d879}
+      \strng{authorbibnamehash}{6323fe752b35c269eeb3412156c5d879}
+      \strng{authornamehash}{6323fe752b35c269eeb3412156c5d879}
+      \strng{authorfullhash}{6323fe752b35c269eeb3412156c5d879}
+      \strng{authorfullhashraw}{6323fe752b35c269eeb3412156c5d879}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{HMD Praxis der Wirtschaftsinformatik}
+      \field{number}{6}
+      \field{title}{Blockchain = Distributed Ledger + Consensus}
+      \field{volume}{55}
+      \field{year}{2018}
+      \field{pages}{1139\bibrangedash 1154}
+      \range{pages}{16}
+      \verb{doi}
+      \verb 10.1365/s40702-018-00457-7
+      \endverb
+      \verb{urlraw}
+      \verb https://link.springer.com/article/10.1365/s40702-018-00457-7
+      \endverb
+      \verb{url}
+      \verb https://link.springer.com/article/10.1365/s40702-018-00457-7
+      \endverb
+    \endentry
+    \entry{ESTV2022}{online}{}{}
+      \name{author}{1}{}{%
+        {{hash=e355e5d34efd9090efc09afaf73d4343}{%
+           family={{Eidgenössische Steuerverwaltung}},
+           familyi={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{e355e5d34efd9090efc09afaf73d4343}
+      \strng{fullhash}{e355e5d34efd9090efc09afaf73d4343}
+      \strng{fullhashraw}{e355e5d34efd9090efc09afaf73d4343}
+      \strng{bibnamehash}{e355e5d34efd9090efc09afaf73d4343}
+      \strng{authorbibnamehash}{e355e5d34efd9090efc09afaf73d4343}
+      \strng{authornamehash}{e355e5d34efd9090efc09afaf73d4343}
+      \strng{authorfullhash}{e355e5d34efd9090efc09afaf73d4343}
+      \strng{authorfullhashraw}{e355e5d34efd9090efc09afaf73d4343}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Arbeitspapier vom 03.08.2022. [Accessed: May 15, 2026]}
+      \field{title}{Kryptowährungen -- Besteuerung}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://www.estv.admin.ch/de/kryptowaehrungen-besteuerung
+      \endverb
+      \verb{url}
+      \verb https://www.estv.admin.ch/de/kryptowaehrungen-besteuerung
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

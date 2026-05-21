@@ -1,0 +1,11 @@
+\babel@toc {german}{}\relax 
+\contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Ausgangslage}{1}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Problemstellung}{1}{section.3}%
+\contentsline {section}{\numberline {2.2}Stand der Technik}{1}{section.4}%
+\contentsline {chapter}{\numberline {3}Lösungsansatz}{2}{chapter.7}%
+\contentsline {chapter}{\numberline {4}Fazit}{3}{chapter.9}%
+\contentsline {chapter}{\numberline {5}Verzeichnisse}{4}{chapter.10}%
+\contentsline {section}{Literaturverzeichnis}{4}{section*.11}%
+\contentsline {section}{Abbildungsverzeichnis}{4}{section*.11}%
+\contentsline {chapter}{\numberline {6}Deklaration KI}{4}{chapter.12}%
