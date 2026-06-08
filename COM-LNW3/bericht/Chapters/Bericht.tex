@@ -31,12 +31,10 @@ Als technische Antwort auf das beschriebene Transparenzdefizit wird die Blockcha
     \label{fig:blockchain-tx}
 \end{figure}
 
-Auf dieser Grundlage weisen Sung et al. experimentell nach, dass blockchainbasierte Spendensysteme über die Eigenschaften Transparenz, Unveränderbarkeit und Effizienz die wahrgenommene Vertrauenswürdigkeit von NPOs signifikant erhöhen~\cite{SUNG2023103812}. Eine US-Studie mit 590 Befragten bestätigt entsprechende Effekte auf Einstellungen und subjektive Normen der Spendenden, moderiert allerdings durch Faktoren wie Religion und persönliches Risikoempfinden~\cite{BAUDIER2023122524}. Trotz dieses belegten Potenzials bleibt die Adoption begrenzt: Die On-Chain-Transparenz endet, sobald Mittel in Fiat-Währungen umgewandelt werden, die Kursvolatilität schafft planerische Risiken für die empfangenden Organisationen, und die Bedienung bildet für nicht-technische Spendende eine Akzeptanzhürde. Tabelle~\ref{tab:vergleich-transparenz} fasst die zentralen Unterschiede zwischen klassischer und blockchainbasierter Spendentransparenz abschliessend zusammen.
+Auf dieser Grundlage weisen Sung et al. experimentell nach, dass blockchainbasierte Spendensysteme über Transparenz, Unveränderbarkeit und Effizienz die wahrgenommene Vertrauenswürdigkeit von NPOs signifikant erhöhen~\cite{SUNG2023103812}. Eine US-Studie mit 590 Befragten bestätigt entsprechende Effekte auf Einstellungen und subjektive Normen der Spendenden, moderiert allerdings durch Faktoren wie Religion und persönliches Risikoempfinden~\cite{BAUDIER2023122524}. Trotz dieses Potenzials bleibt die Adoption begrenzt: Die On-Chain-Transparenz endet, sobald Mittel in Fiat-Währungen umgewandelt werden, die Kursvolatilität schafft planerische Risiken, und die Bedienung bildet für nicht-technische Spendende eine Akzeptanzhürde. Abbildung~\ref{fig:vergleich-transparenz} verdeutlicht, dass Blockchain vor allem Granularität und Zeitbezug der Transparenz verändert.
 
-\begin{table}[h]
+\begin{figure}[h]
     \centering
-    \caption{Vergleich klassischer und blockchainbasierter Spendentransparenz (eigene Darstellung).}
-    \label{tab:vergleich-transparenz}
     \begin{tabularx}{\textwidth}{@{}lXX@{}}
         \toprule
         \textbf{Dimension} & \textbf{Klassisches Modell} & \textbf{Blockchainbasiertes Modell} \\
@@ -48,13 +46,15 @@ Auf dieser Grundlage weisen Sung et al. experimentell nach, dass blockchainbasie
         Reichweite           & National (NGO-Sitzland)          & Geografisch entgrenzt \\
         \bottomrule
     \end{tabularx}
-\end{table}
+    \caption{Vergleich klassischer und blockchainbasierter Spendentransparenz (eigene Darstellung).}
+    \label{fig:vergleich-transparenz}
+\end{figure}
 
 
 \chapter{Lösungsansatz}
 \label{chapter3}
 
-\emph{The Giving Block} adressiert die in Kapitel~\ref{chapter2} beschriebene Umsetzungslücke, indem die Plattform Kryptowährungsspenden für gemeinnützige Organisationen technisch und organisatorisch standardisiert~\cite{givingblock}. Sie agiert als Zahlungsinfrastruktur auf bestehenden öffentlichen Distributed Ledgers und stellt NGOs neben Wallet-Verwaltung auch Reporting- und Compliance-Werkzeuge bereit, die für die regulatorische Einbettung der Spendenströme zentral sind.
+\emph{The Giving Block} adressiert die in Kapitel~\ref{chapter2} beschriebene Umsetzungslücke, indem die Plattform Kryptowährungsspenden für gemeinnützige Organisationen technisch und organisatorisch standardisiert~\cite{givingblock}. Sie agiert als Zahlungsinfrastruktur auf öffentlichen Distributed Ledgers und bündelt Wallet-Verwaltung, optionale Fiat-Konvertierung, Spendenbelege, Reporting und Compliance-Werkzeuge. Dadurch müssen NGOs keine eigene Blockchain-Infrastruktur betreiben und können Krypto-Spenden dennoch in Buchhaltungs- und Steuerprozesse einordnen.
 
 Funktional initiiert die spendende Person eine Krypto-Transaktion an die Wallet-Adresse der Organisation; das Netzwerk verifiziert sie über asymmetrische Kryptografie und ein Konsensverfahren und protokolliert sie unveränderbar im Distributed Ledger~\cite{nakamoto2008, MeierStormer2018}. Über öffentliche Block-Explorer können alle Beteiligten den Transfer jederzeit nachprüfen, womit Nachvollziehbarkeit nicht mehr institutionell vermittelt, sondern technisch garantiert wird~\cite{Teng2021}. Abbildung~\ref{fig:spendenfluss} fasst diesen Ablauf zusammen.
 
@@ -81,17 +81,18 @@ Funktional initiiert die spendende Person eine Krypto-Transaktion an die Wallet-
     \label{fig:spendenfluss}
 \end{figure}
 
-In der Schweiz gelten Kryptowährungen steuerlich als bewegliches Vermögen, weshalb Krypto-Zuwendungen analog zu Sachspenden behandelt werden und unter den üblichen Voraussetzungen abzugsfähig bleiben~\cite{ESTV2022}. Damit operationalisiert \emph{The Giving Block} die in Kapitel~\ref{chapter2} dokumentierten empirischen Befunde zur Vertrauenswirkung blockchainbasierter Spendensysteme im Rahmen einer etablierten Spendenpraxis -- die tatsächliche Reichweite bleibt jedoch von Bedienbarkeit und Akzeptanz auf Spenderseite abhängig.
+In der Schweiz gelten Kryptowährungen steuerlich als bewegliches Vermögen, weshalb Krypto-Zuwendungen analog zu Sachspenden behandelt werden und unter den üblichen Voraussetzungen abzugsfähig bleiben~\cite{ESTV2022}. Damit übersetzt \emph{The Giving Block} die in Kapitel~\ref{chapter2} dokumentierte Vertrauenswirkung blockchainbasierter Spendensysteme in eine praktikable Spendenpraxis: Transparenz entsteht on-chain, während Quittierung, Umrechnung und Compliance über die Plattform administrierbar bleiben. Die Reichweite hängt jedoch weiterhin von Bedienbarkeit, Akzeptanz und der Transparenz nach einer Fiat-Konvertierung ab.
 
 
 
 \chapter{Fazit}
 \label{chapter4}
 
-\emph{The Giving Block} beantwortet die Leitfrage des Berichts, indem die Plattform institutionell vermitteltes Vertrauen durch kryptografisch garantierte Nachvollziehbarkeit ersetzt und in einen steuerlich anschlussfähigen Spendenkreislauf einbettet. Echtzeit-Verifizierbarkeit ohne Mittler eröffnet NGOs einen zusätzlichen Spendenkanal; Grenzen bleiben bei der Fiat-Konvertierung und der Spenderakzeptanz. Stablecoins und Smart-Contract-basierte Verwendungsnachweise könnten diese Wirkung künftig verstärken.
+\emph{The Giving Block} beantwortet die Leitfrage des Berichts, indem die Plattform institutionell vermitteltes Vertrauen durch kryptografisch garantierte Nachvollziehbarkeit ergänzt und in einen steuerlich anschlussfähigen Spendenkreislauf einbettet. Gesellschaftlich kann dies Vertrauen in NGOs stärken, internationale Spenden erleichtern und digital affine Zielgruppen erreichen. Grenzen bleiben bei der Fiat-Konvertierung und der Spenderakzeptanz. Stablecoins und Smart-Contract-basierte Verwendungsnachweise könnten diese Wirkung künftig verstärken.
 
 % LNW3-COUNT-END
 \newpage
+\vspace*{-3em}
 \chapter{Verzeichnisse}
 
 \section*{Literaturverzeichnis}
